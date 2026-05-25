@@ -1,0 +1,8 @@
+<template>
+  <section class="relative flex items-center overflow-hidden min-h-[200px] md:min-h-[400px]">
+    <div class="absolute inset-0 z-0 bg-surface-dim">
+      <img alt="Hero background" class="w-full h-full object-cover" src="/static/spring.jpg" />
+    </div>
+    <div class="relative z-10 w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto text-white text-center"></div>
+  </section>
+</template>
