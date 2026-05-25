@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>연혁 - 사단법인 꽃재</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,FILL@0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffd8e6",
+                    "secondary-fixed": "#dee0ff",
+                    "tertiary-fixed-dim": "#ffafd0",
+                    "on-surface-variant": "#404a3a",
+                    "surface-bright": "#f6fbec",
+                    "primary-fixed-dim": "#82dc5c",
+                    "primary-fixed": "#9df975",
+                    "surface-container-low": "#f0f6e7",
+                    "on-secondary-container": "#283789",
+                    "outline-variant": "#bfcab5",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#82dc5c",
+                    "surface-variant": "#dfe5d6",
+                    "surface-tint": "#236d00",
+                    "on-secondary-fixed-variant": "#303f91",
+                    "primary-container": "#5cb338",
+                    "surface-container": "#eaf0e1",
+                    "on-primary-fixed": "#062100",
+                    "on-primary-container": "#113f00",
+                    "secondary-container": "#97a5fe",
+                    "error-container": "#ffdad6",
+                    "deep-ocean": "#2B3A8C",
+                    "on-tertiary-container": "#6e0044",
+                    "on-background": "#181d14",
+                    "tertiary": "#a92a70",
+                    "secondary": "#4958ab",
+                    "outline": "#707a68",
+                    "background": "#f6fbec",
+                    "on-secondary-fixed": "#00105c",
+                    "primary": "#236d00",
+                    "surface-container-highest": "#dfe5d6",
+                    "on-tertiary-fixed-variant": "#8a0857",
+                    "on-error": "#ffffff",
+                    "sky-blue": "#0091D2",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e5eadc",
+                    "surface-muted": "#F4F6F8",
+                    "surface-dim": "#d6dcce",
+                    "on-tertiary": "#ffffff",
+                    "warm-accent": "#FF7000",
+                    "on-primary-fixed-variant": "#195200",
+                    "inverse-surface": "#2c3228",
+                    "surface": "#f6fbec",
+                    "on-surface": "#181d14",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "inverse-on-surface": "#edf3e4",
+                    "surface-container-lowest": "#ffffff",
+                    "leaf-green": "#5CB338",
+                    "tertiary-container": "#fb6db3",
+                    "on-tertiary-fixed": "#3d0024",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "section-padding": "80px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+		.material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e5eadc;
+        }
+        .year-indicator {
+            position: relative;
+            z-index: 10;
+        }
+        .year-indicator::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: #ffffff;
+            border: 3px solid #5CB338;
+            border-radius: 50%;
+        }
+        .nav-year-btn.active {
+            background-color: #5CB338;
+            color: white;
+            border-color: #5CB338;
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md bg-white">
+<!-- Top Green Donation Bar -->
+<div class="bg-primary text-on-primary py-2 w-full">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex items-center justify-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">volunteer_activism</span>
+<p class="text-label-sm font-label-sm">따뜻한 나눔은 세상을 밝힙니다.</p>
+</div>
+<a class="text-label-sm font-label-sm bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full transition-colors flex items-center gap-1" href="#">
+            지금 후원하기 <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- GNB Header -->
+<header class="bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm docked full-width top-0 sticky z-50 h-24">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full">
+<div class="flex items-center">
+<a class="flex items-center" href="#">
+<img alt="꽃재 Logo" class="w-auto object-contain h-16" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFPxCapa8iwNKwV8XrUEKPcYFwfsgBAykb12-c7YT7VtsCESjULS9iVXpl8m4NIcC44OCLlvIR3ilFhEbio0SIji-A5d8ak3fJbgX1OF5zyYcObFtinasiyE3MIxKOaLiOIjowPU48XYjWB7r2ZRL4ftEXpXkaxwksTNnA8yZ68A6xh4kK1v1eqLlu9xjGe-dssnfcAsgGtOmGcdMG24QrSIU-T2SfglJtQnC5HmcaA6acnV0LLUpiTDYugdMwIiGkToSMu5FiXLn9">
+</a>
+<nav class="hidden md:flex items-center gap-24 ml-24">
+<a class="text-primary font-bold border-b-2 border-leaf-green pb-1 text-body-lg" href="#">소개</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold" href="#">사업</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold" href="#">꽃재 이야기</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold" href="#">소식</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block px-6 py-2 rounded-lg font-label-sm text-label-sm text-primary border-2 border-primary hover:bg-primary/5 transition-all active:scale-95">후원하기</button>
+<button class="px-6 py-2.5 rounded-lg font-label-sm text-label-sm bg-primary text-on-primary hover:bg-primary/90 transition-all active:scale-95 shadow-md">기부금 영수증 문의</button>
+<button class="flex items-center justify-center p-2 rounded-lg text-primary hover:bg-primary/5 transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 28px;">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative flex items-center overflow-hidden min-h-[200px] md:min-h-[400px]">
+<div class="absolute inset-0 z-0 bg-surface-dim">
+<img alt="Hero background" class="w-full h-full object-cover" src="./static/spring.jpg">
+<!--img alt="Hero background" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5whON-XYiKWwmQuFc5FWuQHUHVa0nXnOHFDYAuKABMwuY48dxdPdQWAfCAWJbqz0WmviEUmqVDN3aJJGCoCrFvlR2MvuB81nb_lAOaw2zM5RChVbXXYGUpx2Vp18_Z3Uh2MuiLN26ME2RcMJHLpqzWKMllmDXMnlnPXp4VSwo0MhaaS7eGpqLgYl0SG2pS1x_9mE5QJQXIuRcCEMrO3frWUEOxjY58gZbsbycT-dTGME6UkJHj8EyOsp8Kqs21TTktAPmRXeDE46k"-->
+</div>
+<div class="relative z-10 w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto text-white text-center"></div>
+</section><section class="bg-white border-b border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-4">
+<nav class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-sm text-label-sm">소개</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">연혁<br></span>
+</nav>
+</div>
+</section>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-gutter py-section-padding">
+<div class="flex flex-col md:flex-row gap-16 relative">
+<!-- Sidebar Navigation (Improved with Circle Year Buttons) -->
+<aside class="md:w-32 flex-shrink-0">
+<div class="sticky top-40 flex flex-col items-center gap-4">
+<a class="nav-year-btn w-16 h-16 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-headline-md text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all active" href="#year-2025">2025</a>
+<div class="w-px h-6 bg-outline-variant"></div>
+<a class="nav-year-btn w-16 h-16 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-headline-md text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all" href="#year-2024">2024</a>
+<div class="w-px h-6 bg-outline-variant"></div>
+<a class="nav-year-btn w-16 h-16 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-headline-md text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all" href="#year-2023">2023</a>
+<div class="w-px h-6 bg-outline-variant"></div>
+<a class="nav-year-btn w-16 h-16 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-headline-md text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all" href="#year-2022">2022</a>
+<div class="w-px h-6 bg-outline-variant"></div>
+<a class="nav-year-btn w-16 h-16 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-headline-md text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all" href="#year-2021">2021</a>
+</div>
+</aside>
+<!-- Timeline Content -->
+<div class="flex-grow">
+<!-- Intro -->
+<div class="mb-16">
+<span class="inline-block px-4 py-1 bg-leaf-green/10 text-leaf-green font-bold text-label-sm rounded-full mb-4">History</span>
+<h2 class="font-headline-lg text-headline-lg md:text-headline-xl leading-tight text-on-surface mb-6">꽃재가 걸어온<br/><span class="text-leaf-green">희망과 나눔의 기록입니다.</span></h2>
+<div class="w-20 h-1.5 bg-leaf-green rounded-full"></div>
+</div>
+<div class="relative pl-6 timeline-container">
+<!-- 2025 Section -->
+<section class="mb-20 scroll-mt-32" id="year-2025">
+<div class="year-indicator">
+<h3 class="text-headline-xl font-extrabold text-leaf-green mb-10">2025</h3>
+</div>
+<div class="space-y-12">
+<div>
+<ul class="space-y-6">
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">10월 12일</span>
+<p class="text-body-lg text-on-surface">왕도 한마음축제 연주 지원 (지역 주민 1,500명 대상 오케스트라 공연 지원)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">09월 25일</span>
+<p class="text-body-lg text-on-surface">추석 사랑 나눔 캠페인 전개 (저소득 가정 200가구에 1,000만원 상당의 생필품 지원)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">01월 20일</span>
+<p class="text-body-lg text-on-surface">설명절 사랑 나눔 캠페인 전개 (홀몸 어르신 150명 대상 명절 음식 꾸러미 전달)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">01월 10일</span>
+<p class="text-body-lg text-on-surface">사랑의 김장김치 지역 사회 전달 (360박스 수량, 관내 취약계층 360가구 지원)</p>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 2024 Section -->
+<section class="mb-20 scroll-mt-32" id="year-2024">
+<div class="year-indicator">
+<h3 class="text-headline-xl font-extrabold text-leaf-green mb-10">2024</h3>
+</div>
+<div class="space-y-12">
+<div>
+<ul class="space-y-6">
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">11월 15일</span>
+<p class="text-body-lg text-on-surface">에너지 취약계층 대상 전기장판 나눔 사업 (100가정 선정, 온열기구 및 난방비 지원)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">06월 05일</span>
+<p class="text-body-lg text-on-surface">브라보시니어 국수 나눔 봉사 정례화 (매주 수요일, 지역 어르신 평균 80명 식사 제공)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">03월 10일</span>
+<p class="text-body-lg text-on-surface">다문화 가정 자녀 오케스트라 교육 지원 (총 25명 단원, 전문 강사 5인 레슨비 전액 지원)</p>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 2023 Section -->
+<section class="mb-20 scroll-mt-32" id="year-2023">
+<div class="year-indicator">
+<h3 class="text-headline-xl font-extrabold text-leaf-green mb-10">2023</h3>
+</div>
+<div class="space-y-12">
+<div>
+<ul class="space-y-6">
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">12월 22일</span>
+<p class="text-body-lg text-on-surface">고시촌 거주 청년 대상 겨울 이불 전달 (노량진 및 신림 지역 청년 100명 지원)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">08월 30일</span>
+<p class="text-body-lg text-on-surface">국외 장학금 지원 사업 (태국, 캄보디아, 몽골 지역 인재 15명 선발, 연 3,000만원 지원)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">05월 18일</span>
+<p class="text-body-lg text-on-surface">쪽방촌 문화사역 및 생필품 지원 (종로/서울역 인근 50가구 대상 정기 문화 공연 및 키트 제공)</p>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 2022 Section -->
+<section class="mb-20 scroll-mt-32" id="year-2022">
+<div class="year-indicator">
+<h3 class="text-headline-xl font-extrabold text-leaf-green mb-10">2022</h3>
+</div>
+<div class="space-y-12">
+<div>
+<ul class="space-y-6">
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">10월 05일</span>
+<p class="text-body-lg text-on-surface">필리핀 현지 방역 마스크 10,000매 나눔 (빈민가 학교 5개소 방역 물품 전달)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">05월 08일</span>
+<p class="text-body-lg text-on-surface">브라보시니어 지역 어르신 초청 잔치 (어버이날 기념 어르신 120명 식사 및 선물 전달)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">03월 20일</span>
+<p class="text-body-lg text-on-surface">꿈나무 다문화 오케스트라 악기 지원 (바이올린, 첼로 등 15대 신규 보급 및 전문 교습 개시)</p>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 2021 Section -->
+<section class="scroll-mt-32" id="year-2021">
+<div class="year-indicator">
+<h3 class="text-headline-xl font-extrabold text-leaf-green mb-10">2021</h3>
+</div>
+<div class="space-y-12">
+<div>
+<ul class="space-y-6">
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">12월 24일</span>
+<p class="text-body-lg text-on-surface">'산타가 되어주세요' 성탄 선물 나눔 (결식아동 및 고아원 3개소, 총 80명 선물 박스 전달)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4 pb-6 border-b border-surface-variant">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">11월 12일</span>
+<p class="text-body-lg text-on-surface">제1회 사랑의 김장김치 나눔 (450박스 수량 생산, 지역 기초생활수급 450가구 전달)</p>
+</li>
+<li class="flex flex-col md:flex-row md:items-start gap-4">
+<span class="text-leaf-green font-bold whitespace-nowrap min-w-[100px]">02월 01일</span>
+<p class="text-body-lg text-on-surface">사단법인 꽃재 출범 및 첫 명절 나눔 사업 (소외계층 100가구 떡국 떡 및 식료품 지원)</p>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Consistent with SCREEN_20) -->
+<footer class="bg-surface-muted dark:bg-inverse-surface border-t border-outline-variant/20 py-section-padding">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto gap-base">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface dark:text-inverse-on-surface flex items-center gap-2">
+<img alt="꽃재 Logo" class="h-8 w-auto grayscale contrast-125 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9FeOlo-pmMFsbsKOIJRonDywtdECRoeXZzEp9-OvLh9tWyfTwLIS2vKbdNc_K-gda_LhCsHC88XvgiW_btTAXQbPQx03U27qv6oPdUrsOZz9zf4ZAWK2OuzkytPHLxs6WPGKzEQzdTfTOUtoBXiCqP4O5YaPX85__GJzx-U7edlPthu8300Hy0DtrxR9B7NpQUT-X_f2pfhITUSuAPhK_7XhDBRAep0rkQP2egU4xKgEdxlbPw8FmvfremTulwf8d7cnyAULAKciC"/>
+<span class="">사단법인 꽃재</span>
+</div>
+<div class="flex flex-wrap gap-4 font-label-sm text-label-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-leaf-green transition-colors" href="#">이용약관</a>
+<a class="text-primary font-semibold underline hover:text-leaf-green transition-colors" href="#">개인정보처리방침</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-leaf-green transition-colors" href="#">이메일무단수집거부</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-leaf-green transition-colors" href="#">찾아오시는 길</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70 mt-4">
+                    서울특별시 성동구 왕십리로 123 꽃재빌딩 4층 | 대표자: 김꽃재 | 사업자번호: 123-45-67890<br/>
+                    대표전화: 02-1234-5678 | 이메일: info@bloominghill.or.kr
+                </p>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70">© 2024 사회복지법인 꽃재 Blooming Hill. All Rights Reserved.</p>
+</div>
+<div class="flex flex-col md:items-end gap-6 w-full md:w-auto">
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="alternate_email">alternate_email</span>
+</a>
+</div>
+<div class="bg-surface-container p-4 rounded-xl border border-outline-variant/30 text-right">
+<p class="font-label-sm text-primary mb-1">후원문의 (평일 09:00 - 18:00)</p>
+<p class="text-2xl font-headline-md text-on-surface">02-1234-5678</p>
+</div>
+</div>
+</div>
+</footer>
+<!-- FAB for Donation -->
+<button class="fixed bottom-8 right-8 z-50 bg-warm-accent text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center group hover:w-40 transition-all duration-300 overflow-hidden active:scale-90 md:flex hidden">
+<span class="material-symbols-outlined text-3xl" data-icon="favorite" data-weight="fill">favorite</span>
+<span class="ml-2 font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">후원하기</span>
+</button>
+</body></html>
