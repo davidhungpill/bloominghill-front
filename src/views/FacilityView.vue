@@ -7,7 +7,7 @@
       <div class="max-w-container-max mx-auto px-gutter">
         <div class="mb-16 text-left">
           <span class="inline-block px-4 py-1 rounded-full bg-leaf-green/10 text-leaf-green font-bold text-sm mb-6">Affiliated Facilities</span>
-          <h2 class="font-headline-xl text-4xl md:text-5xl font-bold leading-tight mb-8">
+          <h2 class="font-headline-lg text-headline-lg md:text-headline-xl leading-tight text-on-surface mb-8">
             <span class="text-on-surface">"세상을 꽃피우는 따뜻한 울림,</span><br>
             <span class="text-leaf-green">꽃재의 산하시설입니다."</span>
           </h2>
@@ -31,7 +31,7 @@
             <div class="text-left space-y-8 py-4">
               <div>
                 <span class="text-leaf-green font-bold text-lg mb-2 block">01</span>
-                <h3 class="font-headline-lg text-on-background mb-6">까페 마노아</h3>
+                <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-6">까페 마노아</h2>
                 <p class="font-body-lg text-on-surface-variant leading-relaxed">
                   지역 주민들의 쉼터이자 소통의 공간으로, 직접 만든 음료와 건강한 먹거리를 제공하며 수익금은 지원 사업을 위해 사용됩니다.
                 </p>
@@ -69,7 +69,7 @@
             <div class="lg:order-1 text-left space-y-8 py-4">
               <div>
                 <span class="text-leaf-green font-bold text-lg mb-2 block">02</span>
-                <h3 class="font-headline-lg text-on-background mb-6">평생교육원</h3>
+                <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-6">평생교육원</h2>
                 <p class="font-body-lg text-on-surface-variant leading-relaxed">
                   배움에는 끝이 없다는 신념 아래, 어린이 및 성인들을 위한 다양한 교육 프로그램을 제공하여 주민들의 자아실현과 성장을 돕습니다.
                 </p>

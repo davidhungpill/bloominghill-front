@@ -3,8 +3,43 @@
     <!-- Hero Section -->
     <section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <img class="w-full h-full object-cover" src="/static/orchestra.jpg" alt="꽃재 오케스트라" />
+        <!-- 슬라이드 이미지 -->
+        <img
+          v-for="(img, i) in heroImages"
+          :key="img.src"
+          :src="img.src"
+          :alt="img.alt"
+          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          :class="i === currentSlide ? 'opacity-100' : 'opacity-0'"
+        />
         <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
+      </div>
+
+      <!-- 좌/우 화살표 -->
+      <button
+        class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-all active:scale-90"
+        @click="prevSlide"
+      >
+        <span class="material-symbols-outlined text-3xl">chevron_left</span>
+      </button>
+      <button
+        class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-all active:scale-90"
+        @click="nextSlideManual"
+      >
+        <span class="material-symbols-outlined text-3xl">chevron_right</span>
+      </button>
+
+      <!-- dot 인디케이터 -->
+      <div class="absolute bottom-28 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3">
+        <button
+          v-for="(_, i) in heroImages"
+          :key="i"
+          class="rounded-full transition-all duration-300"
+          :class="i === currentSlide
+            ? 'w-6 h-2 bg-white'
+            : 'w-2 h-2 bg-white/50 hover:bg-white/80'"
+          @click="goToSlide(i)"
+        ></button>
       </div>
       <div class="relative z-10 w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto text-white">
         <div class="max-w-2xl">
@@ -88,7 +123,7 @@
           <div class="h-64 overflow-hidden relative">
             <img
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyUESJ63gHasZvC4mn9h1vBVGS5nUxw9gqA_GkrUqEXF6dWDXs3YRF1X8tXBqudiCxcjCPuxSRQKwQph5HfVo_u_xR602QKlSGMnEfjgWaNWqgTAIKuNSjIGPuJF8_g3SvakdLBpe7HTDZMmekUvfEFB2"
+              src="/static/edu.jpg"
               alt="이웃사랑 나눔사업"
             />
             <div class="absolute top-4 left-4">
@@ -280,3 +315,44 @@
     </section>
   </main>
 </template>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const heroImages = [
+  { src: '/static/orchestra.jpg', alt: '꽃재 오케스트라' },
+  { src: '/static/spring2.jpg',   alt: '꽃재 봄 활동' },
+  { src: '/static/edu.jpg',       alt: '꽃재 교육 사업' },
+  { src: '/static/cleaning.jpg',  alt: '꽃재 봉사 활동' },
+]
+
+const currentSlide = ref(0)
+let timer = null
+
+function goToSlide(i) {
+  currentSlide.value = i
+  resetTimer()
+}
+
+function nextSlide() {
+  currentSlide.value = (currentSlide.value + 1) % heroImages.length
+}
+
+function nextSlideManual() {
+  nextSlide()
+  resetTimer()
+}
+
+function prevSlide() {
+  currentSlide.value = (currentSlide.value - 1 + heroImages.length) % heroImages.length
+  resetTimer()
+}
+
+function resetTimer() {
+  clearInterval(timer)
+  timer = setInterval(nextSlide, 5000)
+}
+
+onMounted(() => { timer = setInterval(nextSlide, 5000) })
+onUnmounted(() => { clearInterval(timer) })
+</script>

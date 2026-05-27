@@ -3,19 +3,21 @@
     <SubPageHero />
     <BreadCrumb current="연혁" />
 
-    <section class="max-w-container-max mx-auto px-gutter py-section-padding">
+    <section class="bg-white">
+    <div class="max-w-container-max mx-auto px-gutter py-section-padding">
       <div class="flex flex-col md:flex-row gap-16 relative">
         <!-- 사이드 연도 네비 -->
         <aside class="md:w-32 flex-shrink-0">
-          <div class="sticky top-40 flex flex-col items-center gap-4">
-            <a
-              v-for="(y, i) in years"
-              :key="y"
-              :href="`#year-${y}`"
-              class="nav-year-btn w-16 h-16 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-headline-md text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all"
-              :class="{ active: activeYear === y }"
-              @click.prevent="scrollToYear(y)"
-            >{{ y }}</a>
+          <div class="sticky top-40 flex flex-col items-center">
+            <template v-for="(y, i) in years" :key="y">
+              <a
+                :href="`#year-${y}`"
+                class="nav-year-btn w-16 h-16 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-headline-md text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all"
+                :class="{ active: activeYear === y }"
+                @click.prevent="scrollToYear(y)"
+              >{{ y }}</a>
+              <div v-if="i < years.length - 1" class="w-px h-6 bg-outline-variant"></div>
+            </template>
           </div>
         </aside>
 
@@ -49,6 +51,7 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
   </main>
 </template>

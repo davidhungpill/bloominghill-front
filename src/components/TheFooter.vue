@@ -17,7 +17,7 @@
           <router-link to="/location" class="text-on-surface-variant hover:text-leaf-green transition-colors">찾아오시는 길</router-link>
         </div>
         <p class="font-label-sm text-label-sm text-on-surface-variant/70 mt-4">
-          서울특별시 성동구 왕십리로 123 꽃재빌딩 4층 | 대표자: 김꽃재 | 사업자번호: 123-45-67890<br/>
+          서울특별시 성동구 마장로 164 꽃재교회 지하1층 | 대표자: 김성복 | 사업자번호: 123-45-67890<br/>
           대표전화: 02-1234-5678 | 이메일: info@bloominghill.or.kr
         </p>
         <p class="font-label-sm text-label-sm text-on-surface-variant/70">© 2024 사회복지법인 꽃재 Blooming Hill. All Rights Reserved.</p>

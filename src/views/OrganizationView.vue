@@ -3,7 +3,8 @@
     <SubPageHero />
     <BreadCrumb current="조직도" />
 
-    <section class="max-w-container-max mx-auto px-gutter py-section-padding">
+    <section class="bg-white">
+    <div class="max-w-container-max mx-auto px-gutter py-section-padding">
       <!-- 인트로 -->
       <div class="mb-20 max-w-4xl text-left">
         <span class="inline-block px-4 py-1 bg-leaf-green/10 text-leaf-green font-bold text-label-sm rounded-full mb-4">Organization Structure</span>
@@ -62,7 +63,7 @@
           <!-- Level 3: 부서 -->
           <div class="grid grid-cols-3 gap-8 mt-8 w-full">
             <div class="flex flex-col items-center">
-              <div class="w-full max-w-xs p-6 glass-card rounded-2xl border-t-4 border-leaf-green node-hover">
+              <div class="w-full max-w-xs p-6 glass-card rounded-2xl border-t-4 border-t-leaf-green node-hover">
                 <div class="flex items-center gap-3 mb-4">
                   <span class="material-symbols-outlined text-leaf-green">settings_accessibility</span>
                   <h4 class="font-headline-md text-headline-md text-on-surface">지원 부서</h4>
@@ -75,7 +76,7 @@
               </div>
             </div>
             <div class="flex flex-col items-center">
-              <div class="w-full max-w-xs p-6 glass-card rounded-2xl border-t-4 border-deep-ocean node-hover">
+              <div class="w-full max-w-xs p-6 glass-card rounded-2xl border-t-4 border-t-deep-ocean node-hover">
                 <div class="flex items-center gap-3 mb-4">
                   <span class="material-symbols-outlined text-deep-ocean">volunteer_activism</span>
                   <h4 class="font-headline-md text-headline-md text-on-surface">비영리 사업부</h4>
@@ -88,7 +89,7 @@
               </div>
             </div>
             <div class="flex flex-col items-center">
-              <div class="w-full max-w-xs p-6 glass-card rounded-2xl border-t-4 border-warm-accent node-hover">
+              <div class="w-full max-w-xs p-6 glass-card rounded-2xl border-t-4 border-t-warm-accent node-hover">
                 <div class="flex items-center gap-3 mb-4">
                   <span class="material-symbols-outlined text-warm-accent">trending_up</span>
                   <h4 class="font-headline-md text-headline-md text-on-surface">수익 사업부</h4>
@@ -103,31 +104,8 @@
         </div>
       </div>
 
-      <!-- 위원회 -->
-      <div class="grid md:grid-cols-12 gap-12 items-center">
-        <div class="md:col-span-4">
-          <h3 class="font-headline-lg text-headline-lg text-on-surface mb-6">위원회 운영</h3>
-          <p class="font-body-md text-on-surface-variant mb-8">
-            각 분야의 외부 전문가들로 구성된 위원회를 통해 사업의 전문성과 공정성을 심의하고 고도화합니다.
-          </p>
-          <div class="p-6 bg-surface-container rounded-2xl">
-            <div class="flex items-center gap-4 mb-2">
-              <span class="material-symbols-outlined text-leaf-green">verified_user</span>
-              <span class="font-bold text-on-surface">자문 위원회 상시 운영</span>
-            </div>
-            <p class="text-label-sm text-on-surface-variant">분기별 정기 회의를 통한 사업 성과 검토 및 미래 전략 수립</p>
-          </div>
-        </div>
-        <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div v-for="c in committees" :key="c.title" class="p-8 bg-surface-container-low/50 border border-outline-variant/30 rounded-2xl hover:bg-leaf-green/5 transition-all group">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="material-symbols-outlined text-leaf-green">{{ c.icon }}</span>
-              <h5 class="font-bold text-headline-md text-on-surface group-hover:text-leaf-green">{{ c.title }}</h5>
-            </div>
-            <p class="text-body-md text-on-surface-variant">{{ c.desc }}</p>
-          </div>
-        </div>
-      </div>
+
+    </div>
     </section>
   </main>
 </template>

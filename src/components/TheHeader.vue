@@ -8,9 +8,9 @@
       <div class="flex items-center">
         <router-link to="/" class="flex items-center">
           <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFPxCapa8iwNKwV8XrUEKPcYFwfsgBAykb12-c7YT7VtsCESjULS9iVXpl8m4NIcC44OCLlvIR3ilFhEbio0SIji-A5d8ak3fJbgX1OF5zyYcObFtinasiyE3MIxKOaLiOIjowPU48XYjWB7r2ZRL4ftEXpXkaxwksTNnA8yZ68A6xh4kK1v1eqLlu9xjGe-dssnfcAsgGtOmGcdMG24QrSIU-T2SfglJtQnC5HmcaA6acnV0LLUpiTDYugdMwIiGkToSMu5FiXLn9"
+            src="/static/logo.png"
             alt="꽃재 Logo"
-            class="w-auto object-contain h-16"
+            class="w-auto object-contain h-28"
           />
         </router-link>
 
@@ -56,24 +56,28 @@
         @mouseleave="closeDropdown"
       >
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-6">
-          <ul class="flex flex-col gap-1 max-w-xs">
-            <li v-for="item in subMenuItems" :key="item.path">
-              <router-link
-                :to="item.path"
-                class="flex items-center gap-3 px-4 py-3 rounded-lg text-body-md font-body-md transition-all duration-150 group"
-                :class="$route.path === item.path
-                  ? 'bg-primary/10 text-primary font-bold'
-                  : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'"
-                @click="closeDropdown"
-              >
-                <span
-                  class="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors"
-                  :class="$route.path === item.path ? 'bg-leaf-green' : 'bg-outline-variant group-hover:bg-leaf-green'"
-                ></span>
-                {{ item.label }}
-              </router-link>
-            </li>
-          </ul>
+          <div class="flex items-start">
+            <!-- 로고와 동일한 너비의 invisible 스페이서로 "소개" 위치에 정렬 -->
+            <img src="/static/logo.png" alt="" aria-hidden="true" class="h-28 w-auto invisible shrink-0" />
+            <ul class="flex flex-col gap-1 max-w-xs ml-24">
+              <li v-for="item in subMenuItems" :key="item.path">
+                <router-link
+                  :to="item.path"
+                  class="flex items-center gap-3 px-4 py-3 rounded-lg text-body-md font-body-md transition-all duration-150 group"
+                  :class="$route.path === item.path
+                    ? 'bg-primary/10 text-primary font-bold'
+                    : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'"
+                  @click="closeDropdown"
+                >
+                  <span
+                    class="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors"
+                    :class="$route.path === item.path ? 'bg-leaf-green' : 'bg-outline-variant group-hover:bg-leaf-green'"
+                  ></span>
+                  {{ item.label }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </Transition>

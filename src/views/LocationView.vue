@@ -59,30 +59,25 @@
             </div>
             <div class="w-full md:w-3/4">
               <div class="divide-y divide-outline-variant">
-                <div class="flex items-start py-6">
-                  <div class="flex items-center w-40 shrink-0 font-bold text-on-surface">
+                <div class="py-6">
+                  <p class="flex items-center font-bold text-on-surface mb-2">
                     <span class="material-symbols-outlined mr-2 text-leaf-green">train</span>지하철 이용 시
-                  </div>
-                  <div class="text-on-surface-variant">
-                    <p class="font-bold text-on-surface mb-1">2호선 상왕십리역</p>
-                    <p>1-1번 출구에서 나오셔서 도보로 약 <span class="text-leaf-green font-bold">8분</span> 정도 소요됩니다.</p>
-                  </div>
+                  </p>
+                  <p class="text-on-surface-variant">2호선 상왕십리역 1-1번 출구에서 나오셔서 도보로 약 <span class="text-leaf-green font-bold">8분</span> 소요됩니다.</p>
                 </div>
-                <div class="flex items-start py-6 border-b border-outline-variant">
-                  <div class="flex items-center w-40 shrink-0 font-bold text-on-surface">
+                <div class="py-6 border-b border-outline-variant">
+                  <p class="flex items-center font-bold text-on-surface mb-2">
                     <span class="material-symbols-outlined mr-2 text-leaf-green">directions_bus</span>버스 이용 시
-                  </div>
-                  <div class="text-on-surface-variant space-y-4">
-                    <p class="leading-relaxed">"상왕십리역", "도선고등학교,꽃재교회", "숭신초등학교" 또는 "뉴타운아파트" 정류장에서 하차해서 도보 <span class="text-leaf-green font-bold">5분</span> 정도 소요됩니다.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                      <div>
-                        <p class="font-bold text-on-surface mb-1">간선버스</p>
-                        <p class="text-sm">147, 202, 241, 302, 421, 463</p>
-                      </div>
-                      <div>
-                        <p class="font-bold text-on-surface mb-1">지선버스</p>
-                        <p class="text-sm">1017, 2012, 2013, 2014, 2015, 6211</p>
-                      </div>
+                  </p>
+                  <p class="text-on-surface-variant mb-4">"상왕십리역", "도선고등학교,꽃재교회", "숭신초등학교" 또는 "뉴타운아파트" 정류장에서 하차해서 도보 <span class="text-leaf-green font-bold">5분</span> 정도 소요됩니다.</p>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <p class="font-bold text-on-surface mb-1">간선버스</p>
+                      <p class="text-sm text-on-surface-variant">147, 202, 241, 302, 421, 463</p>
+                    </div>
+                    <div>
+                      <p class="font-bold text-on-surface mb-1">지선버스</p>
+                      <p class="text-sm text-on-surface-variant">1017, 2012, 2013, 2014, 2015, 6211</p>
                     </div>
                   </div>
                 </div>
@@ -91,12 +86,15 @@
           </section>
 
           <!-- 지도 -->
-          <section class="w-full h-[500px] rounded-3xl overflow-hidden border border-outline-variant relative">
-            <img
-              alt="지도 영역"
-              class="absolute inset-0 w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT6rdKjF-bTXbDCrXje-gdZ0TFUI-r5_X8cj0yFTBZK8QJTexWE12rI2Zy-yY9lSUeU18WnS-ehNdJPaS3yFxZZ2xVgFtpjoIsYHdYdGnBoSUae8vPbfuItOcvmonh0SwVq7S1_AvpMHXJA_Xy6Pz4x1bO9MiqZRIlU8Vdt4o4c817T_HRpbDYupY02-0zsD71pBnGKD1JZJX-v9m-OaASBH87qnOhfbFS2KxXNzjO4pgCMWTFkMtWrURScWgU0cuNqtHPeKGYyduy"
-            />
+          <section class="w-full h-[500px] rounded-3xl overflow-hidden border border-outline-variant">
+            <iframe
+              src="https://naver.me/FvEgIqLh"
+              width="100%"
+              height="100%"
+              frameborder="0"
+              allowfullscreen
+              title="꽃재 위치 지도"
+            ></iframe>
           </section>
         </div>
       </div>
