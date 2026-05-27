@@ -59,20 +59,16 @@
           <div class="flex items-start">
             <!-- 로고와 동일한 너비의 invisible 스페이서로 "소개" 위치에 정렬 -->
             <img src="/static/logo.png" alt="" aria-hidden="true" class="h-28 w-auto invisible shrink-0" />
-            <ul class="flex flex-col gap-1 max-w-xs ml-24">
+            <ul class="flex flex-col gap-0.5 max-w-xs ml-16">
               <li v-for="item in subMenuItems" :key="item.path">
                 <router-link
                   :to="item.path"
-                  class="flex items-center gap-3 px-4 py-3 rounded-lg text-body-md font-body-md transition-all duration-150 group"
+                  class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
                   :class="$route.path === item.path
-                    ? 'bg-primary/10 text-primary font-bold'
-                    : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'"
+                    ? 'bg-primary/10 text-on-surface font-bold'
+                    : 'text-on-surface hover:bg-surface-container hover:text-primary'"
                   @click="closeDropdown"
                 >
-                  <span
-                    class="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors"
-                    :class="$route.path === item.path ? 'bg-leaf-green' : 'bg-outline-variant group-hover:bg-leaf-green'"
-                  ></span>
                   {{ item.label }}
                 </router-link>
               </li>
