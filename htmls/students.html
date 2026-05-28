@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>장학 사업 - 사단법인 꽃재</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Use predicted Tailwind config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-container": "#5cb338",
+                "on-tertiary-container": "#6e0044",
+                "sky-blue": "#0091D2",
+                "on-tertiary-fixed-variant": "#8a0857",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed-dim": "#ffafd0",
+                "secondary-container": "#97a5fe",
+                "primary-fixed": "#9df975",
+                "leaf-green": "#5CB338",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-fixed": "#3d0024",
+                "tertiary-fixed": "#ffd8e6",
+                "inverse-on-surface": "#edf3e4",
+                "on-primary-fixed": "#062100",
+                "warm-accent": "#FF7000",
+                "inverse-surface": "#2c3228",
+                "outline-variant": "#bfcab5",
+                "on-secondary-fixed": "#00105c",
+                "on-error-container": "#93000a",
+                "on-surface": "#181d14",
+                "on-secondary-fixed-variant": "#303f91",
+                "surface-tint": "#236d00",
+                "error": "#ba1a1a",
+                "surface-bright": "#f6fbec",
+                "tertiary-container": "#fb6db3",
+                "background": "#f6fbec",
+                "secondary-fixed-dim": "#bac3ff",
+                "primary": "#236d00",
+                "deep-ocean": "#2B3A8C",
+                "secondary": "#4958ab",
+                "surface-variant": "#dfe5d6",
+                "surface-dim": "#d6dcce",
+                "on-secondary-container": "#283789",
+                "surface-muted": "#F4F6F8",
+                "on-background": "#181d14",
+                "surface-container-high": "#e5eadc",
+                "tertiary": "#a92a70",
+                "inverse-primary": "#82dc5c",
+                "on-primary": "#ffffff",
+                "error-container": "#ffdad6",
+                "outline": "#707a68",
+                "on-error": "#ffffff",
+                "surface-container-low": "#f0f6e7",
+                "on-primary-fixed-variant": "#195200",
+                "surface": "#f6fbec",
+                "on-surface-variant": "#404a3a",
+                "primary-fixed-dim": "#82dc5c",
+                "secondary-fixed": "#dee0ff",
+                "surface-container-highest": "#dfe5d6",
+                "on-primary-container": "#113f00",
+                "surface-container": "#eaf0e1"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "gutter": "24px",
+                "container-max": "1200px",
+                "section-padding": "80px",
+                "margin-mobile": "16px",
+                "base": "8px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Plus Jakarta Sans"],
+                "headline-xl": ["Plus Jakarta Sans"],
+                "label-sm": ["Be Vietnam Pro"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "body-lg": ["Be Vietnam Pro"],
+                "body-md": ["Be Vietnam Pro"],
+                "headline-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(24, 29, 20, 0.5), rgba(24, 29, 20, 0.7));
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar (Shared Component) -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="bg-leaf-green h-2 w-full"></div>
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-8">
+<a class="text-headline-md font-headline-xl text-primary tracking-tight flex items-center gap-2" href="/">
+<img alt="꽃재 로고" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqUpEOWAVcCXnLjvYqk7xtjPC0ds8i35MI5DK6nU6ScPLTMQsq40h2oZvLvwsidxz-PP_Kkewn_7vmtnpZ8rmKu5GIEMfRSnsIQpDg0s9WjZ5o955Uy5rqyG3h4EwnEgZHsnnOf2AoRxJK2vU-EaoLIAI-ftal0w_IkhyjRxyPr6772TzcAJFWHpBst-VGILmiNwqIR-1-YoWulDLMqdrOyUb-rJ_k4GBMX7HSLB3-L0m55MkvdlBQiyzbDNh754nSFVi4wSDxZEiO">
+<span class="">꽃재</span>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">소개</a>
+<a class="font-label-sm text-label-sm text-primary font-bold border-b-2 border-leaf-green pb-1" href="#">사업</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">꽃재 이야기</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">소식</a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<button class="hidden md:block px-6 py-2.5 rounded-lg border-2 border-deep-ocean text-deep-ocean font-label-sm hover:bg-deep-ocean hover:text-white transition-all">자원봉사 신청</button>
+<button class="px-6 py-2.5 rounded-lg bg-leaf-green text-white font-label-sm hover:bg-primary transition-all active:scale-95 duration-150 ease-in-out shadow-sm">후원하기</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A grand orchestral performance on a warm, golden-lit stage featuring diverse musicians playing string instruments with passion. The atmosphere is filled with professional warmth and community spirit, perfectly capturing the theme of nurturing growth and artistic flourishing in a humanist minimalist setting. Soft ambient shadows and high-key lighting create a welcoming and premium aesthetic." src="..\public\static\students.jpeg">
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl">
+<h1 class="font-headline-xl text-headline-xl text-white mb-4 md:text-[64px]">장학 사업</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto">
+                    경제적 어려움 속에서도 꿈을 잃지 않는 인재들을 발굴하여 학업에 전념할 수 있도록 돕습니다.
+                </p>
+</div>
+</section>
+<!-- Main Content Canvas -->
+<section class="bg-white py-section-padding">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="mb-16 text-left max-w-container-max">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6 relative inline-block">
+                        장학 사업
+                        <span class="absolute -bottom-2 w-12 h-1 bg-leaf-green left-0"></span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        사단 법인 꽃재에서 우리 사회의 미래인 아동과 청소년들의 꿈을 지원하기 위한 장학 사업 활동입니다. 우리는 모든 아이들이 자신의 잠재력을 충분히 발휘할 수 있는 기회를 가져야 한다고 믿습니다.
+                    </p>
+</div>
+<!-- Business List (Horizontal Cards) -->
+<div class="flex flex-col gap-10">
+<!-- Card 1 -->
+<article class="group flex flex-col md:flex-row bg-white rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm hover:shadow-md transition-all duration-300" style="opacity: 1; transform: translateY(0px); transition: 0.6s ease-out;">
+<div class="md:w-1/3 h-64 md:h-auto overflow-hidden">
+<img alt="장학금 지원 사업" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcTOgkOv3oCZhtExFgWMhLGnnRa4h9jkoVvavD3SUgx1Vajsw7O0NeuhfME0WY_WmzyPQ3R63G9-OppIuwyw6MPBz1xoNuJ7CnfZ8VwrTWDKY-e3s-mrSb1XxzTwKPa3VAh3PYvqa_DTo8jxoDfPIFJeHaQiHQyhMcBy16QslyhGhhSl2cux9pxt9Ljwvcn7eobyLD59u8I85qXknpTBEL9oNEc-XgZfQuA-bEVXIHOwZHpwJ6xCltRpoLwQ17i3Kh_r1d6tZDKSjh">
+</div>
+<div class="md:w-2/3 p-8 md:p-10 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">장학금 지원 사업</h3>
+<div class="space-y-4">
+<div class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
+<span class="font-label-sm text-on-surface-variant">대상</span>
+<span class="font-body-md text-on-surface">한부모 자녀, 차상위 계층 중고등학생</span>
+</div>
+<div class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
+<span class="font-label-sm text-on-surface-variant">대상자 선정</span>
+<span class="font-body-md text-on-surface">도선고등학교, 도선동 주민센터</span>
+</div>
+<div class="grid grid-cols-[120px_1fr]">
+<span class="font-label-sm text-on-surface-variant">내용</span>
+<span class="font-body-md text-on-surface">재정 지원</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group flex flex-col md:flex-row bg-white rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm hover:shadow-md transition-all duration-300" style="opacity: 1; transform: translateY(0px); transition: 0.6s ease-out;">
+<div class="md:w-1/3 h-64 md:h-auto overflow-hidden">
+<img alt="아동 청소년 지원 사업" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKiIubHcvJAWvk5W2VMol2lduYPI_ZQHudQITXpJJJoIKrSyewoX3Id4Fsk1aX6EXTNwe8XGhDaRBz7pmstP6yg7DDaqY6zabfcT-3GaP9PpjslvF-WNoTNttyjx_swFuHtVqEIS6CgYSxPPF6olt4cBB4gXoDQIMuKo_c0ANdxTom9y7JUcayr3Dx09SNCJbq3D9habaAAQEqc5Vl-o22b_VZC_1SFV6mPMNtUydKKP3ghkZb0sULo_LdcXadLXUf7wVBUipxkgtX">
+</div>
+<div class="md:w-2/3 p-8 md:p-10 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">아동 청소년 지원 사업</h3>
+<div class="space-y-4">
+<div class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
+<span class="font-label-sm text-on-surface-variant">대상</span>
+<span class="font-body-md text-on-surface">수급자 자녀 아동/청소년</span>
+</div>
+<div class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
+<span class="font-label-sm text-on-surface-variant">대상자 선정</span>
+<span class="font-body-md text-on-surface">도선동 주민센터, 이든아이</span>
+</div>
+<div class="grid grid-cols-[120px_1fr]">
+<span class="font-label-sm text-on-surface-variant">내용</span>
+<span class="font-body-md text-on-surface">우유 365일 배달, 보호종료아동 정기 지원</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-muted border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center py-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto gap-base">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface">사사회복지법인 꽃재 Blooming Hill</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 사회복지법인 꽃재 Blooming Hill. All Rights Reserved.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-2 mt-8 md:mt-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-leaf-green transition-colors" href="#">이용약관</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-leaf-green font-semibold underline" href="#">개인정보처리방침</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-leaf-green transition-colors" href="#">이메일무단수집거부</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-leaf-green transition-colors" href="#">찾아오시는 길</a>
+</div>
+</div>
+</footer>
+<script>
+        // Subtle scroll reveal effect
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('article');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (cardTop < windowHeight * 0.85) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize cards state for fade-in
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('article');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease-out';
+            });
+            // Initial check
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+
+
+</body></html>

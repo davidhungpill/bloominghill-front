@@ -9,6 +9,9 @@ const routes = [
   { path: '/facility', component: () => import('../views/FacilityView.vue') },
   { path: '/history', component: () => import('../views/HistoryView.vue') },
   { path: '/location', component: () => import('../views/LocationView.vue') },
+  { path: '/orchestra', component: () => import('../views/OrchestraView.vue') },
+  { path: '/nanum', component: () => import('../views/NanumView.vue') },
+  { path: '/scholarship', component: () => import('../views/ScholarshipView.vue') },
 ]
 
 export default createRouter({

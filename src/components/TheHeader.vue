@@ -1,7 +1,7 @@
 <template>
   <header
     class="bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm sticky top-0 z-50 h-24"
-    @mouseleave="closeDropdown"
+    @mouseleave="closeMenu"
   >
     <div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full">
       <!-- 로고 + 데스크탑 GNB -->
@@ -15,8 +15,8 @@
         </router-link>
 
         <nav class="hidden md:flex items-center gap-24 ml-24">
-          <!-- 소개: hover 드롭다운 -->
-          <div class="relative" @mouseenter="openDropdown">
+          <!-- 소개 -->
+          <div class="relative" @mouseenter="openMenu('intro')">
             <button
               class="text-body-lg font-bold transition-colors duration-200 pb-1"
               :class="isIntroActive
@@ -27,7 +27,18 @@
             </button>
           </div>
 
-          <a href="#" class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold">사업</a>
+          <!-- 사업 -->
+          <div class="relative" @mouseenter="openMenu('business')">
+            <button
+              class="text-body-lg font-bold transition-colors duration-200 pb-1"
+              :class="isBusinessActive
+                ? 'text-primary border-b-2 border-leaf-green'
+                : 'text-on-surface-variant hover:text-primary'"
+            >
+              사업
+            </button>
+          </div>
+
           <a href="#" class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold">꽃재 이야기</a>
           <a href="#" class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold">소식</a>
         </nav>
@@ -47,32 +58,64 @@
       </div>
     </div>
 
-    <!-- 소개 드롭다운 패널 -->
+    <!-- 드롭다운 패널 -->
     <Transition name="dropdown">
       <div
-        v-if="dropdownOpen"
+        v-if="activeMenu"
         class="absolute left-0 right-0 top-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/30 shadow-lg"
-        @mouseenter="openDropdown"
-        @mouseleave="closeDropdown"
+        @mouseenter="keepMenu"
+        @mouseleave="closeMenu"
       >
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-6">
           <div class="flex items-start">
-            <!-- 로고와 동일한 너비의 invisible 스페이서로 "소개" 위치에 정렬 -->
+            <!-- 로고와 동일 너비 스페이서 -->
             <img src="/static/logo.png" alt="" aria-hidden="true" class="h-28 w-auto invisible shrink-0" />
-            <ul class="flex flex-col gap-0.5 max-w-xs ml-16">
-              <li v-for="item in subMenuItems" :key="item.path">
-                <router-link
-                  :to="item.path"
-                  class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
-                  :class="$route.path === item.path
-                    ? 'bg-primary/10 text-on-surface font-bold'
-                    : 'text-on-surface hover:bg-surface-container hover:text-primary'"
-                  @click="closeDropdown"
-                >
-                  {{ item.label }}
-                </router-link>
-              </li>
-            </ul>
+            <!-- nav 구조를 그대로 미러링하여 각 메뉴 아래에 정렬 -->
+            <div class="flex items-start gap-24 ml-16">
+              <!-- 소개 슬롯 -->
+              <div>
+                <ul v-if="activeMenu === 'intro'" class="flex flex-col gap-0.5 min-w-[160px]">
+                  <li v-for="item in introMenuItems" :key="item.path">
+                    <router-link
+                      :to="item.path"
+                      class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
+                      :class="$route.path === item.path
+                        ? 'bg-primary/10 text-on-surface font-bold'
+                        : 'text-on-surface hover:bg-surface-container hover:text-primary'"
+                      @click="closeMenu"
+                    >
+                      {{ item.label }}
+                    </router-link>
+                  </li>
+                </ul>
+                <!-- 사업 메뉴가 열렸을 때 소개 자리를 점유하는 invisible 스페이서 -->
+                <span v-else class="invisible pointer-events-none text-body-lg font-bold">소개</span>
+              </div>
+
+              <!-- 사업 슬롯 -->
+              <ul v-if="activeMenu === 'business'" class="flex flex-col gap-0.5 min-w-[160px]">
+                <li v-for="item in businessMenuItems" :key="item.path">
+                  <router-link
+                    v-if="item.path !== '#'"
+                    :to="item.path"
+                    class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
+                    :class="$route.path === item.path
+                      ? 'bg-primary/10 text-on-surface font-bold'
+                      : 'text-on-surface hover:bg-surface-container hover:text-primary'"
+                    @click="closeMenu"
+                  >
+                    {{ item.label }}
+                  </router-link>
+                  <a
+                    v-else
+                    href="#"
+                    class="flex items-center px-4 py-2 rounded-lg text-sm text-on-surface hover:bg-surface-container hover:text-primary transition-all duration-150"
+                  >
+                    {{ item.label }}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -85,9 +128,10 @@ import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const dropdownOpen = ref(false)
+const activeMenu = ref(null)
+let closeTimer = null
 
-const subMenuItems = [
+const introMenuItems = [
   { label: '이사장 인사말', path: '/intro' },
   { label: '미션 및 비전', path: '/missions' },
   { label: '조직도', path: '/organization' },
@@ -96,15 +140,31 @@ const subMenuItems = [
   { label: '오시는 길', path: '/location' },
 ]
 
-const introRoutes = subMenuItems.map(i => i.path)
-const isIntroActive = computed(() => introRoutes.includes(route.path))
+const businessMenuItems = [
+  { label: '오케스트라', path: '/orchestra' },
+  { label: '이웃사랑 나눔사업', path: '/nanum' },
+  { label: '장학 사업', path: '/scholarship' },
+]
 
-function openDropdown() {
-  dropdownOpen.value = true
+const introRoutes = introMenuItems.map(i => i.path)
+const businessRoutes = ['/orchestra', '/nanum', '/scholarship']
+
+const isIntroActive = computed(() => introRoutes.includes(route.path))
+const isBusinessActive = computed(() => businessRoutes.includes(route.path))
+
+function openMenu(name) {
+  clearTimeout(closeTimer)
+  activeMenu.value = name
 }
 
-function closeDropdown() {
-  dropdownOpen.value = false
+function keepMenu() {
+  clearTimeout(closeTimer)
+}
+
+function closeMenu() {
+  closeTimer = setTimeout(() => {
+    activeMenu.value = null
+  }, 80)
 }
 </script>
 

@@ -5,7 +5,7 @@
         <span class="material-symbols-outlined text-[18px]">home</span>
         <router-link to="/" class="font-label-sm text-label-sm hover:text-primary transition-colors">Home</router-link>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-        <span class="font-label-sm text-label-sm">소개</span>
+        <span class="font-label-sm text-label-sm">{{ parent }}</span>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
         <span class="font-label-sm text-label-sm text-primary font-bold">{{ current }}</span>
       </nav>
@@ -14,5 +14,8 @@
 </template>
 
 <script setup>
-defineProps({ current: { type: String, required: true } })
+defineProps({
+  current: { type: String, required: true },
+  parent: { type: String, default: '소개' },
+})
 </script>

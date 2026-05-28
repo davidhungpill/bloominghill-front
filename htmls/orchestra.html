@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="ko" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>사업 안내 - Blooming Hill Foundation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffd8e6",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#a92a70",
+                    "on-tertiary-fixed": "#3d0024",
+                    "leaf-green": "#5CB338",
+                    "on-primary-fixed": "#062100",
+                    "surface": "#f6fbec",
+                    "tertiary-fixed-dim": "#ffafd0",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f6fbec",
+                    "on-secondary-fixed": "#00105c",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "surface-tint": "#236d00",
+                    "surface-bright": "#f6fbec",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#97a5fe",
+                    "surface-container": "#eaf0e1",
+                    "on-primary-container": "#113f00",
+                    "surface-variant": "#dfe5d6",
+                    "primary-fixed-dim": "#82dc5c",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#303f91",
+                    "outline": "#707a68",
+                    "on-surface-variant": "#404a3a",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#dee0ff",
+                    "inverse-primary": "#82dc5c",
+                    "sky-blue": "#0091D2",
+                    "primary-fixed": "#9df975",
+                    "deep-ocean": "#2B3A8C",
+                    "surface-container-highest": "#dfe5d6",
+                    "inverse-on-surface": "#edf3e4",
+                    "surface-dim": "#d6dcce",
+                    "on-tertiary-fixed-variant": "#8a0857",
+                    "surface-muted": "#F4F6F8",
+                    "outline-variant": "#bfcab5",
+                    "surface-container-high": "#e5eadc",
+                    "surface-container-low": "#f0f6e7",
+                    "on-primary-fixed-variant": "#195200",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#181d14",
+                    "primary-container": "#5cb338",
+                    "inverse-surface": "#2c3228",
+                    "tertiary-container": "#fb6db3",
+                    "warm-accent": "#FF7000",
+                    "secondary": "#4958ab",
+                    "on-secondary-container": "#283789",
+                    "on-surface": "#181d14",
+                    "on-tertiary-container": "#6e0044",
+                    "primary": "#236d00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding": "80px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .project-card {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        .project-card:hover {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; }
+    </style>
+</head>
+<body class="bg-white text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Donation Bar -->
+<div class="w-full bg-leaf-green text-on-primary py-2 px-8 flex justify-center items-center gap-4">
+<span class="font-label-sm text-label-sm">여러분의 소중한 후원이 성장의 꽃을 피웁니다.</span>
+<button class="bg-surface-container-lowest text-leaf-green px-4 py-1 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-all">
+        후원 참여하기
+    </button>
+</div>
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-container-max mx-auto">
+<a class="text-headline-md font-headline-md font-bold text-deep-ocean dark:text-secondary-fixed" href="/">
+            Blooming Hill Foundation
+        </a>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-leaf-green transition-colors duration-200" href="#">About Us</a>
+<a class="text-leaf-green font-bold border-b-2 border-leaf-green pb-1 font-body-md text-body-md transition-colors duration-200" href="#">Programs</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-leaf-green transition-colors duration-200" href="#">Support</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-leaf-green transition-colors duration-200" href="#">Stories</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-leaf-green transition-colors duration-200" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant">search</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-all">
+                Donate Now
+            </button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Blooming Hill Foundation main orchestra performance" class="w-full h-full object-cover" src="..\public\static\orch_main.jpg">
+<div class="absolute inset-0 bg-deep-ocean/30 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="relative z-10 text-center text-on-primary px-margin-mobile">
+</div>
+</section>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-8 py-section-padding">
+<!-- Section Header -->
+<div class="mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface inline-block relative pb-4">
+            오케스트라 사업
+            <span class="absolute bottom-0 w-12 h-1 bg-leaf-green left-0"></span>
+</h2>
+<p class="text-on-surface-variant mt-6">사단법인 꽃재의 "뉴왕십리 오케스트라"가 진행하는 사업 활동입니다.</p>
+</div>
+<!-- Project List (Horizontal Stack) -->
+<div class="space-y-12">
+<!-- Card 1: 다문화 오케스트라 -->
+<article class="project-card flex flex-col md:flex-row bg-white rounded-xl overflow-hidden min-h-[320px]">
+<div class="md:w-[40%] relative overflow-hidden group">
+<img alt="다문화 오케스트라" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="..\public\static\orch.png">
+
+</div>
+<div class="md:w-[60%] p-8 md:p-10 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-8">다문화 오케스트라</h3>
+<div class="space-y-2"><div class="flex"><div class="w-24 shrink-0 text-on-surface">대상</div><div class="text-on-surface-variant">다문화, 외국인 노동자 가정, 대상자&nbsp; 면접후 선발</div></div><div class="flex"><div class="w-24 shrink-0 text-on-surface">내용</div><div class="text-on-surface-variant">수강료, 악기, 교재 지원, 오케스트라 회비 전액 지원</div></div></div>
+</div>
+</article>
+<!-- Card 2: 지역 문화 공연 -->
+<article class="project-card flex flex-col bg-white rounded-xl overflow-hidden min-h-[320px] md:flex-row">
+<div class="md:w-[40%] relative overflow-hidden group">
+<img alt="지역 문화 갰연" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="..\public\static\orch3.png">
+
+</div>
+<div class="md:w-[60%] p-8 md:p-10 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-8">지역 문화 공연</h3>
+<div class="space-y-2"><div class="flex"><div class="w-24 shrink-0 text-on-surface">시기</div><div class="text-on-surface-variant">상시</div></div><div class="flex"><div class="w-24 shrink-0 text-on-surface">내용</div><div class="text-on-surface-variant">지역 문화 공연 "성동구 정오의 음악회", "성동 가족 페스티벌" 에서 연주 섬김</div></div></div>
+</div>
+</article>
+<!-- Card 3: 취약계층 문화 공연 -->
+<article class="project-card flex flex-col md:flex-row bg-white rounded-xl overflow-hidden min-h-[320px]">
+<div class="md:w-[40%] relative overflow-hidden group">
+<img alt="취약계층 문화 공연" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="..\public\static\hospital1.png">
+
+</div>
+<div class="md:w-[60%] p-8 md:p-10 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-8">취약계층 문화 지원</h3>
+<div class="space-y-2"><div class="flex"><div class="w-24 shrink-0 text-on-surface">시기</div><div class="text-on-surface-variant">상시</div></div><div class="flex"><div class="w-24 shrink-0 text-on-surface">내용</div><div class="text-on-surface-variant">찾아가는 음악회 "분당 차병원 연주", "쪽방촌 지원사업 연주" 봉사 활동</div></div></div>
+</div>
+</article>
+</div>
+</main>
+<!-- CTA Section -->
+<section class="bg-surface-container-high py-section-padding">
+<div class="max-w-container-max mx-auto px-margin-mobile text-center">
+<h2 class="font-headline-lg text-headline-lg text-deep-ocean mb-6">당신도 누군가의 성장을 도울 수 있습니다</h2>
+<p class="text-on-surface-variant mb-10 max-w-[600px] mx-auto">사단법인 꽃재와 함께 세상을 따뜻하게 변화시킬 소중한 동역자를 기다립니다. 봉사와 후원으로 꽃재의 여정에 함께해주세요.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-warm-accent text-white px-8 py-4 rounded-lg font-label-sm text-label-sm hover:opacity-90 shadow-lg transition-all">후원하기</button>
+<button class="border-2 border-deep-ocean text-deep-ocean px-8 py-4 rounded-lg font-label-sm text-label-sm hover:bg-deep-ocean hover:text-white transition-all">봉사 신청하기</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-high py-base w-full">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-8 py-10 w-full max-w-container-max mx-auto">
+<div class="space-y-4">
+<div class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed">Blooming Hill Foundation</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm leading-relaxed">
+                사단법인 꽃재는 예술과 문화를 통해 소외된 이웃에게 희망을 전하고, 지역 공동체의 성장을 돕는 비영리 법인입니다.
+            </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-deep-ocean font-bold">Quick Links</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:underline text-label-sm font-label-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:underline text-label-sm font-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:underline text-label-sm font-label-sm" href="#">Annual Reports</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-deep-ocean font-bold">Involved</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:underline text-label-sm font-label-sm" href="#">Volunteer Registry</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:underline text-label-sm font-label-sm" href="#">Corporate Giving</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-deep-ocean font-bold">Contact</h4>
+<p class="text-on-surface-variant text-label-sm font-label-sm">서울특별시 성동구</p>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Tel: 02-123-4567</p>
+<div class="flex gap-4 mt-2">
+<span class="material-symbols-outlined text-primary cursor-pointer">share</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">mail</span>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant py-4 text-center">
+<p class="text-on-surface-variant font-label-sm text-label-sm opacity-70">
+            © 2024 Blooming Hill Foundation (꽃재). Nurturing growth through community care.
+        </p>
+</div>
+</footer>
+
+
+
+
+</body></html>
