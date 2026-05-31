@@ -1,7 +1,7 @@
 <template>
   <main v-if="program">
     <!-- Hero Section -->
-    <section class="relative w-full h-[320px] md:h-[480px] overflow-hidden">
+    <section class="relative w-full h-[240px] md:h-[320px] overflow-hidden">
       <img
         :src="program.heroImg"
         alt="꽃재 평생교육원"

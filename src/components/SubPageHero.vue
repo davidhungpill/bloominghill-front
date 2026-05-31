@@ -1,5 +1,5 @@
 <template>
-  <section class="relative flex items-center overflow-hidden min-h-[200px] md:min-h-[400px]">
+  <section class="relative flex items-center overflow-hidden h-[240px] md:h-[320px]">
     <div class="absolute inset-0 z-0 bg-surface-dim">
       <img alt="Hero background" class="w-full h-full object-cover" src="/static/spring.jpg" />
     </div>

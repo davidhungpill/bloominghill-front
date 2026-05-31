@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Hero Section -->
-    <section class="relative w-full h-[300px] md:h-[450px] overflow-hidden">
+    <section class="relative w-full h-[240px] md:h-[320px] overflow-hidden">
       <img
         src="/public/static/education.jpg"
         alt="꽃재 평생교육원 히어로"

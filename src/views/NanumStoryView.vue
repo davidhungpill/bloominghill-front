@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Hero Banner -->
-    <section class="relative min-h-[200px] md:min-h-[400px] overflow-hidden">
+    <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAZAFA2xBboGAIVypzB3t0QI1Gy5nqsWUeV6YliDb7JiVw8R-81zzZeNB20egNI4grq-kf3mHW_LE-xZCh90u37Jj_RrGOmNMnIWiIMwgAr_FgPuyezTa3TzEcg6VOqAC84nI0np8gCxk5GCoFc3ns93gTM2brYZ265z_iZ3h1OtTn42oArCA3Q3yguTGPk2-9vbOiztpGOzi2TCXRk1S6OKMCBjpiDjFNpZGfv2BkHrowsHQMaYEoYfI09YHzm6gC79c00BKAVKeM"
         alt="나눔이야기 배너"

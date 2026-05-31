@@ -2,7 +2,7 @@
   <main class="bg-white overflow-x-hidden">
 
     <!-- Image Hero -->
-    <section class="relative h-[200px] md:h-[280px] overflow-hidden">
+    <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
         src="/static/spring2.jpg"
         alt="후원하기"

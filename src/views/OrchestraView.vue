@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Hero -->
-    <section class="relative h-[400px] md:h-[500px] overflow-hidden">
+    <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
         src="/static/orch_main.jpg"
         alt="뉴왕십리 오케스트라"

@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Hero Section -->
-    <section class="w-full h-[300px] md:h-[400px] relative overflow-hidden">
+    <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
         src="/public/static/notice.jpg"
         alt="공지사항 배너"

@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Hero -->
-    <section class="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+    <section class="relative h-[240px] md:h-[320px] flex items-center justify-center overflow-hidden">
       <div class="absolute inset-0">
         <img
           src="/static/students.jpeg"

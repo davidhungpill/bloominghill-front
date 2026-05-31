@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Hero -->
-    <section class="relative h-[400px] md:h-[500px] overflow-hidden">
+    <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
         src="/static/edu.jpg"
         alt="이웃사랑 나눔 사업"

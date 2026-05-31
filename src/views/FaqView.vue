@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Hero Section -->
-    <section class="relative h-[300px] md:h-[400px] overflow-hidden">
+    <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
         src="/static/notice.jpg"
         alt="자주 묻는 질문"
