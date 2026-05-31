@@ -26,7 +26,7 @@
           <div class="mb-16">
             <span class="inline-block px-4 py-1 bg-leaf-green/10 text-leaf-green font-bold text-label-sm rounded-full mb-4">History</span>
             <h2 class="font-headline-lg text-headline-lg md:text-headline-xl leading-tight text-on-surface mb-6">
-              꽃재가 걸어온<br/><span class="text-leaf-green">희망과 나눔의 기록입니다.</span>
+              꽃재가 걸어온<br/><span class="text-leaf-green">희망과 나눔의 기록입니다</span>
             </h2>
             <div class="w-20 h-1.5 bg-leaf-green rounded-full"></div>
           </div>

@@ -12,6 +12,15 @@ const routes = [
   { path: '/orchestra', component: () => import('../views/OrchestraView.vue') },
   { path: '/nanum', component: () => import('../views/NanumView.vue') },
   { path: '/scholarship', component: () => import('../views/ScholarshipView.vue') },
+  { path: '/story', component: () => import('../views/NanumStoryView.vue') },
+  { path: '/story/:id', component: () => import('../views/NanumStoryDetailView.vue') },
+  { path: '/press', component: () => import('../views/PressBoardView.vue') },
+  { path: '/education', component: () => import('../views/EducationView.vue') },
+  { path: '/education/:id', component: () => import('../views/EducationDetailView.vue') },
+  { path: '/notice', component: () => import('../views/NoticeBoardView.vue') },
+  { path: '/faq', component: () => import('../views/FaqView.vue') },
+  { path: '/donate', component: () => import('../views/DonateView.vue') },
+  { path: '/donate-cert', component: () => import('../views/DonateCertView.vue') },
 ]
 
 export default createRouter({

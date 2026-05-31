@@ -8,14 +8,7 @@
         class="absolute inset-0 w-full h-full object-cover"
       />
       <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40"></div>
-      <div class="relative max-w-container-max mx-auto px-margin-mobile md:px-gutter h-full flex flex-col justify-center items-start">
-        <span class="inline-block bg-warm-accent text-white px-4 py-1 rounded-full font-label-sm text-label-sm mb-4">Sharing &amp; Support</span>
-        <h1 class="font-headline-xl text-headline-xl text-white mb-4 hero-text-shadow">이웃사랑 나눔 사업</h1>
-        <p class="text-white font-body-lg text-body-lg max-w-2xl opacity-90">
-          꽃재는 지역사회와 함께 호흡하며, 도움이 필요한 이웃들에게 따뜻한 손길을 전합니다.<br class="hidden md:block">
-          함께 만들어가는 더 나은 내일, 그 성장의 중심에 꽃재가 있습니다.
-        </p>
-      </div>
+      
     </section>
 
     <BreadCrumb current="이웃사랑 나눔사업" parent="사업" />

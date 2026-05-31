@@ -54,12 +54,12 @@
             희망의 꽃을 피우는 사회복지법인 꽃재입니다.
           </p>
           <div class="flex flex-wrap gap-4">
-            <button class="px-8 py-4 bg-warm-accent rounded-xl font-headline-md text-white hover:shadow-lg transition-all hover:scale-105 active:scale-95">
+            <router-link to="/donate" class="px-8 py-4 bg-warm-accent rounded-xl font-headline-md text-white hover:shadow-lg transition-all hover:scale-105 active:scale-95">
               지금 후원하기
-            </button>
-            <button class="px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white rounded-xl font-headline-md text-white hover:bg-white/20 transition-all active:scale-95">
-              재단 소개 영상
-            </button>
+            </router-link>
+            <router-link to="/intro" class="px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white rounded-xl font-headline-md text-white hover:bg-white/20 transition-all active:scale-95">
+              재단 소개
+            </router-link>
           </div>
         </div>
       </div>
@@ -85,9 +85,9 @@
         </div>
         <div class="bg-primary p-8 rounded-2xl flex flex-col justify-center items-center text-center shadow-lg hover-lift">
           <p class="text-white/80 font-label-sm mb-4">함께 만드는 변화</p>
-          <button class="w-full bg-white text-primary font-headline-md py-3 rounded-lg flex items-center justify-center gap-2">
+          <router-link to="/donate" class="w-full bg-white text-primary font-headline-md py-3 rounded-lg flex items-center justify-center gap-2">
             후원하기 <span class="material-symbols-outlined">arrow_forward</span>
-          </button>
+          </router-link>
         </div>
       </div>
     </section>
@@ -99,7 +99,7 @@
         <p class="text-on-surface-variant font-body-lg max-w-2xl mx-auto">더 나은 세상을 위해 꽃재가 앞장서서 실천하는 아름다운 나눔의 가치들입니다.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="group bg-white rounded-2xl overflow-hidden soft-shadow hover-lift border border-outline-variant/10">
+        <router-link to="/orchestra" class="group bg-white rounded-2xl overflow-hidden soft-shadow hover-lift border border-outline-variant/10 block">
           <div class="h-64 overflow-hidden relative">
             <img
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -113,13 +113,13 @@
           <div class="p-8">
             <h3 class="font-headline-lg text-headline-lg mb-3">오케스트라</h3>
             <p class="text-on-surface-variant mb-6 font-body-md">문화예술 교육을 통해 청소년들의 꿈을 키우고, 음악으로 지역사회에 힐링을 선사합니다.</p>
-            <a href="#" class="text-primary font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+            <span class="text-primary font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
               자세히 보기 <span class="material-symbols-outlined">chevron_right</span>
-            </a>
+            </span>
           </div>
-        </div>
+        </router-link>
 
-        <div class="group bg-white rounded-2xl overflow-hidden soft-shadow hover-lift border border-outline-variant/10">
+        <router-link to="/nanum" class="group bg-white rounded-2xl overflow-hidden soft-shadow hover-lift border border-outline-variant/10 block">
           <div class="h-64 overflow-hidden relative">
             <img
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -133,13 +133,13 @@
           <div class="p-8">
             <h3 class="font-headline-lg text-headline-lg mb-3">이웃사랑 나눔사업</h3>
             <p class="text-on-surface-variant mb-6 font-body-md">기초수급자 및 복지 사각지대의 이웃들에게 생활 필수품과 긴급 생계비를 지원합니다.</p>
-            <a href="#" class="text-primary font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+            <span class="text-primary font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
               자세히 보기 <span class="material-symbols-outlined">chevron_right</span>
-            </a>
+            </span>
           </div>
-        </div>
+        </router-link>
 
-        <div class="group bg-white rounded-2xl overflow-hidden soft-shadow hover-lift border border-outline-variant/10">
+        <router-link to="/scholarship" class="group bg-white rounded-2xl overflow-hidden soft-shadow hover-lift border border-outline-variant/10 block">
           <div class="h-64 overflow-hidden relative">
             <img
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -153,11 +153,11 @@
           <div class="p-8">
             <h3 class="font-headline-lg text-headline-lg mb-3">장학 사업</h3>
             <p class="text-on-surface-variant mb-6 font-body-md">경제적 어려움 속에서도 꿈을 잃지 않는 인재들을 발굴하여 학업에 전념할 수 있도록 돕습니다.</p>
-            <a href="#" class="text-primary font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+            <span class="text-primary font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
               자세히 보기 <span class="material-symbols-outlined">chevron_right</span>
-            </a>
+            </span>
           </div>
-        </div>
+        </router-link>
       </div>
     </section>
 
@@ -169,7 +169,7 @@
             <h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">꽃재 이야기</h2>
             <p class="text-on-surface-variant font-body-md">나눔으로 일궈낸 따뜻한 변화의 기록들입니다.</p>
           </div>
-          <a href="#" class="text-primary font-bold border-b-2 border-primary hover:text-leaf-green hover:border-leaf-green transition-all pb-1">전체 이야기 보기</a>
+          <router-link to="/story" class="text-primary font-bold border-b-2 border-primary hover:text-leaf-green hover:border-leaf-green transition-all pb-1">전체 이야기 보기</router-link>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[600px]">
           <div class="lg:col-span-8 group relative rounded-2xl overflow-hidden soft-shadow hover-lift cursor-pointer">
@@ -308,8 +308,7 @@
           후원자님의 따뜻한 마음은 투명하게 관리되며, 소외된 이웃들이 스스로 자립할 수 있는 밑거름이 됩니다.
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <button class="px-10 py-4 bg-primary text-on-primary rounded-full font-headline-md shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all">정기후원 신청</button>
-          <button class="px-10 py-4 bg-white border-2 border-primary text-primary rounded-full font-headline-md hover:bg-primary/5 transition-all">일시후원 신청</button>
+          <router-link to="/donate" class="px-10 py-4 bg-primary text-on-primary rounded-full font-headline-md shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all">후원 신청</router-link>
         </div>
       </div>
     </section>

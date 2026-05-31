@@ -1,0 +1,311 @@
+<!DOCTYPE html><html class="light" lang="ko" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>꽃재 평생교육원 | Blooming Hill Lifelong Education Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f6fbec",
+                        "on-primary-fixed-variant": "#195200",
+                        "surface-tint": "#236d00",
+                        "primary-fixed": "#9df975",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#97a5fe",
+                        "inverse-surface": "#2c3228",
+                        "on-surface-variant": "#404a3a",
+                        "surface": "#f6fbec",
+                        "on-secondary-fixed-variant": "#303f91",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "on-secondary-container": "#283789",
+                        "tertiary-fixed": "#ffd8e6",
+                        "inverse-on-surface": "#edf3e4",
+                        "background": "#f6fbec",
+                        "on-tertiary-fixed": "#3d0024",
+                        "on-tertiary-fixed-variant": "#8a0857",
+                        "surface-container-low": "#f0f6e7",
+                        "outline": "#707a68",
+                        "sky-blue": "#0091D2",
+                        "on-background": "#181d14",
+                        "surface-container-high": "#e5eadc",
+                        "surface-container": "#eaf0e1",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#82dc5c",
+                        "surface-dim": "#d6dcce",
+                        "primary-container": "#5cb338",
+                        "tertiary-container": "#fb6db3",
+                        "on-tertiary-container": "#6e0044",
+                        "warm-accent": "#FF7000",
+                        "deep-ocean": "#2B3A8C",
+                        "primary": "#236d00",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#bfcab5",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#181d14",
+                        "surface-variant": "#dfe5d6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#a92a70",
+                        "inverse-primary": "#82dc5c",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#dee0ff",
+                        "on-primary-fixed": "#062100",
+                        "tertiary-fixed-dim": "#ffafd0",
+                        "on-secondary-fixed": "#00105c",
+                        "on-primary-container": "#113f00",
+                        "secondary": "#4958ab",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#dfe5d6",
+                        "surface-muted": "#F4F6F8",
+                        "leaf-green": "#5CB338"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .tonal-shadow {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .card-hover img {
+            transition: transform 0.5s ease;
+        }
+        .card-hover:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest font-body-md text-on-surface">
+<!-- Green Banner -->
+<div class="w-full bg-leaf-green py-2 text-center text-on-primary">
+<span class="font-label-sm text-label-sm">따뜻한 나눔은 세상을 밝힙니다.</span>
+</div>
+<!-- TopNavBar -->
+<header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="text-headline-md font-headline-xl text-primary tracking-tight">꽃재</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">소개</a>
+<a class="text-primary font-bold border-b-2 border-leaf-green pb-1 font-label-sm text-label-sm" href="#">사업</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">꽃재 이야기</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">소식</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2.5 rounded-lg border-2 border-deep-ocean text-deep-ocean font-label-sm text-label-sm hover:bg-deep-ocean hover:text-white transition-all active:scale-95">자원봉사 신청</button>
+<button class="px-5 py-2.5 rounded-lg bg-warm-accent text-white font-label-sm text-label-sm shadow-md hover:brightness-110 transition-all active:scale-95">후원하기</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full h-[300px] md:h-[450px] overflow-hidden">
+<img alt="Hero Education Image" class="w-full h-full object-cover" data-alt="A brightly lit modern community center classroom where diverse adults are engaged in a collaborative learning activity. Soft sunlight streams through large windows, creating a warm and professional humanist minimalist atmosphere. The setting is clean with light wood furniture and pops of leaf green decor, embodying the nurturing growth brand identity of a lifelong education center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmj6Shx6inZ8DQYhuOJhQbs9tC1N5v7lGqfo1q0KwZLW6lb2rCeKKwalgJXi6a_-27pKTdM5BpCfHmd-ugX7-e57Pq3Sq6KfMnIrn82B7Z66ZuTA8pPwscWm4Fr393YQkWOPqIY3EzDCem78UucwJVNFKSt0itUr-hQSIjzURh5PbfVcaOPxOE54I04fr7tl3tD6ACU81UWQNdXB8_St4dG6WNlcSGuJyOQ87HXzcjCnjlbq8uG018hi1Dd2vSDsMNohVNl8gsDAG8">
+<div class="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-center px-gutter">
+<h1 class="text-white font-headline-xl text-headline-xl mb-4">평생교육사업</h1>
+<div class="w-20 h-1 bg-leaf-green"></div>
+</div>
+</section>
+<!-- Main Content Area with LNB layout -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding flex flex-col md:flex-row gap-12">
+<!-- Local Navigation Bar (LNB) -->
+
+<!-- Content Canvas -->
+<div class="flex-1">
+<div class="mb-12"><div class="text-leaf-green font-label-sm text-label-sm uppercase mb-2 tracking-wider">Lifelong Education</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">꽃재 평생교육원</h2><div class="h-1 w-12 bg-leaf-green mt-4 mb-6"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    지역 주민들의 풍요로운 삶을 위한 다양한 교육 프로그램을 운영합니다. 배움의 즐거움과 나눔의 기쁨이 함께하는 꽃재로 초대합니다.
+                </p>
+</div>
+<!-- Bento-style/Card Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Main Card (From Request) -->
+<div class="group card-hover tonal-shadow bg-white rounded-xl overflow-hidden transition-all duration-300 border border-outline-variant/10">
+<div class="aspect-video overflow-hidden relative">
+<img alt="2026 Spring Semester Recruitment" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx-BN-Ta176xCNCJ9rk8mwToSIsYIWm-RjERWS0AvrxfuPqWo3xL-SxYidNSIRsXyiwcZSkmryfAqu8CpVt_dDwVexzf3AhfV5Ux0KAHdsfCwXLuEV9IOpDnrIZXCScm1xFq5BvQaowKnryBhGY4BPCw8dCi3QHuzBxYo88Vc0EzegWquqr8MBcKPVAfZH8fRaejh4m4aDYYSF2l-o6fMNh5CSaL3DDgyMX_t5qozn-NhlZQ2rLGCu7rEeML0bKJtceOn2fZJ3-N4N">
+<div class="absolute top-4 left-4 bg-leaf-green text-white px-3 py-1 rounded-full text-label-sm font-label-sm">수강신청</div>
+</div>
+<div class="p-6">
+<span class="text-leaf-green font-label-sm text-label-sm uppercase tracking-wider block mb-2">교육소식</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">2026년 봄학기 수강생 모집</h4>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                            필라테스, 라인댄스, 성인 탁구 등 다양한 강좌가 준비되어 있습니다. 활기찬 봄을 꽃재와 함께하세요.
+                        </p>
+<div class="mt-6 flex items-center text-primary font-bold text-label-sm">
+                            자세히 보기 
+                            <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Specialized Program -->
+<div class="group card-hover tonal-shadow bg-white rounded-xl overflow-hidden transition-all duration-300 border border-outline-variant/10">
+<div class="aspect-video overflow-hidden relative">
+<img alt="Adult Table Tennis Class" class="w-full h-full object-cover" data-alt="A professional quality photograph of an indoor table tennis court. The scene is bright and airy with high-key lighting, capturing the crisp motion of a game in progress. The floor is a muted light gray, and the walls have subtle leaf green accents, reflecting the brand's humanist minimalism and nurturing growth theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCGoflE23a3di_eFmo4mEfdkHtf68Bt7FW3moyELygqTUkIzn2lVnk3c7KNFuuIfCAju9_-l2-jyM_9Zmp3u_7-VhYIxvIXKQZnOOZt4QyqLlBAnx_j8oLyNyI0TwKZjSUBq1HKIRYW6IcY77bSls5qZsr5K0pc-iYveE-Yz3DgjZkv7NpFusEryQyd9dxyxhy4TGKYU_bppnAL_gw0sfuYVTvFXyrJbjFRYz2yqwv4MX5Dq96qWy0ON5-3RyjMWaIkPjYPOxlXyM7">
+<div class="absolute top-4 left-4 bg-deep-ocean text-white px-3 py-1 rounded-full text-label-sm font-label-sm">스포츠</div>
+</div>
+<div class="p-6">
+<span class="text-leaf-green font-label-sm text-label-sm uppercase tracking-wider block mb-2">건강강좌</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">성인 탁구 교실</h4>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                            기초부터 실전 경기까지 전문 강사진과 함께하는 활기찬 탁구 수업입니다.
+                        </p>
+<div class="mt-6 flex items-center text-primary font-bold text-label-sm">
+                            자세히 보기 
+                            <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Specialized Program -->
+<div class="group card-hover tonal-shadow bg-white rounded-xl overflow-hidden transition-all duration-300 border border-outline-variant/10">
+<div class="aspect-video overflow-hidden relative">
+<img alt="K-POP Dance Class" class="w-full h-full object-cover" data-alt="A high-energy, modern dance studio with large mirrors and warm wooden floors. The lighting is soft yet focused, creating a professional and welcoming environment for creative expression. The overall aesthetic is clean and minimal, perfectly aligned with the Blooming Hill brand's corporate modern and humanist minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkbAn30Bb6FikM7z3rnvNuuiRm7MIX916lNsG-EtB4vUq8y6fpe-kNCwZIoFQMwIUBTboWfFnrLlmE5KDi2eB2Ws-VPtlXwkcBe-DODY7ZFT9xLk2-x73x83wLzmIpn30wj4U3Zn_rfzKG_IDKX1pqprI30PhsmHYBRiJ99ciYLk9m0_-zz-AG2W_xnoFnSc_384VC7k5Jq2rZMEDDOsz_GzswsNWJ4I1ShgWdmZo3GwjNSqLjZlEJzDmb30U7WurSks9Wn9L7VlNB">
+<div class="absolute top-4 left-4 bg-tertiary text-white px-3 py-1 rounded-full text-label-sm font-label-sm">예술/댄스</div>
+</div>
+<div class="p-6">
+<span class="text-leaf-green font-label-sm text-label-sm uppercase tracking-wider block mb-2">문화예술</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">K-POP 방송댄스</h4>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                            최신 유행하는 K-POP 안무를 쉽고 재미있게 배워보는 시간입니다. 체력 증진과 스트레스 해소를 동시에!
+                        </p>
+<div class="mt-6 flex items-center text-primary font-bold text-label-sm">
+                            자세히 보기 
+                            <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Specialized Program -->
+<div class="group card-hover tonal-shadow bg-white rounded-xl overflow-hidden transition-all duration-300 border border-outline-variant/10">
+<div class="aspect-video overflow-hidden relative">
+<img alt="Pilates Class" class="w-full h-full object-cover" data-alt="A serene pilates studio featuring minimalist white equipment and soft natural lighting. The room feels spacious and calm, with light wood accents and a subtle palette of sage green and soft grays. The composition is clean and balanced, reflecting the professional warmth and community support of the education center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqPMt8qFKcX9A1nmNvdLaIr0zdcXqdMSbqTdAjXqz4KiBXaSISM-EL52mf9y5UCxY3PA3ufbjKssestmo6MuLgXy0sHsv1pigcLme5yUlwUFVW35mmKfKXpqb7TPe19VDx7mInthQjLaJF9dmfR8-c-UbZxSJGmq_0rmLc2mQ8KDfEc8dCliqBGXYCVEKePgMve4Yaw2L2moorD2yPGXNQupPoxRCz_sIPkbhOFwEpDdG4pReOKSwFOA1cHVq4APp1FgG6MLpXtyx8">
+<div class="absolute top-4 left-4 bg-deep-ocean text-white px-3 py-1 rounded-full text-label-sm font-label-sm">스포츠</div>
+</div>
+<div class="p-6">
+<span class="text-leaf-green font-label-sm text-label-sm uppercase tracking-wider block mb-2">건강강좌</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">코어매트 필라테스</h4>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                            무너진 코어 근육을 키워주고 바른 자세를 잡아주는 40-60대 맞춤형 필라테스 강좌입니다.
+                        </p>
+<div class="mt-6 flex items-center text-primary font-bold text-label-sm">
+                            자세히 보기 
+                            <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 5: Specialized Program -->
+<div class="group card-hover tonal-shadow bg-white rounded-xl overflow-hidden transition-all duration-300 border border-outline-variant/10">
+<div class="aspect-video overflow-hidden relative">
+<img alt="Music Jump Rope Class" class="w-full h-full object-cover" data-alt="A cheerful gymnasium where young children are practicing jump rope to music. The lighting is bright and cheerful, highlighting the vibrant primary colors of the equipment against a clean, modern background. The scene exudes a sense of playful energy and community care, consistent with the brand's focus on nurturing growth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ4CodVJrsW2m8zcmn81UFV-BKo9z-c2glqKmGCbfUY0o6sX3lI5KvlSNE6w2hmdCKZr1EKNku5WQj7ndti2pLYEe6n-CyG-7mWfsIuiRAkVBHhrdmLMDKufZwC3PLYLdyUSKCUn4sQImbajsXVL-G7e0edEi8bbda6hekdTQ8D_HfV_rv1vzMnNOK27m-9dhaSoa23h6IA2n0-LraSFB_rloPbubVqR7Ufwg-cN-ds6F0_RjENHWUItgd52tCWwEQR_6HYxXASZD3">
+<div class="absolute top-4 left-4 bg-warm-accent text-white px-3 py-1 rounded-full text-label-sm font-label-sm">아동/청소년</div>
+</div>
+<div class="p-6">
+<span class="text-leaf-green font-label-sm text-label-sm uppercase tracking-wider block mb-2">어린이강좌</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">음악 줄넘기 (7세-초등)</h4>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                            신나는 음악과 함께 기초 체력을 다지는 아이들의 성장에 도움을 주는 프로그램입니다.
+                        </p>
+<div class="mt-6 flex items-center text-primary font-bold text-label-sm">
+                            자세히 보기 
+                            <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div><div class="flex justify-center items-center gap-2 mt-16 mb-8">
+  <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors">
+    <span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_left</span>
+  </button>
+  <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors">
+    <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+  </button>
+  
+  <div class="flex items-center gap-1 mx-2">
+    <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-leaf-green text-white font-label-sm shadow-sm transition-all">1</button>
+    <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant font-label-sm hover:border-leaf-green hover:text-leaf-green transition-colors">2</button>
+    <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant font-label-sm hover:border-leaf-green hover:text-leaf-green transition-colors">3</button>
+    <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant font-label-sm hover:border-leaf-green hover:text-leaf-green transition-colors">4</button>
+    <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant font-label-sm hover:border-leaf-green hover:text-leaf-green transition-colors">5</button>
+  </div>
+
+  <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors">
+    <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+  </button>
+  <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors">
+    <span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_right</span>
+  </button>
+</div>
+<!-- Call to Action Section -->
+
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-muted border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center py-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto gap-base">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface">꽃재</div>
+<p class="text-on-surface-variant font-body-md text-body-md">© 2024 사회복지법인 꽃재 Blooming Hill. All Rights Reserved.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="text-on-surface-variant hover:text-leaf-green transition-colors font-label-sm text-label-sm" href="#">이용약관</a>
+<a class="text-on-surface-variant hover:text-leaf-green transition-colors font-label-sm text-label-sm" href="#">개인정보처리방침</a>
+<a class="text-on-surface-variant hover:text-leaf-green transition-colors font-label-sm text-label-sm" href="#">이메일무단수집거부</a>
+<a class="text-on-surface-variant hover:text-leaf-green transition-colors font-label-sm text-label-sm" href="#">찾아오시는 길</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple interactive effect for card scaling
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98) translateY(-2px)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+        });
+    </script>
+
+
+</body></html>

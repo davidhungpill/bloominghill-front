@@ -10,12 +10,7 @@
         />
         <div class="absolute inset-0 bg-gradient-to-b from-on-surface/50 to-on-surface/70"></div>
       </div>
-      <div class="relative z-10 text-center px-margin-mobile max-w-4xl">
-        <h1 class="font-headline-xl text-headline-xl text-white mb-4">장학 사업</h1>
-        <p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto">
-          경제적 어려움 속에서도 꿈을 잃지 않는 인재들을 발굴하여 학업에 전념할 수 있도록 돕습니다.
-        </p>
-      </div>
+      
     </section>
 
     <BreadCrumb current="장학 사업" parent="사업" />

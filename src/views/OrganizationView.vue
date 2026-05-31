@@ -9,8 +9,8 @@
       <div class="mb-20 max-w-4xl text-left">
         <span class="inline-block px-4 py-1 bg-leaf-green/10 text-leaf-green font-bold text-label-sm rounded-full mb-4">Organization Structure</span>
         <h2 class="font-headline-lg text-headline-lg md:text-headline-xl leading-tight text-on-surface mb-8">
-          "전문성과 투명성을 갖춘,<br/>
-          <span class="text-leaf-green">나눔과 성장을 위한 체계적인 조직입니다."</span>
+          전문성과 투명성을 갖춘,<br/>
+          <span class="text-leaf-green">나눔과 성장을 위한 조직입니다</span>
         </h2>
         <div class="w-20 h-1.5 bg-leaf-green rounded-full"></div>
         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed mt-8">

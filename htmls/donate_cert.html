@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>기부금 영수증 안내 - 꽃재 Blooming Hill</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .tonal-card {
+            background: #ffffff;
+            border: 1px solid #EDEFF2;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .tonal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        .leaf-indicator {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background-color: #5CB338;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#8a0857",
+                        "on-primary-fixed": "#062100",
+                        "on-primary-fixed-variant": "#195200",
+                        "surface-container-high": "#e5eadc",
+                        "secondary-container": "#97a5fe",
+                        "inverse-surface": "#2c3228",
+                        "on-secondary-container": "#283789",
+                        "surface-bright": "#f6fbec",
+                        "surface-tint": "#236d00",
+                        "background": "#f6fbec",
+                        "secondary-fixed": "#dee0ff",
+                        "tertiary-fixed-dim": "#ffafd0",
+                        "surface-muted": "#F4F6F8",
+                        "on-tertiary-container": "#6e0044",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#181d14",
+                        "outline": "#707a68",
+                        "tertiary": "#a92a70",
+                        "outline-variant": "#bfcab5",
+                        "surface-container-low": "#f0f6e7",
+                        "surface-container": "#eaf0e1",
+                        "on-tertiary-fixed": "#3d0024",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#edf3e4",
+                        "surface": "#f6fbec",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#82dc5c",
+                        "surface-container-highest": "#dfe5d6",
+                        "on-background": "#181d14",
+                        "on-surface-variant": "#404a3a",
+                        "on-secondary-fixed-variant": "#303f91",
+                        "deep-ocean": "#2B3A8C",
+                        "sky-blue": "#0091D2",
+                        "inverse-primary": "#82dc5c",
+                        "primary": "#236d00",
+                        "primary-container": "#5cb338",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#9df975",
+                        "on-primary-container": "#113f00",
+                        "error-container": "#ffdad6",
+                        "leaf-green": "#5CB338",
+                        "surface-variant": "#dfe5d6",
+                        "secondary": "#4958ab",
+                        "warm-accent": "#FF7000",
+                        "tertiary-container": "#fb6db3",
+                        "surface-dim": "#d6dcce",
+                        "tertiary-fixed": "#ffd8e6",
+                        "on-secondary-fixed": "#00105c",
+                        "secondary-fixed-dim": "#bac3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "section-padding": "80px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-on-surface font-body-md selection:bg-leaf-green/30">
+<!-- Top Donation Bar (Green) -->
+<div class="bg-primary py-3">
+<div class="max-w-container-max mx-auto px-base md:px-gutter flex justify-between items-center text-on-primary">
+<span class="font-label-sm text-label-sm">함께하는 나눔, 지금 시작하세요</span>
+<a class="bg-warm-accent px-6 py-1.5 rounded-full font-label-sm text-label-sm hover:brightness-110 transition-all" href="#">지금 후원하기</a>
+</div>
+</div>
+<!-- Main Navigation Shell -->
+<header class="bg-surface shadow-sm sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-base md:px-gutter max-w-container-max mx-auto h-16">
+<div class="text-headline-md font-headline-md text-deep-ocean font-bold">꽃재</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">소개</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">사업</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">꽃재 이야기</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">소식</a>
+<div class="h-6 w-px bg-outline-variant mx-2"></div>
+<button class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md">기부금 영수증 문의</button>
+</nav>
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<button class="hidden md:block text-on-surface-variant hover:text-primary font-body-md text-body-md">후원하기</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[240px] md:h-[320px] w-full flex items-center justify-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A serene landscape of a green rolling hill during golden hour with soft sunlight filtering through lush trees. The atmosphere is peaceful, hopeful, and nurturing, representing community growth and support. The visual style is minimalist and humanist with high-key lighting and a professional modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwBnKpI52HZ3l1LpAsVA_xHoIStHsK1xNSYCKEBnPLDOIiUWNXSc9XKFZCjXSSuPSjQOuMWFOHDjlCwFCzapybCBQOuY2x0_ABRG_DJTbKdi6dye40nIY9nOJpRYU0jqqqWYi3sMYED5ljHB63wSJgDbfpHVor6-3wE1SNZmQs9a_ywePrJCPIQT_zx07dK-S6OsY0Rb8PYyPdDCCDNFNKw4-rVdd08GtszI-gk0YVUd6JQtRZ6iN3o2kljPn-bcvI7TVShUJpkcB3">
+<div class="absolute inset-0 bg-deep-ocean/20"></div>
+<div class="relative z-10 text-center text-white px-base">
+<h1 class="font-headline-xl text-headline-xl mb-4">나눔의 가치를 실현합니다</h1>
+<p class="font-body-lg text-body-lg opacity-90">따뜻한 마음을 나누어 주신 후원자님께 감사드립니다.</p>
+</div>
+</section>
+<!-- Content Area with LNB -->
+<main class="max-w-container-max mx-auto px-base md:px-gutter py-section-padding">
+<div class="flex flex-col md:flex-row gap-12">
+<!-- Left Local Navigation (LNB) -->
+
+<!-- Main Content Canvas -->
+<div class="flex-grow">
+<div class="mb-12">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-6">기부금 영수증 안내</h3>
+<div class="p-8 bg-surface-muted rounded-xl border-l-4 border-leaf-green">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                            꽃재(밥상공동체·연탄은행)는 사회복지법인 지정기부금단체로서<br class="hidden md:block">
+                            개인 및 기업·단체 후원자님께 <strong>기부금영수증</strong>을 발급해드리고 있습니다.
+                        </p>
+</div>
+</div>
+<!-- Bento Grid Style Info Blocks -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+<!-- Section 1: Corporate -->
+<div class="tonal-card p-8 rounded-2xl flex flex-col h-full">
+<div class="mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-leaf-green text-3xl">corporate_fare</span>
+<h4 class="font-headline-md text-headline-md text-deep-ocean">법인 · 기업 후원자 안내</h4>
+</div>
+<p class="text-on-surface-variant mb-6 flex-grow">
+                            입금자명은 반드시 사업자등록증 상의 명칭과 동일하게 기재해 주세요. 
+                            처음 후원하셨다면 사업자등록증을 이메일로 발송해 주시기 바랍니다.
+                        </p>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-body-md font-semibold">이메일: receipt@babsang.or.kr</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-primary">language</span>
+<span class="text-body-md font-semibold">홈페이지: 기부금영수증 신청 게시판</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-primary">chat_bubble</span>
+<span class="text-body-md font-semibold">카카오톡 채널: @꽃재복지재단</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Individual -->
+<div class="tonal-card p-8 rounded-2xl flex flex-col h-full">
+<div class="mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-leaf-green text-3xl">person</span>
+<h4 class="font-headline-md text-headline-md text-deep-ocean">개인 후원자 안내</h4>
+</div>
+<p class="text-on-surface-variant mb-6">
+                            후원내역은 <strong>연말정산 간소화 서비스</strong>에 등록되어, 국세청 홈택스를 통해 자동 확인 가능합니다.
+                        </p>
+<div class="bg-primary/5 p-5 rounded-xl border border-primary/20 mb-6">
+<h5 class="font-label-sm text-primary mb-3">※ 필수 입력 정보</h5>
+<ul class="grid grid-cols-2 gap-y-2 gap-x-4 text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-leaf-green"></span> 성명
+                                </li>
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-leaf-green"></span> 주민번호 13자리
+                                </li>
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-leaf-green"></span> 후원금액
+                                </li>
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-leaf-green"></span> 휴대전화번호
+                                </li>
+</ul>
+</div>
+<p class="text-label-sm text-on-surface-variant/80 italic mt-auto">
+                            단체명 입금 후 개별 발급 원할 시 '단체명_개인후원내역' 양식을 작성해 메일로 보내주세요.
+                        </p>
+</div>
+</div>
+<!-- Footer Inquiry Buttons -->
+<div class="pt-12 border-t border-outline-variant">
+<h4 class="font-headline-md text-headline-md text-center text-on-surface mb-8">궁금한 점이 있으신가요?</h4>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="flex items-center justify-center gap-3 bg-white border-2 border-deep-ocean text-deep-ocean font-bold px-8 py-4 rounded-xl hover:bg-deep-ocean/5 transition-all">
+<span class="material-symbols-outlined">call</span>
+                            전화 문의 1577-9044
+                        </button>
+<button class="flex items-center justify-center gap-3 bg-[#FAE100] text-[#3C1E1E] font-bold px-8 py-4 rounded-xl hover:brightness-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">chat_bubble</span>
+                            카카오톡 상담하기
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-muted dark:bg-surface-container-high border-t border-outline-variant">
+<div class="w-full py-section-padding px-base md:px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="text-headline-md font-headline-md text-deep-ocean mb-6">꽃재</div>
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed">
+                        모두가 함께 웃는 따뜻한 세상을 만들어가는 꽃재 복지재단입니다.
+                    </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 col-span-1 md:col-span-3 gap-8">
+<div>
+<h5 class="font-bold text-on-surface mb-4">재단안내</h5>
+<ul class="space-y-2 text-on-surface-variant font-body-md">
+<li class=""><a class="hover:text-primary transition-colors" href="#">인사말</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">미션 및 비전</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">오시는 길</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-on-surface mb-4">참여안내</h5>
+<ul class="space-y-2 text-on-surface-variant font-body-md">
+<li class=""><a class="hover:text-primary transition-colors" href="#">정기후원</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">캠페인후원</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">봉사신청</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-on-surface mb-4">고객지원</h5>
+<ul class="space-y-2 text-on-surface-variant font-body-md">
+<li class=""><a class="hover:text-primary transition-colors" href="#">자주묻는질문</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">기부금영수증</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">공지사항</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant font-body-md text-body-md">© 2024 꽃재 Blooming Hill Foundation. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary underline font-body-md text-body-md" href="#">이용약관</a>
+<a class="text-on-surface-variant hover:text-primary underline font-body-md text-body-md" href="#">개인정보처리방침</a>
+<a class="text-on-surface-variant hover:text-primary underline font-body-md text-body-md" href="#">이메일무단수집거부</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for navigation and cards
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.98)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = 'scale(1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+
+
+</body></html>

@@ -39,26 +39,52 @@
             </button>
           </div>
 
-          <a href="#" class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold">꽃재 이야기</a>
-          <a href="#" class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold">소식</a>
+          <!-- 꽃재 이야기 -->
+          <div class="relative" @mouseenter="openMenu('story')">
+            <button
+              class="text-body-lg font-bold transition-colors duration-200 pb-1"
+              :class="isStoryActive
+                ? 'text-primary border-b-2 border-leaf-green'
+                : 'text-on-surface-variant hover:text-primary'"
+            >
+              꽃재 이야기
+            </button>
+          </div>
+
+          <!-- 소식 -->
+          <div class="relative" @mouseenter="openMenu('news')">
+            <button
+              class="text-body-lg font-bold transition-colors duration-200 pb-1"
+              :class="isNewsActive
+                ? 'text-primary border-b-2 border-leaf-green'
+                : 'text-on-surface-variant hover:text-primary'"
+            >
+              소식
+            </button>
+          </div>
         </nav>
       </div>
 
       <!-- 우측 버튼 -->
       <div class="flex items-center gap-4">
-        <button class="hidden md:block px-6 py-2 rounded-lg font-label-sm text-label-sm text-primary border-2 border-primary hover:bg-primary/5 transition-all active:scale-95">
+        <router-link to="/donate" class="hidden md:block px-6 py-2 rounded-lg font-label-sm text-label-sm text-primary border-2 border-primary hover:bg-primary/5 transition-all active:scale-95">
           후원하기
-        </button>
-        <button class="px-6 py-2.5 rounded-lg font-label-sm text-label-sm bg-primary text-on-primary hover:bg-primary/90 transition-all active:scale-95 shadow-md">
+        </router-link>
+        <router-link to="/donate-cert" class="hidden md:block px-6 py-2.5 rounded-lg font-label-sm text-label-sm bg-primary text-on-primary hover:bg-primary/90 transition-all active:scale-95 shadow-md">
           기부금 영수증 문의
-        </button>
-        <button class="flex items-center justify-center p-2 rounded-lg text-primary hover:bg-primary/5 transition-all active:scale-95">
-          <span class="material-symbols-outlined" style="font-size: 28px;">menu</span>
+        </router-link>
+        <button
+          class="flex items-center justify-center p-2 rounded-lg text-primary hover:bg-primary/5 transition-all active:scale-95"
+          @click="toggleMobileMenu"
+        >
+          <span class="material-symbols-outlined transition-all duration-200" style="font-size: 28px;">
+            {{ mobileMenuOpen ? 'close' : 'menu' }}
+          </span>
         </button>
       </div>
     </div>
 
-    <!-- 드롭다운 패널 -->
+    <!-- 호버 드롭다운 패널 -->
     <Transition name="dropdown">
       <div
         v-if="activeMenu"
@@ -68,10 +94,9 @@
       >
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-6">
           <div class="flex items-start">
-            <!-- 로고와 동일 너비 스페이서 -->
             <img src="/static/logo.png" alt="" aria-hidden="true" class="h-28 w-auto invisible shrink-0" />
-            <!-- nav 구조를 그대로 미러링하여 각 메뉴 아래에 정렬 -->
             <div class="flex items-start gap-24 ml-16">
+
               <!-- 소개 슬롯 -->
               <div>
                 <ul v-if="activeMenu === 'intro'" class="flex flex-col gap-0.5 min-w-[160px]">
@@ -83,18 +108,55 @@
                         ? 'bg-primary/10 text-on-surface font-bold'
                         : 'text-on-surface hover:bg-surface-container hover:text-primary'"
                       @click="closeMenu"
-                    >
-                      {{ item.label }}
-                    </router-link>
+                    >{{ item.label }}</router-link>
                   </li>
                 </ul>
-                <!-- 사업 메뉴가 열렸을 때 소개 자리를 점유하는 invisible 스페이서 -->
                 <span v-else class="invisible pointer-events-none text-body-lg font-bold">소개</span>
               </div>
 
               <!-- 사업 슬롯 -->
-              <ul v-if="activeMenu === 'business'" class="flex flex-col gap-0.5 min-w-[160px]">
-                <li v-for="item in businessMenuItems" :key="item.path">
+              <div v-if="activeMenu === 'business' || activeMenu === 'story' || activeMenu === 'news'">
+                <ul v-if="activeMenu === 'business'" class="flex flex-col gap-0.5 min-w-[160px]">
+                  <li v-for="item in businessMenuItems" :key="item.path">
+                    <router-link
+                      :to="item.path"
+                      class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
+                      :class="$route.path === item.path
+                        ? 'bg-primary/10 text-on-surface font-bold'
+                        : 'text-on-surface hover:bg-surface-container hover:text-primary'"
+                      @click="closeMenu"
+                    >{{ item.label }}</router-link>
+                  </li>
+                </ul>
+                <span v-else class="invisible pointer-events-none text-body-lg font-bold">사업</span>
+              </div>
+
+              <!-- 꽃재 이야기 슬롯 -->
+              <div v-if="activeMenu === 'story' || activeMenu === 'news'" :class="activeMenu === 'story' ? 'ml-4' : ''">
+                <ul v-if="activeMenu === 'story'" class="flex flex-col gap-0.5 min-w-[160px]">
+                  <li v-for="item in storyMenuItems" :key="item.path">
+                    <router-link
+                      v-if="item.path !== '#'"
+                      :to="item.path"
+                      class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
+                      :class="$route.path === item.path
+                        ? 'bg-primary/10 text-on-surface font-bold'
+                        : 'text-on-surface hover:bg-surface-container hover:text-primary'"
+                      @click="closeMenu"
+                    >{{ item.label }}</router-link>
+                    <a
+                      v-else
+                      href="#"
+                      class="flex items-center px-4 py-2 rounded-lg text-sm text-on-surface hover:bg-surface-container hover:text-primary transition-all duration-150"
+                    >{{ item.label }}</a>
+                  </li>
+                </ul>
+                <span v-else class="invisible pointer-events-none text-body-lg font-bold">꽃재 이야기</span>
+              </div>
+
+              <!-- 소식 슬롯 -->
+              <ul v-if="activeMenu === 'news'" class="flex flex-col gap-0.5 min-w-[160px]">
+                <li v-for="item in newsMenuItems" :key="item.path">
                   <router-link
                     v-if="item.path !== '#'"
                     :to="item.path"
@@ -103,32 +165,133 @@
                       ? 'bg-primary/10 text-on-surface font-bold'
                       : 'text-on-surface hover:bg-surface-container hover:text-primary'"
                     @click="closeMenu"
-                  >
-                    {{ item.label }}
-                  </router-link>
+                  >{{ item.label }}</router-link>
                   <a
                     v-else
                     href="#"
                     class="flex items-center px-4 py-2 rounded-lg text-sm text-on-surface hover:bg-surface-container hover:text-primary transition-all duration-150"
-                  >
-                    {{ item.label }}
-                  </a>
+                  >{{ item.label }}</a>
                 </li>
               </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- 햄버거 전체 메뉴 패널 -->
+    <Transition name="fullmenu">
+      <div
+        v-if="mobileMenuOpen"
+        class="absolute left-0 right-0 top-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/30 shadow-lg"
+      >
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-6">
+          <!-- 호버 드롭다운과 동일한 구조: 로고 스페이서 + gap-24 ml-16 -->
+          <div class="flex items-start" style="min-height:240px">
+            <img src="/static/logo.png" alt="" aria-hidden="true" class="h-28 w-auto invisible shrink-0" />
+            <div class="flex items-start gap-24 ml-16">
+
+              <!-- 소개: invisible span이 nav 버튼 너비 확보, ul은 같은 위치에 absolute 오버레이 -->
+              <div class="relative">
+                <span class="invisible pointer-events-none text-body-lg font-bold">소개</span>
+                <ul class="absolute top-0 left-0 flex flex-col gap-0.5 min-w-[160px]">
+                  <li v-for="item in introMenuItems" :key="item.path">
+                    <router-link
+                      :to="item.path"
+                      class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
+                      :class="$route.path === item.path
+                        ? 'bg-primary/10 text-on-surface font-bold'
+                        : 'text-on-surface hover:bg-surface-container hover:text-primary'"
+                      @click="closeMobileMenu"
+                    >{{ item.label }}</router-link>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 사업 -->
+              <div class="relative">
+                <span class="invisible pointer-events-none text-body-lg font-bold">사업</span>
+                <ul class="absolute top-0 left-0 flex flex-col gap-0.5 min-w-[160px]">
+                  <li v-for="item in businessMenuItems" :key="item.path">
+                    <router-link
+                      :to="item.path"
+                      class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
+                      :class="$route.path === item.path
+                        ? 'bg-primary/10 text-on-surface font-bold'
+                        : 'text-on-surface hover:bg-surface-container hover:text-primary'"
+                      @click="closeMobileMenu"
+                    >{{ item.label }}</router-link>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 꽃재 이야기 -->
+              <div class="relative">
+                <span class="invisible pointer-events-none text-body-lg font-bold">꽃재 이야기</span>
+                <ul class="absolute top-0 left-4 flex flex-col gap-0.5 min-w-[160px]">
+                  <li v-for="item in storyMenuItems" :key="item.path">
+                    <router-link
+                      v-if="item.path !== '#'"
+                      :to="item.path"
+                      class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
+                      :class="$route.path === item.path
+                        ? 'bg-primary/10 text-on-surface font-bold'
+                        : 'text-on-surface hover:bg-surface-container hover:text-primary'"
+                      @click="closeMobileMenu"
+                    >{{ item.label }}</router-link>
+                    <a
+                      v-else
+                      href="#"
+                      class="flex items-center px-4 py-2 rounded-lg text-sm text-on-surface hover:bg-surface-container hover:text-primary transition-all duration-150"
+                    >{{ item.label }}</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 소식 -->
+              <div class="relative">
+                <span class="invisible pointer-events-none text-body-lg font-bold">소식</span>
+                <ul class="absolute top-0 left-0 flex flex-col gap-0.5 min-w-[160px]">
+                  <li v-for="item in newsMenuItems" :key="item.path">
+                    <router-link
+                      :to="item.path"
+                      class="flex items-center px-4 py-2 rounded-lg text-sm transition-all duration-150"
+                      :class="$route.path === item.path
+                        ? 'bg-primary/10 text-on-surface font-bold'
+                        : 'text-on-surface hover:bg-surface-container hover:text-primary'"
+                      @click="closeMobileMenu"
+                    >{{ item.label }}</router-link>
+                  </li>
+                </ul>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     </Transition>
   </header>
+
+  <!-- 배경 오버레이 (메뉴 열렸을 때 외부 클릭으로 닫기) -->
+  <Teleport to="body">
+    <Transition name="overlay">
+      <div
+        v-if="mobileMenuOpen"
+        class="fixed inset-0 bg-black/20 z-40"
+        @click="closeMobileMenu"
+      ></div>
+    </Transition>
+  </Teleport>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const activeMenu = ref(null)
+const mobileMenuOpen = ref(false)
 let closeTimer = null
 
 const introMenuItems = [
@@ -146,15 +309,49 @@ const businessMenuItems = [
   { label: '장학 사업', path: '/scholarship' },
 ]
 
+const storyMenuItems = [
+  { label: '나눔 이야기', path: '/story' },
+  { label: '언론 보도자료', path: '/press' },
+  { label: '꽃재 평생 교육원', path: '/education' },
+]
+
+const newsMenuItems = [
+  { label: '공지사항', path: '/notice' },
+  { label: '자주 묻는 질문', path: '/faq' },
+]
+
 const introRoutes = introMenuItems.map(i => i.path)
 const businessRoutes = ['/orchestra', '/nanum', '/scholarship']
-
+const newsRoutes = ['/notice', '/faq']
 const isIntroActive = computed(() => introRoutes.includes(route.path))
 const isBusinessActive = computed(() => businessRoutes.includes(route.path))
+const isStoryActive = computed(() =>
+  route.path === '/story' || route.path.startsWith('/story/') ||
+  route.path === '/press' || route.path === '/education'
+)
+const isNewsActive = computed(() => newsRoutes.includes(route.path))
+
+watch(() => route.path, () => {
+  mobileMenuOpen.value = false
+  activeMenu.value = null
+})
+
+function toggleMobileMenu() {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+  if (mobileMenuOpen.value) {
+    clearTimeout(closeTimer)
+    activeMenu.value = null
+  }
+}
+
+function closeMobileMenu() {
+  mobileMenuOpen.value = false
+}
 
 function openMenu(name) {
   clearTimeout(closeTimer)
   activeMenu.value = name
+  mobileMenuOpen.value = false
 }
 
 function keepMenu() {
@@ -177,5 +374,24 @@ function closeMenu() {
 .dropdown-leave-to {
   opacity: 0;
   transform: translateY(-6px);
+}
+
+.fullmenu-enter-active,
+.fullmenu-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.fullmenu-enter-from,
+.fullmenu-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.overlay-enter-active,
+.overlay-leave-active {
+  transition: opacity 0.2s ease;
+}
+.overlay-enter-from,
+.overlay-leave-to {
+  opacity: 0;
 }
 </style>

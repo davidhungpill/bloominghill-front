@@ -9,7 +9,7 @@
           <span class="inline-block px-4 py-1 bg-leaf-green/10 text-leaf-green font-bold text-label-sm rounded-full mb-4">Mission &amp; Vision</span>
           <h2 class="font-headline-lg text-headline-lg md:text-headline-xl leading-tight text-on-surface mb-8">
             사단법인 꽃재가 꿈꾸는<br>
-            <span class="text-leaf-green">나눔과 성장의 미래</span>입니다.
+            <span class="text-leaf-green">나눔과 성장의 미래</span>입니다
           </h2>
           <div class="w-20 h-1.5 bg-leaf-green rounded-full"></div>
         </div>

@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="ko" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>자주 묻는 질문 | 사단법인 꽃재</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#236d00",
+                        "on-primary": "#ffffff",
+                        "surface-muted": "#F4F6F8",
+                        "on-surface-variant": "#404a3a",
+                        "on-secondary-fixed": "#00105c",
+                        "inverse-surface": "#2c3228",
+                        "background": "#f6fbec",
+                        "inverse-on-surface": "#edf3e4",
+                        "surface": "#f6fbec",
+                        "warm-accent": "#FF7000",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "on-primary-container": "#113f00",
+                        "outline": "#707a68",
+                        "primary": "#236d00",
+                        "surface-dim": "#d6dcce",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#8a0857",
+                        "on-secondary-container": "#283789",
+                        "surface-container-high": "#e5eadc",
+                        "error-container": "#ffdad6",
+                        "on-background": "#181d14",
+                        "surface-container-highest": "#dfe5d6",
+                        "tertiary-container": "#fb6db3",
+                        "surface-variant": "#dfe5d6",
+                        "surface-container-low": "#f0f6e7",
+                        "deep-ocean": "#2B3A8C",
+                        "secondary-container": "#97a5fe",
+                        "on-tertiary-container": "#6e0044",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eaf0e1",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#181d14",
+                        "on-secondary-fixed-variant": "#303f91",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffd8e6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#062100",
+                        "secondary": "#4958ab",
+                        "on-tertiary-fixed": "#3d0024",
+                        "inverse-primary": "#82dc5c",
+                        "tertiary": "#a92a70",
+                        "primary-container": "#5cb338",
+                        "tertiary-fixed-dim": "#ffafd0",
+                        "sky-blue": "#0091D2",
+                        "primary-fixed-dim": "#82dc5c",
+                        "surface-bright": "#f6fbec",
+                        "secondary-fixed": "#dee0ff",
+                        "outline-variant": "#bfcab5",
+                        "on-primary-fixed-variant": "#195200",
+                        "primary-fixed": "#9df975",
+                        "leaf-green": "#5CB338"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            transition: transform 0.3s ease;
+            vertical-align: middle;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 800px;
+            padding-bottom: 32px;
+        }
+        .accordion-item.active .material-symbols-outlined.expand-icon {
+            transform: rotate(180deg);
+        }
+        .hero-overlay {
+            background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<!-- Top Green Donation Bar (as seen in latest main/sub pages) -->
+<div class="bg-primary text-on-primary py-2 w-full z-[60] relative">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex items-center justify-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">volunteer_activism</span>
+<p class="text-label-sm font-label-sm">따뜻한 나눔은 세상을 밝힙니다.</p>
+</div>
+<a class="text-label-sm font-label-sm bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full transition-colors flex items-center gap-1" href="#">
+                지금 후원하기 <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- GNB Header -->
+<header class="bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm sticky top-0 z-50 h-24">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full">
+<div class="flex items-center">
+<a class="flex items-center" href="#">
+<img alt="꽃재 Logo" class="w-auto object-contain h-16" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFPxCapa8iwNKwV8XrUEKPcYFwfsgBAykb12-c7YT7VtsCESjULS9iVXpl8m4NIcC44OCLlvIR3ilFhEbio0SIji-A5d8ak3fJbgX1OF5zyYcObFtinasiyE3MIxKOaLiOIjowPU48XYjWB7r2ZRL4ftEXpXkaxwksTNnA8yZ68A6xh4kK1v1eqLlu9xjGe-dssnfcAsgGtOmGcdMG24QrSIU-T2SfglJtQnC5HmcaA6acnV0LLUpiTDYugdMwIiGkToSMu5FiXLn9">
+</a>
+<nav class="hidden md:flex items-center gap-12 ml-16">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold" href="#">소개</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold" href="#">사업</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-body-lg font-bold" href="#">꽃재 이야기</a>
+<a class="text-primary font-bold border-b-2 border-leaf-green pb-1 text-body-lg" href="#">소식</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block px-6 py-2 rounded-lg font-label-sm text-label-sm text-primary border-2 border-primary hover:bg-primary/5 transition-all active:scale-95">후원하기</button>
+<button class="px-6 py-2.5 rounded-lg font-label-sm text-label-sm bg-primary text-on-primary hover:bg-primary/90 transition-all active:scale-95 shadow-md">기부금 영수증 문의</button>
+<button class="flex items-center justify-center p-2 rounded-lg text-primary hover:bg-primary/5 transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 28px;">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="bg-white min-h-screen">
+<!-- Hero Section -->
+<section class="relative flex items-center overflow-hidden min-h-[240px] md:min-h-[400px]">
+<div class="absolute inset-0 z-0">
+<img alt="Hero background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfTekRXLJg_nQXdFd9kb54KNHlmxe-o9c1yPgau-GSJY-jSut3bSApA_a5_3Kzfsvp7-gctBh1bVxW0TFhz3qf_okIQ0AFujfTSM9UaD0D7gIRBreR9VyWXLfzQG--XgAJj4-iAUY7FwcjCKKs1B_-RcE1Oh_oAtX7ibbXoogGlB0oMosEm2qsO8xNakgQNykwazpvxXdxN8kGrvNMaNBeyfxKt77-a3DGOaiJcUy5JWXjRo0Iidd5gZU2wAUXYfuFCEjfkoR8Od1F">
+<div class="absolute inset-0 hero-overlay bg-black/20"></div>
+</div>
+<div class="relative z-10 w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto text-white">
+<div class="max-w-3xl">
+<h2 class="font-headline-xl text-headline-xl md:text-[56px] leading-tight mb-4 drop-shadow-md">자주 묻는 질문</h2>
+<p class="text-body-lg md:text-xl opacity-90 font-medium drop-shadow-sm">사단법인 꽃재에 대해 궁금하신 점들을 확인해 보세요.</p>
+</div>
+</div>
+</section>
+<!-- Breadcrumb -->
+<section class="bg-white border-b border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-4">
+<nav class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-sm text-label-sm">소식</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">자주 묻는 질문</span>
+</nav>
+</div>
+</section>
+<div class="max-w-container-max mx-auto px-gutter py-section-padding">
+<!-- Section Header -->
+<div class="mb-16">
+<span class="inline-block px-4 py-1 bg-leaf-green/10 text-leaf-green font-bold text-label-sm rounded-full mb-4">FAQ</span>
+<h2 class="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface mb-8">자주 묻는 질문</h2>
+<div class="w-20 h-1.5 bg-leaf-green rounded-full"></div><p class="text-on-surface-variant font-body-md mt-6">사단 법인 꽃재에 대해 궁금하신 점들을 확인해 보세요.</p>
+</div>
+<!-- FAQ Section -->
+<div class="space-y-2 mx-auto max-w-5xl">
+<!-- FAQ Item 1 -->
+<div class="accordion-item border-b border-outline-variant group">
+<button class="w-full flex justify-between items-center py-8 text-left focus:outline-none transition-all" onclick="toggleAccordion(this)">
+<div class="flex gap-6 items-start">
+<span class="text-leaf-green font-bold text-headline-md leading-none pt-1">Q.</span>
+<span class="font-headline-md text-on-surface group-hover:text-primary transition-colors leading-snug">후원금은 투명하게 쓰이나요?</span>
+</div>
+<span class="material-symbols-outlined expand-icon text-outline text-3xl">expand_more</span>
+</button>
+<div class="accordion-content px-12">
+<div class="text-on-surface-variant text-body-lg leading-relaxed bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30">
+                            사단법인 꽃재의 재무운영은 4단계의 감사시스템을 거칩니다.<br><br>
+                            1. 법인이사회 감사<br>
+                            2. 외부추천감사의 내부감사<br>
+                            3. 외부회계법인의 감사<br>
+                            4. 정부 감사(보건복지부, 국세청, 관할지자체 등)<br><br>
+                            또한 연 1회 연간보고서를 발간해 진행된 사업결과를 보고합니다.
+                        </div>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="accordion-item border-b border-outline-variant group">
+<button class="w-full flex justify-between items-center py-8 text-left focus:outline-none transition-all" onclick="toggleAccordion(this)">
+<div class="flex gap-6 items-start">
+<span class="text-leaf-green font-bold text-headline-md leading-none pt-1">Q.</span>
+<span class="font-headline-md text-on-surface group-hover:text-primary transition-colors leading-snug">기부금은 세액공제 받을 수 있나요?</span>
+</div>
+<span class="material-symbols-outlined expand-icon text-outline text-3xl">expand_more</span>
+</button>
+<div class="accordion-content px-12">
+<div class="text-on-surface-variant text-body-lg leading-relaxed bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30">
+                            꽃재는 법인세법 시행령 제 36조에 근거한 사회복지법인으로 지정기부금단체이며, 다음과 같이 세액공제 혜택을 받으실 수 있습니다.<br><br>
+                            - 본인 근로소득 금액의 30% 한도 내에서 기부금의 15% 세액공제 (1,000만원 초과분은 30%)<br>
+                            - 법인의 경우 기부금의 10% 세액공제
+                        </div>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="accordion-item border-b border-outline-variant group">
+<button class="w-full flex justify-between items-center py-8 text-left focus:outline-none transition-all" onclick="toggleAccordion(this)">
+<div class="flex gap-6 items-start">
+<span class="text-leaf-green font-bold text-headline-md leading-none pt-1">Q.</span>
+<span class="font-headline-md text-on-surface group-hover:text-primary transition-colors leading-snug">기부금영수증은 어떻게 받을 수 있나요?</span>
+</div>
+<span class="material-symbols-outlined expand-icon text-outline text-3xl">expand_more</span>
+</button>
+<div class="accordion-content px-12">
+<div class="space-y-6 text-on-surface-variant text-body-lg leading-relaxed bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30">
+<div>
+<p class="font-bold text-on-surface mb-2">1. 국세청 홈텍스 홈페이지에서 확인</p>
+<p class="">- 주민번호가 등록되어있는 개인후원자의 기부내역을 국세청으로 신고해드립니다. 연초 연말정산 간소화 서비스를 통해 확인 가능합니다.</p>
+</div>
+<div>
+<p class="font-bold text-on-surface mb-2">2. 꽃재 홈페이지에서 발급</p>
+<p class="">- [마이페이지] &gt; [나의후원] &gt; [기부금영수증출력] 메뉴에서 1월 10일부터 5월 31일 사이 출력이 가능합니다.</p>
+</div>
+<div>
+<p class="font-bold text-on-surface mb-2">3. 전화신청</p>
+<p class="">- 기업 및 법인 후원자의 경우 종합소득세 신고 기간에 직접 연락주시면 발급해드립니다.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="accordion-item border-b border-outline-variant group">
+<button class="w-full flex justify-between items-center py-8 text-left focus:outline-none transition-all" onclick="toggleAccordion(this)">
+<div class="flex gap-6 items-start">
+<span class="text-leaf-green font-bold text-headline-md leading-none pt-1">Q.</span>
+<span class="font-headline-md text-on-surface group-hover:text-primary transition-colors leading-snug">후원자 명의를 변경하여 기부금영수증을 발급받을 수 있나요?</span>
+</div>
+<span class="material-symbols-outlined expand-icon text-outline text-3xl">expand_more</span>
+</button>
+<div class="accordion-content px-12">
+<div class="text-on-surface-variant text-body-lg leading-relaxed bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30">
+                            아니요. 기부금영수증은 등록된 후원자님의 명의로만 발급됩니다. 허위 발급 시 소득세법 81조에 근거하여 법적처벌을 받게 되며, 타인명의 변경은 불가능합니다.<br><br>
+                            단, 기본공제대상자(직계존속, 형제자매 포함)의 경우 명의변경 없이도 세액공제를 받을 수 있으며, 자녀 이름으로 후원한 경우 자녀 명의로 발급된 영수증을 부모님이 공제 받을 수 있습니다.
+                        </div>
+</div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="accordion-item border-b border-outline-variant group">
+<button class="w-full flex justify-between items-center py-8 text-left focus:outline-none transition-all" onclick="toggleAccordion(this)">
+<div class="flex gap-6 items-start">
+<span class="text-leaf-green font-bold text-headline-md leading-none pt-1">Q.</span>
+<span class="font-headline-md text-on-surface group-hover:text-primary transition-colors leading-snug">정보를 변경하고 싶어요.</span>
+</div>
+<span class="material-symbols-outlined expand-icon text-outline text-3xl">expand_more</span>
+</button>
+<div class="accordion-content px-12">
+<div class="text-on-surface-variant text-body-lg leading-relaxed bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30">
+                            전화번호, 주소, 계좌번호 등 개인정보 변경을 원하실 경우 홈페이지 또는 대표전화(1577-9044)를 통해 언제든지 요청하실 수 있습니다.
+                        </div>
+</div>
+</div>
+<!-- FAQ Item 6 -->
+<div class="accordion-item border-b border-outline-variant group">
+<button class="w-full flex justify-between items-center py-8 text-left focus:outline-none transition-all" onclick="toggleAccordion(this)">
+<div class="flex gap-6 items-start">
+<span class="text-leaf-green font-bold text-headline-md leading-none pt-1">Q.</span>
+<span class="font-headline-md text-on-surface group-hover:text-primary transition-colors leading-snug">현물후원이 가능한가요?</span>
+</div>
+<span class="material-symbols-outlined expand-icon text-outline text-3xl">expand_more</span>
+</button>
+<div class="accordion-content px-12">
+<div class="text-on-surface-variant text-body-lg leading-relaxed bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30">
+                            네, 가능합니다. 쌀, 생필품 등 후원해주신 물품은 어려운 이웃들에게 소중히 전달됩니다. 현물후원 신청 및 상세 안내는 대표번호 1577-9044로 문의 주시기 바랍니다.
+                        </div>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="mt-24 p-12 bg-surface-muted rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-outline-variant/30 shadow-sm">
+<div class="max-w-3xl">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">찾으시는 질문이 없으신가요?</h3>
+<p class="text-on-surface-variant text-body-lg">꽃재 사무국으로 연락주시면 친절하게 답변해 드리겠습니다.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="flex items-center gap-2 bg-white border-2 border-deep-ocean text-deep-ocean px-8 py-4 rounded-xl font-label-sm hover:bg-surface-dim transition-all active:scale-95 shadow-sm" href="tel:1577-9044">
+<span class="material-symbols-outlined">call</span>
+                        1577-9044
+                    </a>
+<a class="flex items-center gap-2 bg-warm-accent text-white px-8 py-4 rounded-xl font-label-sm hover:opacity-90 transition-all active:scale-95 shadow-md" href="#">
+<span class="material-symbols-outlined">chat</span>
+                        카카오톡 문의
+                    </a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-muted border-t border-outline-variant/20 py-section-padding">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto gap-base">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<img alt="꽃재 Logo" class="h-8 w-auto grayscale contrast-125 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9FeOlo-pmMFsbsKOIJRonDywtdECRoeXZzEp9-OvLh9tWyfTwLIS2vKbdNc_K-gda_LhCsHC88XvgiW_btTAXQbPQx03U27qv6oPdUrsOZz9zf4ZAWK2OuzkytPHLxs6WPGKzEQzdTfTOUtoBXiCqP4O5YaPX85__GJzx-U7edlPthu8300Hy0DtrxR9B7NpQUT-X_f2pfhITUSuAPhK_7XhDBRAep0rkQP2egU4xKgEdxlbPw8FmvfremTulwf8d7cnyAULAKciC">
+<span class="">사단법인 꽃재</span>
+</div>
+<div class="flex flex-wrap gap-4 font-label-sm text-label-sm">
+<a class="text-on-surface-variant hover:text-leaf-green transition-colors" href="#">이용약관</a>
+<a class="text-primary font-semibold underline hover:text-leaf-green transition-colors" href="#">개인정보처리방침</a>
+<a class="text-on-surface-variant hover:text-leaf-green transition-colors" href="#">이메일무단수집거부</a>
+<a class="text-on-surface-variant hover:text-leaf-green transition-colors" href="#">찾아오시는 길</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70 mt-4">
+                    서울특별시 성동구 왕십리로 123 꽃재빌딩 4층 | 대표자: 김꽃재 | 사업자번호: 224-82-10338<br>
+                    대표전화: 02-1234-5678 | 이메일: info@bloominghill.or.kr
+                </p>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70">© 2024 사회복지법인 꽃재 Blooming Hill. All Rights Reserved.</p>
+</div>
+<div class="flex flex-col md:items-end gap-6 w-full md:w-auto">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-white border border-outline-variant/30 flex items-center justify-center hover:bg-leaf-green hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-white border border-outline-variant/30 flex items-center justify-center hover:bg-leaf-green hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-outline-variant/30 text-right">
+<p class="font-label-sm text-primary mb-1">후원문의 (평일 09:00 - 18:00)</p>
+<p class="text-2xl font-headline-md text-on-surface">02-1234-5678</p>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+
+
+
+
+</body></html>

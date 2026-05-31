@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>꽃재 - 나눔이야기</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "warm-accent": "#FF7000",
+                    "outline-variant": "#bfcab5",
+                    "surface-container": "#eaf0e1",
+                    "surface-variant": "#dfe5d6",
+                    "surface-container-high": "#e5eadc",
+                    "tertiary-container": "#fb6db3",
+                    "surface-bright": "#f6fbec",
+                    "on-tertiary-fixed-variant": "#8a0857",
+                    "outline": "#707a68",
+                    "inverse-primary": "#82dc5c",
+                    "inverse-on-surface": "#edf3e4",
+                    "tertiary": "#a92a70",
+                    "on-tertiary-fixed": "#3d0024",
+                    "surface-dim": "#d6dcce",
+                    "on-background": "#181d14",
+                    "leaf-green": "#5CB338",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#9df975",
+                    "secondary-fixed": "#dee0ff",
+                    "on-secondary-container": "#283789",
+                    "on-primary-fixed": "#062100",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffafd0",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#195200",
+                    "primary": "#236d00",
+                    "on-surface-variant": "#404a3a",
+                    "on-secondary-fixed-variant": "#303f91",
+                    "on-error-container": "#93000a",
+                    "sky-blue": "#0091D2",
+                    "primary-container": "#5cb338",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#181d14",
+                    "on-secondary-fixed": "#00105c",
+                    "secondary": "#4958ab",
+                    "on-primary-container": "#113f00",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#236d00",
+                    "surface-container-highest": "#dfe5d6",
+                    "surface-muted": "#F4F6F8",
+                    "primary-fixed-dim": "#82dc5c",
+                    "inverse-surface": "#2c3228",
+                    "deep-ocean": "#2B3A8C",
+                    "on-tertiary-container": "#6e0044",
+                    "surface": "#f6fbec",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#ffd8e6",
+                    "secondary-container": "#97a5fe",
+                    "surface-container-low": "#f0f6e7",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f6fbec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "container-max": "1200px",
+                    "section-padding": "80px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .story-card:hover .story-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopAppBar Shell -->
+<header class="flex flex-col w-full z-50 fixed top-0 bg-surface shadow-sm">
+<div class="bg-leaf-green text-white py-1 text-center font-label-sm">
+            함께 피어나는 따뜻한 공동체, 사단법인 꽃재
+        </div>
+<div class="flex justify-between items-center px-gutter h-16 max-w-container-max mx-auto w-full border-b border-outline-variant">
+<div class="font-headline-md text-headline-md text-deep-ocean font-bold">꽃재</div>
+<nav class="hidden md:flex items-center space-x-8 font-body-md">
+<a class="text-on-surface hover:text-leaf-green transition-colors duration-200" href="#">소개</a>
+<a class="text-on-surface hover:text-leaf-green transition-colors duration-200" href="#">사업</a>
+<a class="text-leaf-green font-bold border-b-2 border-leaf-green pb-1" href="#">꽃재 이야기</a>
+<a class="text-on-surface hover:text-leaf-green transition-colors duration-200" href="#">소식</a>
+</nav>
+<button class="bg-leaf-green text-white px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 active:scale-95 transition-all">
+                후원하기
+            </button>
+</div>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative flex items-center overflow-hidden min-h-[200px] md:min-h-[400px]">
+<img alt="" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAZAFA2xBboGAIVypzB3t0QI1Gy5nqsWUeV6YliDb7JiVw8R-81zzZeNB20egNI4grq-kf3mHW_LE-xZCh90u37Jj_RrGOmNMnIWiIMwgAr_FgPuyezTa3TzEcg6VOqAC84nI0np8gCxk5GCoFc3ns93gTM2brYZ265z_iZ3h1OtTn42oArCA3Q3yguTGPk2-9vbOiztpGOzi2TCXRk1S6OKMCBjpiDjFNpZGfv2BkHrowsHQMaYEoYfI09YHzm6gC79c00BKAVKeM"/>
+</section><section class="bg-white pt-section-padding pb-0">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="mb-12">
+<span class="inline-block px-4 py-1 bg-leaf-green/10 text-leaf-green font-bold text-label-sm rounded-full mb-4">Sharing Stories</span>
+<h2 class="font-headline-lg text-headline-lg md:text-headline-xl leading-tight text-on-surface mb-8">
+        나눔이야기
+      </h2>
+<div class="w-20 h-1.5 bg-leaf-green rounded-full"></div>
+</div>
+<div class="greeting-text text-on-surface-variant font-body-lg text-body-lg mb-12">
+<p>우리의 작은 손길이 모여 큰 기쁨이 되는 순간들을 기록합니다.<br/>꽃재가 만들어가는 따뜻한 변화를 만나보세요.</p>
+</div>
+</div>
+</section>
+<!-- Content Grid Section -->
+<section class="bg-white">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">활동 소식</h2>
+<p class="text-on-surface-variant font-body-md">지역사회와 함께하는 꽃재의 나눔 발자취입니다.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-outline rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 border border-outline rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</div>
+<!-- Bento-inspired Story Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="story-card group flex flex-col bg-white rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant transition-all hover:shadow-lg">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="" class="story-image w-full h-full object-cover transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9hKc0-DYTlO6VFnnGV1VcJPyR0oG8_BeJUfV89rbJN8_fV4NTonLJmyzJiZ_jKCw8P0RR1zSVtbQr1gU7cEjkhuQFLBzlCHND0eR-kVJqP-7rkQ4utuBzrfCvEWvwLJDrueXiIfjOZwNaTYjsXjwCK3RoukiDqnsxfogOjPd71orkKi9X5FL5bD0mWCeMW5VCmCb90NMKcY071H5qQW_vPR56h274mXljKCpuijVmdBQhGUiGz7gbrPFL9hIDGa5lYbQ3OuhB9Uks"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-leaf-green font-bold text-label-sm mb-3">봉사활동</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">어버이날 카네이션 봉사</h3>
+<p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">어버이날을 맞이하여 지역 어르신들께 감사의 마음을 담은 카네이션을 직접 제작하여 전달해 드리는 뜻깊은 시간을 가졌습니다.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center text-label-sm text-on-surface-variant">
+<span>2024.05.08</span>
+<span class="flex items-center gap-1 group-hover:text-leaf-green transition-colors">
+                                    자세히 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="story-card group flex flex-col bg-white rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant transition-all hover:shadow-lg">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="" class="story-image w-full h-full object-cover transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUz-e94iV3aVPkotteVRJJyw0t6M1W0bNAy-_jpaghP2uPn3IhO0cmtHO_oEM9tHU6C8Kk4OH1PHhZe6mjtOI_vNmOKFZjCofBgd1Z26RbjAJ_CM0IBJSud4wRdSzZIPg_LOICy6KkDTEybKLID2sJzckAnL_dwlnosth1bmtHaFeROP2UxUpqeTVd3UJMSviS3NmcRaSgw-eg6QdpCS9CQMMGtRzqV7d3yD3SRoNEYXPoEabikPRZVPodpTgsBtYMgyXyLWTp8bLx"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-leaf-green font-bold text-label-sm mb-3">지역사회</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">지역사회 청소 봉사</h3>
+<p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">깨끗한 우리 동네를 만들기 위해 봉사자분들과 함께 구석구석 정화 활동을 펼쳤습니다. 밝아진 거리에 모두의 마음도 환해졌습니다.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center text-label-sm text-on-surface-variant">
+<span>2024.04.25</span>
+<span class="flex items-center gap-1 group-hover:text-leaf-green transition-colors">
+                                    자세히 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="story-card group flex flex-col bg-white rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant transition-all hover:shadow-lg">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="" class="story-image w-full h-full object-cover transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2J_dNFRJ90Z1q3gfjbuJtbREonEVFR1jJPLliTs7xS-ONgD-dHPgUugGqF8NJ1YItuaOSx8O8Mnj8W-s4OObjbVtni-EpnwVHxnBngIU7mGo-qz0uHKZepgV-5FZ_bsC5V9wNmYcLkodtO9dIPMKQjCmFXkfxvF0Hb8KwEkAdY4dimpwBnutxyHQvoNORMoC06idzBYshnpgJ96ZJj6XIm3uHYVaQzZMQgwc-vLkMG0oW6gsXZ_C-dinIa2CRDYN8YfJgj1Jd6u6m"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-leaf-green font-bold text-label-sm mb-3">문화행사</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">실버위원회 봄소풍</h3>
+<p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">따스한 봄볕 아래 어르신들과 함께 꽃구경을 다녀왔습니다. 만개한 꽃들 사이로 웃음꽃도 함께 피어나는 행복한 하루였습니다.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center text-label-sm text-on-surface-variant">
+<span>2024.04.12</span>
+<span class="flex items-center gap-1 group-hover:text-leaf-green transition-colors">
+                                    자세히 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="story-card group flex flex-col bg-white rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant transition-all hover:shadow-lg">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="" class="story-image w-full h-full object-cover transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsbGOgjWdPB7jX-NO1Jy6868STYj-664uvQSVWCVwtYFmFPByVhRg54WIHWcY_bNCSH6lraTsLigtmKqpi0KW5NqXdlpHQK_C6xr114CtIOEB1EoqWPNlUukE37OJy6EzzlEdfOg05lIJceSG9hxUvORWl6Z88XCY1LSXREXaFjjnGNiDAJOauUBFuNJbc3hz_AtmWUDAuMKjnK8sLW_7y-Ech2g7bJaUkRjQHt3CajRyGL4YmYToBrnpHVW00-H_z90BjbNLi685F"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-leaf-green font-bold text-label-sm mb-3">나눔기록</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">카네이션 전달 활동</h3>
+<p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">감사의 메시지를 담은 선물 상자와 카네이션을 들고 가가호호 방문하며 안부를 묻고 따뜻한 정을 나누었습니다.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center text-label-sm text-on-surface-variant">
+<span>2024.05.07</span>
+<span class="flex items-center gap-1 group-hover:text-leaf-green transition-colors">
+                                    자세히 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="story-card group flex flex-col bg-white rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant transition-all hover:shadow-lg">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="" class="story-image w-full h-full object-cover transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc7aLlZj2U2unuKqrakZ1S5LyUl2aTOvM7z-JRcKlcOcxopceQMVAwuZeV7wKGqPM23Wsq5wt4FxqO4Nb6Q0Vd8LyDfLn_HqKV3q7p-TquT51vmF155wAwwe1RYzSyK1jUWMnlLhqgerdmeWSO8sWbz3Cgvaja9pIOFhfUXTyQaVwWtAqpTssP2s7eOlsEM0iL8Tb_KOmBUjvBTkv7I92nfGwnejosxrb5yNbdF1w4XlrLG3B9bGqiT66pnZx_4BTfwE51H3zlMYxi"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-leaf-green font-bold text-label-sm mb-3">감사나눔</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">감사의 마음 전하기</h3>
+<p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">평소 전하지 못했던 진심을 담은 손편지와 작은 정성을 준비했습니다. 나눌수록 커지는 기쁨을 다시 한번 느꼈습니다.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center text-label-sm text-on-surface-variant">
+<span>2024.03.20</span>
+<span class="flex items-center gap-1 group-hover:text-leaf-green transition-colors">
+                                    자세히 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<!-- CTA Card -->
+<article class="story-card group flex flex-col bg-white rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant transition-all hover:shadow-lg">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="" class="story-image w-full h-full object-cover transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdi8Uj1rp7cse0Z8rUc-M45IpO-TUNENjFBm4Y4wgXVUdsuV0IjOufeL_-KabpGRHqOhReEtxXl6rbzR3_OB9qBzqHEnPYowORUTeHHMs2Yd53Eh_m_hEZAMQy_5CSODY9jqsmazl1xNNm3OrYu1lmfbAwbS3nkhFZizIhXgTbIngXv0Kk82bHDKHucc6hVPRdwlyl7EEfwrOtYJJ9xSbm-eV49OQ14tKKKFqb9lrbwyvJ82sfAKEVnUlnGy8Dr-vrrpUYZsYqNyGy"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-leaf-green font-bold text-label-sm mb-3">문화행사</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">어린이날 기념 선물 나눔</h3>
+<p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">어린이날을 맞아 지역 아동들에게 사랑이 담긴 선물과 간식을 전달하며 행복한 시간을 보냈습니다.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center text-label-sm text-on-surface-variant">
+<span>2024.05.05</span>
+<span class="flex items-center gap-1 group-hover:text-leaf-green transition-colors">
+                                    자세히 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<article class="story-card group flex flex-col bg-white rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant transition-all hover:shadow-lg">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="" class="story-image w-full h-full object-cover transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo1jKghX52eGLu2F-c-GKPOl7CrosncTZqO6CY98C6_UfjugBCeZTQsN09GSmOGYYQtL9G0P0CY27YIU1uWVSgroHfZF6wSP4AzGM2bIqXRCcvryMk8gCeyY1tYFX3F05Z_19hTurfrj6oqNuRTP__AH7iL77S4m_rDqLSTSsmBSdp7Xu0C2e2bYPWiKKdGfF4RJFiYgD1yxNoK9m3wbRSMc-zUHHC8LOgKEvL39ZVDqYs-t0YwAViFirnq6eLeSEv9o3Z-_8EP28G"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-leaf-green font-bold text-label-sm mb-3">지역사회</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">꽃재 클린데이 환경정화</h3>
+<p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">깨끗한 지역사회를 만들기 위해 구석구석을 청소하고 환경을 정비하는 봉사 활동을 진행했습니다.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center text-label-sm text-on-surface-variant">
+<span>2024.04.20</span>
+<span class="flex items-center gap-1 group-hover:text-leaf-green transition-colors">
+                                    자세히 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<article class="story-card group flex flex-col bg-white rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant transition-all hover:shadow-lg">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="" class="story-image w-full h-full object-cover transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_msgBseIsZhH4_uvYJ1_JwQmQFqvPi1kZakOLalJSLYZndG1j17rkjvvhQKi7q9qMoI_OMNAkKpuTUbuhY5sGajb7TYIXO44C8BVXdwL45XSHB8jFc6T3xL-jmhji6BPTDzOpjGhVFSSw09-d680_mXVVZRkWJW--2nBBx_s6VPizKxJuzXT3IqedreRaBcbEo4G6iwooeI2tVNGiIoT_sA7geBHYm9mfqkMyJxhWnbj_P99UCAUOJ4CqEOGGyBcPr-EeKH5O6eOi"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-leaf-green font-bold text-label-sm mb-3">문화예술</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">소년소녀 합창단 위문 공연</h3>
+<p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">꽃재 소년소녀 합창단이 군 부대를 방문하여 아름다운 하모니로 따뜻한 위로와 격려를 전했습니다.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center text-label-sm text-on-surface-variant">
+<span>2024.03.15</span>
+<span class="flex items-center gap-1 group-hover:text-leaf-green transition-colors">
+                                    자세히 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article>
+<article class="story-card group flex flex-col bg-white rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant transition-all hover:shadow-lg">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="" class="story-image w-full h-full object-cover transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOSW1qXGK-5KfvzZ9HhJXD1fAc3uNrcxTVtn593oLSL62Xp42vvP43TNzLcu4U-GkKVuJ92iyLQv-o1B9o6fRXIrcp3X50xNVqKXn-oFltBokv2oLZZQrDtT9WHP1qca7FQlSdXACSo2VBlF04_Bn_XvjVAjOwA7ollGhaChYvJdyQ2rIRSB-Ls5Gf1tLK2RH7BZaYFKSLbb2eaYL_Mq7Mn6UmD_309HQvWdUg-8_cPqDYt3_HpNHakf7HDxPSGHS1ZZMzUscqkqZq"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-leaf-green font-bold text-label-sm mb-3">활동기록</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">겨울맞이 따뜻한 동행 나들이</h3>
+<p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">추운 겨울, 이웃들과 함께 야외 나들이를 떠나 소중한 추억을 쌓고 온정을 나누는 시간을 가졌습니다.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center text-label-sm text-on-surface-variant">
+<span>2024.02.10</span>
+<span class="flex items-center gap-1 group-hover:text-leaf-green transition-colors">
+                                    자세히 보기 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</article></div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-center items-center space-x-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-leaf-green text-white font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-muted border-t border-outline-variant w-full">
+<div class="w-full py-section-padding px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md text-deep-ocean font-bold mb-6">꽃재</div>
+<p class="text-on-surface-variant font-body-md">
+                        우리의 작은 정성이 모여 세상을 더 아름답게 꽃피우는 그날까지 함께하겠습니다.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold mb-6">주요 메뉴</h4>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-leaf-green transition-colors" href="#">단체소개</a></li>
+<li><a class="hover:text-leaf-green transition-colors" href="#">주요사업</a></li>
+<li><a class="hover:text-leaf-green transition-colors" href="#">나눔이야기</a></li>
+<li><a class="hover:text-leaf-green transition-colors" href="#">후원하기</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">고객지원</h4>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-leaf-green transition-colors" href="#">공지사항</a></li>
+<li><a class="hover:text-leaf-green transition-colors" href="#">자주 묻는 질문</a></li>
+<li><a class="hover:text-leaf-green transition-colors" href="#">1:1 문의</a></li>
+<li><a class="hover:text-leaf-green transition-colors" href="#">기부금 영수증</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">소셜미디어</h4>
+<div class="flex space-x-4">
+<a class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center hover:bg-leaf-green hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center hover:bg-leaf-green hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center hover:bg-leaf-green hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">video_library</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center text-label-sm text-on-surface-variant">
+<div class="flex space-x-6 mb-4 md:mb-0">
+<a class="hover:underline hover:text-leaf-green" href="#">이용약관</a>
+<a class="font-bold text-on-surface hover:underline hover:text-leaf-green" href="#">개인정보처리방침</a>
+<a class="hover:underline hover:text-leaf-green" href="#">이메일무단수집거부</a>
+</div>
+<p>© 사단법인 꽃재. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Interaction for pagination or filtering could be added here
+        document.querySelectorAll('.story-card').forEach(card => {
+            card.addEventListener('click', () => {
+                console.log('Story clicked:', card.querySelector('h3').innerText);
+            });
+        });
+    </script>
+</body></html>

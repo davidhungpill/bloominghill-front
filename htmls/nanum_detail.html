@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>나눔이야기 - 꽃재 Blooming Hill</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#181d14",
+                    "on-background": "#181d14",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#195200",
+                    "surface-tint": "#236d00",
+                    "tertiary-fixed-dim": "#ffafd0",
+                    "tertiary-fixed": "#ffd8e6",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2c3228",
+                    "primary": "#236d00",
+                    "on-secondary-fixed": "#00105c",
+                    "tertiary": "#a92a70",
+                    "on-secondary-container": "#283789",
+                    "surface-bright": "#f6fbec",
+                    "sky-blue": "#0091D2",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#82dc5c",
+                    "on-surface-variant": "#404a3a",
+                    "primary-fixed": "#9df975",
+                    "surface-variant": "#dfe5d6",
+                    "surface-container-high": "#e5eadc",
+                    "on-tertiary-fixed-variant": "#8a0857",
+                    "on-tertiary-fixed": "#3d0024",
+                    "warm-accent": "#FF7000",
+                    "outline-variant": "#bfcab5",
+                    "primary-container": "#5cb338",
+                    "secondary": "#4958ab",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "inverse-on-surface": "#edf3e4",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "surface-muted": "#F4F6F8",
+                    "deep-ocean": "#2B3A8C",
+                    "surface-container-highest": "#dfe5d6",
+                    "leaf-green": "#5CB338",
+                    "on-primary-fixed": "#062100",
+                    "surface-container-low": "#f0f6e7",
+                    "surface-container": "#eaf0e1",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#6e0044",
+                    "on-primary-container": "#113f00",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#dee0ff",
+                    "secondary-container": "#97a5fe",
+                    "surface-dim": "#d6dcce",
+                    "inverse-primary": "#82dc5c",
+                    "tertiary-container": "#fb6db3",
+                    "surface": "#f6fbec",
+                    "outline": "#707a68",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#303f91",
+                    "background": "#f6fbec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "section-padding": "80px",
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Be Vietnam Pro"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-xl": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .content-shadow {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Donation Banner -->
+<div class="bg-leaf-green text-white py-3 px-gutter text-center sticky top-0 z-[60]">
+<div class="max-w-container-max mx-auto flex justify-center items-center gap-3">
+<span class="font-label-sm text-label-sm">따뜻한 나눔은 세상을 밝힙니다.</span>
+<a class="bg-white text-leaf-green px-4 py-1 rounded-full font-label-sm text-label-sm font-bold hover:bg-opacity-90 transition-all" href="#">지금 후원하기</a>
+</div>
+</div>
+<!-- TopNavBar -->
+<header class="sticky top-[48px] z-50 w-full flex flex-col items-center bg-surface border-b border-outline-variant">
+<div class="max-w-container-max w-full px-gutter h-20 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-on-surface" href="/">꽃재 Blooming Hill</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">재단소개</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">사업안내</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-label-sm text-label-sm" href="#">나눔이야기</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">공지사항</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">후원안내</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container border-none rounded-full pl-10 pr-4 py-2 text-label-sm font-label-sm focus:ring-2 focus:ring-primary w-48" placeholder="검색어를 입력하세요" type="text">
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-lg font-label-sm text-label-sm font-bold active:scale-95 transition-all">기부하기</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[400px] w-full overflow-hidden">
+<img alt="꽃재 나눔이야기 히어로" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_NG42mZ4eJDLj2Z7j_xNVFZl3R5AIwonFr46L7SDtXZG4aH-TharhkUN1zkzYS1qpHve5VJ2Fng8PTay3Axr5sI_FUmv8WCGvEUG5-63jYLTj2rXm8CsSodKYEA4nwJ2Bo6imImEcz0K0mWMwu9f3Y0bmKZV3ZkMrNonlfb6NHoHojDdu7EOVUMDbzgFxyBBnzSiQAsBbv2hqBKoRJWG52wdxc8bSE3OHEDKyXCz298mXI2-Is40eJy4bf0d0AisEfGJ6pt3pRNKT">
+<div class="absolute inset-0 bg-deep-ocean/40 flex flex-col justify-center items-center text-white text-center px-gutter">
+<span class="font-label-sm text-label-sm tracking-widest mb-4 opacity-90 uppercase">Sharing Stories</span>
+<h1 class="font-headline-xl text-headline-xl mb-4">나눔이야기</h1>
+<p class="font-body-lg text-body-lg max-w-2xl">이웃과 함께 나누는 따뜻한 변화, 꽃재 재단이 만들어가는 소중한 기록입니다.</p>
+</div>
+</section>
+<!-- Post Detail Content -->
+<main class="max-w-4xl mx-auto px-gutter py-section-padding">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-8 text-on-surface-variant font-label-sm text-label-sm">
+<a class="hover:text-primary" href="/">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary" href="#">나눔이야기</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface font-semibold">활동 소식</span>
+</nav>
+<article class="bg-white rounded-xl content-shadow overflow-hidden">
+<!-- Post Header -->
+<header class="p-8 md:p-12 border-b border-outline-variant">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-3 py-1 bg-primary-container/20 text-primary rounded-full font-label-sm text-label-sm">활동소식</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface leading-tight mb-6">
+                    [활동 소식] 나눔의 기쁨이 가득했던 봄날의 바자회
+                </h2>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">calendar_today</span> 2024.05.20</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">visibility</span> 1,284 views</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">share</span> 공유하기</button>
+</div>
+</div>
+</header>
+<!-- Post Body -->
+<div class="p-8 md:p-12 space-y-12"><div class="space-y-8">
+<!-- Combined Text Content -->
+<div class="font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
+    꽃재 가족들이 한마음에 모여 어려운 이웃을 돕기 위한 바자회를 개최했습니다. 정성껏 준비한 음식과 물품들을 나누며 지역사회의 온기를 느낄 수 있는 뜻깊은 시간이었습니다. 참여해주신 모든 분들께 감사드립니다.
+  </div>
+<div class="bg-surface-muted p-8 rounded-2xl border-l-4 border-leaf-green">
+<p class="font-body-lg text-body-lg italic text-on-surface">
+      "작은 정성이 모여 큰 기적을 만듭니다. 오늘 우리가 나눈 웃음과 온기가 누군가에게는 새로운 희망의 씨앗이 되길 소망합니다." - 바자회 참여 봉사자
+    </p>
+</div>
+
+<!-- Unified Image Stack (One per row) -->
+<div class="space-y-6 pt-4">
+<div class="rounded-2xl overflow-hidden content-shadow">
+<img alt="바자회 현장 전경" class="w-full object-cover max-h-[600px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaeOBKFVbyd58n3ZI9AA8eZEfFyFB9uW1IcdqWIjfRk-dA52RI0BkisAMdPdpPkhdyveESHZS2Z6cCcfsLFhU4qD21KgZhjJFu3M1yEMnrcyLjseWJawbIDT0H4QacfPvQrlOUF_N2qjzt4jZ-rDkOeB6IHFLMmdrOUR9RpkybosNg1hfZA2OBwuLDr_fsZUBuW2kmWgScph7x_g37VKqgQG4eqcNuhwwTqEYZrkqHY-htXR1U1zn7ELmp8AeHZVSNT00M0oESjjIT">
+</div>
+<div class="rounded-2xl overflow-hidden content-shadow">
+<img alt="바자회 준비 모임" class="w-full object-cover max-h-[600px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPQ0jW3sgpvhkl_80nrpQouMkEhxNgLbvDxfmLbGasYnNl4tmAbK1TRzGD0NjLYTy1_L_ZqapoZ4JRaME4NTEJe9gN8T3zbmk88En0uvatDS270q6vO83pia3dSQquYqiEhG_P6XcZm7nYOhRK0kDtofzZ_B8i7UqvXJnlPrLKdORGgIgdQiLdf-KNOSrEqXGqeAqdJMl1aBu5asgHjyHQ4m6zGnHQ_ScDIJmQLSliFuUP6PupIl28fb8I5LB-Z9eXbyMa4vURIOCj">
+</div>
+<div class="rounded-2xl overflow-hidden content-shadow">
+<img alt="정성스레 준비한 음식들" class="w-full object-cover max-h-[600px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMh9xhM1P-PwNd6HUyBrWZyXZGNmVDbaTr6jrLZbAFRn-It68G9PzcwkFyKvhvEGzc9ZjTv8Ivc1eYOJRI1tee1X_IuUqX7-x3hdxhou5HNPds_xUCITBvAu3dMq9DQnY5P6y2h93b4RfFVkH-iS2VTuqD8lCegaoZnbD3qUayEpbDIKNL9nJ85AvIOy6LkGOpTLcgwIxkozv9cTpvy-G-E1UmWKvBJhFIADOCs6uVRNXScjNEbgtXPEYLry0G_FXJfWYMpZvjlhr">
+</div>
+<div class="rounded-2xl overflow-hidden content-shadow">
+<img alt="바자회 활기찬 분위기" class="w-full object-cover max-h-[600px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx26hSaEFjMUTbiDSZCG6zWC-ZWrosAD0tmFqXWs61xFJ6ky7mczFOu04-9q8f38NuEjNlmn4lHn7UTDLnxBsa8dvUQg9g4XoPdqHt_PKkXEleKtxDw5jjTiEMWFA8_aKjSiKcIQ0hMmic66EmqTpI7PWaoSNVN99fRxaCsE1Ji8I3xBQ7StsvXX4hKXVMn4tsH-F70RHxxApy2HufYdOIvjx3eh2szJGR10aTKSwheWsoc4XsvuDRvP30xfvGH7Mo93Q4HhOBk3xm">
+</div>
+<div class="rounded-2xl overflow-hidden content-shadow">
+<img alt="환한 미소의 봉사자들" class="w-full object-cover max-h-[600px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR4VSwolsy83F_DP7WGvHPYJYL6mK4edtAlTOzgSAyUD6raIc1lvrW082Mcdk9igyy8VQwXqSSdFI2cYigQDT2ZSp5GDRqNUJ7A0Cx0En3s1oI9Be98lW5PxledZX5FAGBEn7L6Fldiq-XCcWDj02tZqxTgSa2Q7eh8dibJtCw6sgR7b7P4e-nKOieh1_FMZkMNX007OM2m7Iqua0kLi3ycfiPTPx6GGtBtlnH6UrXgltUWeQMjFRJa2hozuKFzDH9balPDRH_I2WO">
+</div>
+</div>
+</div></div>
+<!-- Tags -->
+<div class="px-8 md:px-12 pb-12 flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-[13px] font-label-sm">#바자회</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-[13px] font-label-sm">#나눔의기쁨</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-[13px] font-label-sm">#지역사회공헌</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-[13px] font-label-sm">#꽃재재단</span>
+</div>
+</article>
+<!-- Bottom Navigation & List Button -->
+<div class="mt-12 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<a class="flex items-center gap-4 p-4 bg-white rounded-xl content-shadow hover:bg-surface-muted transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<div class="flex-1 overflow-hidden">
+<p class="text-[12px] font-label-sm text-on-surface-variant uppercase">Previous Post</p>
+<p class="font-label-sm text-label-sm text-on-surface truncate">아동 정서 지원 프로그램 '꿈꾸는 숲' 1기 수료식</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-white rounded-xl content-shadow hover:bg-surface-muted transition-colors text-right group" href="#">
+<div class="flex-1 overflow-hidden">
+<p class="text-[12px] font-label-sm text-on-surface-variant uppercase">Next Post</p>
+<p class="font-label-sm text-label-sm text-on-surface truncate">여름방학 청소년 봉사 캠프 참가자 모집 안내</p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="flex justify-center">
+<a class="bg-primary text-white px-10 py-3 rounded-lg font-label-sm text-label-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-all active:scale-95 shadow-lg shadow-primary/20" href="#">
+<span class="material-symbols-outlined">format_list_bulleted</span>
+                    목록으로 돌아가기
+                </a>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-muted w-full border-t border-outline-variant">
+<div class="max-w-container-max mx-auto py-section-padding px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-deep-ocean mb-4">꽃재 Blooming Hill</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                        우리는 모든 이들의 잠재력이 꽃피울 수 있도록 돕습니다. 지역사회의 따뜻한 변화를 위해 꽃재 재단이 함께하겠습니다.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-6 md:justify-end">
+<div class="flex flex-col gap-3">
+<p class="font-label-sm text-label-sm font-bold text-on-surface uppercase tracking-wider">Foundation</p>
+<ul class="flex flex-col gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<li class=""><a class="hover:text-leaf-green transition-all underline" href="#">재단소개</a></li>
+<li class=""><a class="hover:text-leaf-green transition-all underline" href="#">사업안내</a></li>
+<li class=""><a class="hover:text-leaf-green transition-all underline" href="#">나눔이야기</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-label-sm text-label-sm font-bold text-on-surface uppercase tracking-wider">Legal</p>
+<ul class="flex flex-col gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<li class=""><a class="hover:text-leaf-green transition-all underline" href="#">이용약관</a></li>
+<li class=""><a class="hover:text-leaf-green transition-all underline" href="#">개인정보처리방침</a></li>
+<li class=""><a class="hover:text-leaf-green transition-all underline" href="#">이메일무단수집거부</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 꽃재 Blooming Hill Foundation. All rights reserved.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="w-10 h-10 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">location_on</span></a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll interaction for header shadow
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 48) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Interactive button scale
+        const buttons = document.querySelectorAll('button, a');
+        buttons.forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.95)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+
+
+</body></html>

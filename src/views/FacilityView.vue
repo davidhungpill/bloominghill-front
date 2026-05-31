@@ -8,8 +8,8 @@
         <div class="mb-16 text-left">
           <span class="inline-block px-4 py-1 rounded-full bg-leaf-green/10 text-leaf-green font-bold text-sm mb-6">Affiliated Facilities</span>
           <h2 class="font-headline-lg text-headline-lg md:text-headline-xl leading-tight text-on-surface mb-8">
-            <span class="text-on-surface">"세상을 꽃피우는 따뜻한 울림,</span><br>
-            <span class="text-leaf-green">꽃재의 산하시설입니다."</span>
+            <span class="text-on-surface">세상을 꽃피우는 따뜻한 울림,</span><br>
+            <span class="text-leaf-green">꽃재의 산하시설입니다</span>
           </h2>
           <div class="w-24 h-1.5 bg-leaf-green mt-8"></div>
           <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed mt-8">

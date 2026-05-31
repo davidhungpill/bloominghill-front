@@ -8,8 +8,8 @@
         <div class="mb-12">
           <span class="inline-block px-4 py-1 bg-leaf-green/10 text-leaf-green font-bold text-label-sm rounded-full mb-4">Chairman's Message</span>
           <h2 class="font-headline-lg text-headline-lg md:text-headline-xl leading-tight text-on-surface mb-8">
-            "함께 배우고 성장하며,<br>
-            <span class="text-leaf-green">나눔의 기쁨</span>을 누리는 여정에 동행하겠습니다."
+            함께 배우고 성장하며,<br>
+            <span class="text-leaf-green">나눔의 기쁨</span>을 누리는 여정에 동행하겠습니다
           </h2>
           <div class="w-20 h-1.5 bg-leaf-green rounded-full"></div>
         </div>
