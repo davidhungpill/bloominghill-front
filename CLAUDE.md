@@ -19,30 +19,49 @@ npm run preview  # preview production build
 
 ### Routing (`src/router/index.js`)
 
-| Path | View | Original HTML |
+| Path | View | GNB Category |
 |---|---|---|
-| `/` | HomeView | main.html |
-| `/intro` | IntroView | intro.html |
-| `/missions` | MissionsView | missions.html |
-| `/organization` | OrganizationView | organization.html |
-| `/facility` | FacilityView | facility.html |
-| `/history` | HistoryView | history.html |
-| `/location` | LocationView | location.html |
+| `/` | HomeView | — |
+| `/intro` | IntroView | 소개 |
+| `/missions` | MissionsView | 소개 |
+| `/organization` | OrganizationView | 소개 |
+| `/facility` | FacilityView | 소개 |
+| `/history` | HistoryView | 소개 |
+| `/location` | LocationView | 소개 |
+| `/orchestra` | OrchestraView | 사업 |
+| `/nanum` | NanumView | 사업 |
+| `/scholarship` | ScholarshipView | 사업 |
+| `/story` | NanumStoryView | 꽃재 이야기 |
+| `/story/:id` | NanumStoryDetailView | 꽃재 이야기 |
+| `/press` | PressBoardView | 꽃재 이야기 |
+| `/education` | EducationView | 꽃재 이야기 |
+| `/education/:id` | EducationDetailView | 꽃재 이야기 |
+| `/notice` | NoticeBoardView | 소식 |
+| `/faq` | FaqView | 소식 |
+| `/donate` | DonateView | — |
+| `/donate-cert` | DonateCertView | — |
 
 ### Component Tree
 
 ```
 App.vue
-├── TopBanner.vue          — top green donation bar (shared)
-├── TheHeader.vue          — sticky GNB; "소개" hover → dropdown with 6 sub-routes
+├── TopBanner.vue          — top green donation bar; "지금 후원하기" → /donate
+├── TheHeader.vue          — sticky GNB with hover dropdowns + hamburger full menu
 ├── <router-view>          — page content swaps here
 │   ├── HomeView.vue       — hero, stats, projects, stories, news, CTA
-│   └── [other views]      — each includes SubPageHero + BreadCrumb + page content
+│   └── [other views]      — each imports BreadCrumb; sub-pages also import SubPageHero
 ├── TheFooter.vue          — shared footer
-└── DonationFab.vue        — fixed bottom-right FAB
+└── DonationFab.vue        — fixed bottom-right FAB; router-link to /donate
 ```
 
 Shared sub-page components (`SubPageHero`, `BreadCrumb`) are imported directly in each View that needs them — there is no layout nesting via Vue Router.
+
+### Data Files
+
+- `src/data/stories.js` — 9 dummy story objects + `getStoryById(id)` + `getAdjacentStories(id)` helpers; used by NanumStoryView and NanumStoryDetailView
+- `src/data/programs.js` — 5 dummy program objects + `getProgramById(id)` helper; used by EducationView and EducationDetailView
+
+These files contain static dummy data intended to be replaced with API calls when a backend is connected.
 
 ### Styling
 
@@ -50,11 +69,16 @@ Shared sub-page components (`SubPageHero`, `BreadCrumb`) are imported directly i
 - Global utility classes (`glass-card`, `soft-shadow`, `hover-lift`, `vision-card-accent`, `timeline-container`, `org-line-v/h`) live in `src/assets/style.css`
 - Google Fonts (Plus Jakarta Sans, Be Vietnam Pro) and Material Symbols loaded via `<link>` in `index.html`
 - All Tailwind color tokens match the original inline HTML config exactly
+- All sub-page hero sections use `h-[240px] md:h-[320px]`
 
 ### Images
 
-Local images (`orchestra.jpg`, `spring.jpg`, `blooming.jpg`) are served from `public/static/` and referenced as `/static/filename.jpg`. External (Google CDN) images are still used for card/article photos that don't have local copies.
+Local images served from `public/static/` and referenced as `/static/filename.jpg`. External (Google CDN) images are still used for card/article photos that don't have local copies.
 
-### Nav Dropdown
+### TheHeader.vue — GNB Behavior
 
-`TheHeader.vue` uses `@mouseenter`/`@mouseleave` on the header element to toggle `dropdownOpen`. The dropdown panel uses a Vue `<Transition name="dropdown">` for a slide-fade animation. The "소개" button shows active state when `$route.path` is any of the 6 sub-routes.
+**Hover dropdowns (desktop):** `activeMenu` ref (`null | 'intro' | 'business' | 'story' | 'news'`) is set on `@mouseenter` of each GNB button and cleared with a 150 ms debounce timer on `@mouseleave`. The dropdown panel renders below the header with a `<Transition name="dropdown">` slide-fade. Column alignment uses an **invisible span technique**: each slot `<div>` contains a `<span class="invisible">` matching the nav button text (same font/size) to establish flex width, with the actual `<ul>` positioned `absolute top-0 left-0` on top of it. The 꽃재 이야기 column applies `ml-4` / `left-4` to nudge it right under its GNB button.
+
+**Hamburger full menu (mobile):** `mobileMenuOpen` ref (boolean). Clicking the hamburger icon toggles the full-menu panel that slides down below the header using the same invisible-span column layout. A `<Teleport to="body">` backdrop (`z-40`, `bg-black/20`) closes the menu on outside click. A `watch(() => route.path, ...)` closes the menu on navigation.
+
+**Active states:** `isStoryActive` covers `/story`, `/story/:id`, `/press`, `/education`. `isNewsActive` covers `/notice`, `/faq`.
