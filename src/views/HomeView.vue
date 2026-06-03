@@ -317,13 +317,14 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { fetchHeroSlides } from '../api/heroSlides'
 
-const heroImages = [
+const heroImages = ref([
   { src: '/static/orchestra.jpg', alt: '꽃재 오케스트라' },
   { src: '/static/spring2.jpg',   alt: '꽃재 봄 활동' },
   { src: '/static/edu.jpg',       alt: '꽃재 교육 사업' },
   { src: '/static/cleaning.jpg',  alt: '꽃재 봉사 활동' },
-]
+])
 
 const currentSlide = ref(0)
 let timer = null
@@ -334,7 +335,7 @@ function goToSlide(i) {
 }
 
 function nextSlide() {
-  currentSlide.value = (currentSlide.value + 1) % heroImages.length
+  currentSlide.value = (currentSlide.value + 1) % heroImages.value.length
 }
 
 function nextSlideManual() {
@@ -343,7 +344,7 @@ function nextSlideManual() {
 }
 
 function prevSlide() {
-  currentSlide.value = (currentSlide.value - 1 + heroImages.length) % heroImages.length
+  currentSlide.value = (currentSlide.value - 1 + heroImages.value.length) % heroImages.value.length
   resetTimer()
 }
 
@@ -352,6 +353,11 @@ function resetTimer() {
   timer = setInterval(nextSlide, 5000)
 }
 
-onMounted(() => { timer = setInterval(nextSlide, 5000) })
+onMounted(async () => {
+  const slides = await fetchHeroSlides()
+  heroImages.value = slides
+  currentSlide.value = 0
+  timer = setInterval(nextSlide, 5000)
+})
 onUnmounted(() => { clearInterval(timer) })
 </script>

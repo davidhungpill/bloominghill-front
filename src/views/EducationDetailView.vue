@@ -3,7 +3,8 @@
     <!-- Hero Section -->
     <section class="relative w-full h-[240px] md:h-[320px] overflow-hidden">
       <img
-        :src="program.heroImg"
+        v-if="heroSrc"
+        :src="heroSrc"
         alt="꽃재 평생교육원"
         class="w-full h-full object-cover"
       />
@@ -76,11 +77,21 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import BreadCrumb from '../components/BreadCrumb.vue'
-import { getProgramById } from '../data/programs.js'
+import { fetchProgramById } from '../api/programs'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroEducation')
 
 const route = useRoute()
-const program = computed(() => getProgramById(route.params.id))
+const program = ref(null)
+
+async function load(id) {
+  program.value = await fetchProgramById(id)
+}
+
+onMounted(() => load(route.params.id))
+watch(() => route.params.id, id => load(id))
 </script>

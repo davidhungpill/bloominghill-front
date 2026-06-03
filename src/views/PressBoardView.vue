@@ -3,7 +3,8 @@
     <!-- Hero Banner -->
     <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
-        src="/public/static/press.jpg"
+        v-if="heroSrc"
+        :src="heroSrc"
         alt="언론 보도자료 배너"
         class="w-full h-full object-cover"
       />
@@ -59,10 +60,10 @@
 
           <!-- Board Rows -->
           <div class="divide-y divide-outline-variant/20">
-            <a
+            <router-link
               v-for="item in filteredItems"
               :key="item.id"
-              href="#"
+              :to="'/press/' + item.id"
               class="group flex flex-col md:flex-row md:items-center py-6 px-6 transition-all hover:bg-surface-container-low"
             >
               <div class="hidden md:block w-20 text-center text-on-surface-variant font-label-sm text-label-sm">
@@ -81,7 +82,7 @@
               <div class="hidden md:block w-32 text-center text-on-surface-variant font-body-md text-body-md">
                 {{ item.date }}
               </div>
-            </a>
+            </router-link>
 
             <div v-if="filteredItems.length === 0" class="py-16 text-center text-on-surface-variant font-body-md text-body-md">
               검색 결과가 없습니다.
@@ -118,27 +119,23 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
+import { fetchPressArticles } from '../api/press'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroPress')
 
 const searchQuery = ref('')
-
-const pressItems = [
-  { id: 125, type: '보도', typeColor: 'text-leaf-green',   title: '꽃재, 취약계층 겨울나기 \'따뜻한 방학\' 지원 성료', date: '2024.11.20' },
-  { id: 124, type: '뉴스', typeColor: 'text-sky-blue',     title: '사단법인 꽃재, 제15회 정기연주회 성황리 개최', date: '2024.11.05' },
-  { id: 123, type: '언론', typeColor: 'text-warm-accent',  title: '꽃재 장학금 전달식, 지역 인재 육성에 앞장', date: '2024.10.25' },
-  { id: 122, type: '보도', typeColor: 'text-leaf-green',   title: 'Blooming Hill, \'함께하는 나눔\' 바자회 수익금 전액 기부', date: '2024.10.10' },
-  { id: 121, type: '뉴스', typeColor: 'text-sky-blue',     title: '꽃재-성동구청, 지역사회 복지 증진을 위한 MOU 체결', date: '2024.09.28' },
-  { id: 120, type: '보도', typeColor: 'text-leaf-green',   title: '\'꿈꾸는 숲\' 1기 수료식 진행... 아동 정서 지원 강화', date: '2024.09.15' },
-  { id: 119, type: '언론', typeColor: 'text-warm-accent',  title: '꽃재 다문화오케스트라, 어르신 위문 공연 호평', date: '2024.08.30' },
-  { id: 118, type: '뉴스', typeColor: 'text-sky-blue',     title: '여름방학 청소년 봉사 캠프 성황... 200명 참여', date: '2024.08.12' },
-  { id: 117, type: '보도', typeColor: 'text-leaf-green',   title: '꽃재, 취약계층 여름방학 급식 지원 사업 실시', date: '2024.07.25' },
-  { id: 116, type: '언론', typeColor: 'text-warm-accent',  title: '사단법인 꽃재, 창립 10주년 기념 행사 개최', date: '2024.07.10' },
-]
+const pressItems = ref([])
 
 const filteredItems = computed(() => {
-  if (!searchQuery.value.trim()) return pressItems
+  if (!searchQuery.value.trim()) return pressItems.value
   const q = searchQuery.value.trim().toLowerCase()
-  return pressItems.filter(item => item.title.toLowerCase().includes(q) || item.type.includes(q))
+  return pressItems.value.filter(item => item.title.toLowerCase().includes(q) || item.type.includes(q))
+})
+
+onMounted(async () => {
+  pressItems.value = await fetchPressArticles()
 })
 </script>

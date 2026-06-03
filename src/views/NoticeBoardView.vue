@@ -3,7 +3,8 @@
     <!-- Hero Section -->
     <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
-        src="/public/static/notice.jpg"
+        v-if="heroSrc"
+        :src="heroSrc"
         alt="공지사항 배너"
         class="w-full h-full object-cover"
       />
@@ -49,8 +50,9 @@
             <tbody class="font-body-md text-body-md">
               <tr
                 v-for="item in filteredItems"
-                :key="item.isNotice ? 'notice-' + item.title : item.id"
+                :key="item.id"
                 class="group border-b border-outline-variant/20 hover:bg-surface-container-low transition-colors cursor-pointer"
+                @click="router.push('/notice/' + item.id)"
               >
                 <td class="px-6 py-5 text-center">
                   <span
@@ -95,29 +97,27 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import BreadCrumb from '../components/BreadCrumb.vue'
+import { fetchNotices } from '../api/notices'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroNotice')
+const router = useRouter()
 
 const searchQuery = ref('')
-
-const notices = [
-  { isNotice: true,  title: '[안내] 2024년 결산 공고 및 지정기부금 단체 실적 공시', date: '2024.03.15' },
-  { isNotice: true,  title: '[공지] 제5회 정기연주회 관람 신청 안내 (무료 공연)', date: '2024.03.02' },
-  { id: 8, isNotice: false, title: '꽃재 나눔 릴레이 캠페인 참여 안내', date: '2024.02.28' },
-  { id: 7, isNotice: false, title: '2024년 상반기 장학생 선발 안내', date: '2024.02.15' },
-  { id: 6, isNotice: false, title: '자원봉사자 모집: 지역아동센터 음악 교육 지원', date: '2024.02.10' },
-  { id: 5, isNotice: false, title: '설 연휴 사무국 휴무 및 운영 안내', date: '2024.02.05' },
-  { id: 4, isNotice: false, title: '2023년 하반기 사업보고서 공시 안내', date: '2023.12.20' },
-  { id: 3, isNotice: false, title: '꽃재 바자회 수익금 전달식 개최 안내', date: '2023.11.15' },
-  { id: 2, isNotice: false, title: '2023년 정기총회 개최 공고', date: '2023.10.30' },
-  { id: 1, isNotice: false, title: '사단법인 꽃재 홈페이지 개편 안내', date: '2023.09.01' },
-]
+const notices = ref([])
 
 const filteredItems = computed(() => {
   const q = searchQuery.value.trim().toLowerCase()
-  if (!q) return notices
-  const pinnedMatches = notices.filter(n => n.isNotice && n.title.toLowerCase().includes(q))
-  const regularMatches = notices.filter(n => !n.isNotice && n.title.toLowerCase().includes(q))
-  return [...pinnedMatches, ...regularMatches]
+  if (!q) return notices.value
+  const pinned = notices.value.filter(n => n.isNotice && n.title.toLowerCase().includes(q))
+  const regular = notices.value.filter(n => !n.isNotice && n.title.toLowerCase().includes(q))
+  return [...pinned, ...regular]
+})
+
+onMounted(async () => {
+  notices.value = await fetchNotices()
 })
 </script>

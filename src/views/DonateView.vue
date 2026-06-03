@@ -4,7 +4,8 @@
     <!-- Image Hero -->
     <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
-        src="/static/spring2.jpg"
+        v-if="heroSrc"
+        :src="heroSrc"
         alt="후원하기"
         class="absolute inset-0 w-full h-full object-cover"
       />
@@ -131,6 +132,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroDonate')
 
 const accountNumber = '301-1234-5678-01'
 const copied = ref(false)

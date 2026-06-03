@@ -34,9 +34,11 @@ npm run preview  # preview production build
 | `/story` | NanumStoryView | 꽃재 이야기 |
 | `/story/:id` | NanumStoryDetailView | 꽃재 이야기 |
 | `/press` | PressBoardView | 꽃재 이야기 |
+| `/press/:id` | PressDetailView | 꽃재 이야기 |
 | `/education` | EducationView | 꽃재 이야기 |
 | `/education/:id` | EducationDetailView | 꽃재 이야기 |
 | `/notice` | NoticeBoardView | 소식 |
+| `/notice/:id` | NoticeDetailView | 소식 |
 | `/faq` | FaqView | 소식 |
 | `/donate` | DonateView | — |
 | `/donate-cert` | DonateCertView | — |
@@ -63,13 +65,32 @@ Shared sub-page components (`SubPageHero`, `BreadCrumb`) are imported directly i
 
 These files contain static dummy data intended to be replaced with API calls when a backend is connected.
 
+### API Layer (`src/api/`)
+
+All API modules use `strapiGet` from `src/api/client.js` and follow a **fallback-first pattern**: every function wraps its Strapi call in try/catch and returns static fallback data on failure, so the app works without a running backend.
+
+| 파일 | 주요 함수 |
+|---|---|
+| `client.js` | `strapiGet(path)` — native fetch wrapper |
+| `siteConfig.js` | `fetchSiteConfig()` (module-level cache) + `getHeroUrl(config, field)` |
+| `heroSlides.js` | `fetchHeroSlides()` |
+| `stories.js` | `fetchStories()`, `fetchStoryById(id)`, `fetchAdjacentStories(id)` |
+| `programs.js` | `fetchPrograms()`, `fetchProgramById(id)` |
+| `notices.js` | `fetchNotices()`, `fetchNoticeById(id)`, `fetchAdjacentNotices(id)` |
+| `press.js` | `fetchPressArticles()`, `fetchPressArticleById(id)`, `fetchAdjacentPressArticles(id)` |
+| `faq.js` | `fetchFaqs()` |
+
+### Composables (`src/composables/`)
+
+- `useHero(field)` — returns `{ heroSrc }` ref populated async from `fetchSiteConfig()`. Used in every sub-page view.
+
 ### Styling
 
 - **Tailwind CSS 3** configured in `tailwind.config.js` (Material Design 3 color system, custom spacing/font tokens)
 - Global utility classes (`glass-card`, `soft-shadow`, `hover-lift`, `vision-card-accent`, `timeline-container`, `org-line-v/h`) live in `src/assets/style.css`
 - Google Fonts (Plus Jakarta Sans, Be Vietnam Pro) and Material Symbols loaded via `<link>` in `index.html`
 - All Tailwind color tokens match the original inline HTML config exactly
-- All sub-page hero sections use `h-[240px] md:h-[320px]`
+- Most sub-page hero sections use `h-[240px] md:h-[320px]`; exceptions: `NoticeDetailView` uses `h-[300px]`, `PressDetailView` uses `h-[400px]` (matching their source HTML files)
 
 ### Images
 
@@ -81,4 +102,4 @@ Local images served from `public/static/` and referenced as `/static/filename.jp
 
 **Hamburger full menu (mobile):** `mobileMenuOpen` ref (boolean). Clicking the hamburger icon toggles the full-menu panel that slides down below the header using the same invisible-span column layout. A `<Teleport to="body">` backdrop (`z-40`, `bg-black/20`) closes the menu on outside click. A `watch(() => route.path, ...)` closes the menu on navigation.
 
-**Active states:** `isStoryActive` covers `/story`, `/story/:id`, `/press`, `/education`. `isNewsActive` covers `/notice`, `/faq`.
+**Active states:** `isStoryActive` covers `/story`, `/story/:id`, `/press`, `/press/:id`, `/education`. `isNewsActive` covers `/notice`, `/notice/:id`, `/faq`.

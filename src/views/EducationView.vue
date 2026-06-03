@@ -3,7 +3,8 @@
     <!-- Hero Section -->
     <section class="relative w-full h-[240px] md:h-[320px] overflow-hidden">
       <img
-        src="/public/static/education.jpg"
+        v-if="heroSrc"
+        :src="heroSrc"
         alt="꽃재 평생교육원 히어로"
         class="w-full h-full object-cover"
       />
@@ -84,6 +85,15 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
-import { programs } from '../data/programs.js'
+import { fetchPrograms } from '../api/programs'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroEducation')
+
+const programs = ref([])
+onMounted(async () => {
+  programs.value = await fetchPrograms()
+})
 </script>

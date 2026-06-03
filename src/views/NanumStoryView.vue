@@ -3,7 +3,8 @@
     <!-- Hero Banner -->
     <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAZAFA2xBboGAIVypzB3t0QI1Gy5nqsWUeV6YliDb7JiVw8R-81zzZeNB20egNI4grq-kf3mHW_LE-xZCh90u37Jj_RrGOmNMnIWiIMwgAr_FgPuyezTa3TzEcg6VOqAC84nI0np8gCxk5GCoFc3ns93gTM2brYZ265z_iZ3h1OtTn42oArCA3Q3yguTGPk2-9vbOiztpGOzi2TCXRk1S6OKMCBjpiDjFNpZGfv2BkHrowsHQMaYEoYfI09YHzm6gC79c00BKAVKeM"
+        v-if="heroSrc"
+        :src="heroSrc"
         alt="나눔이야기 배너"
         class="w-full h-full object-cover absolute inset-0"
       />
@@ -90,6 +91,15 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
-import { stories } from '../data/stories.js'
+import { fetchStories } from '../api/stories'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroStory')
+
+const stories = ref([])
+onMounted(async () => {
+  stories.value = await fetchStories()
+})
 </script>

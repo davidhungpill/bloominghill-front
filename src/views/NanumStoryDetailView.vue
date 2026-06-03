@@ -3,7 +3,8 @@
     <!-- Hero Banner -->
     <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAZAFA2xBboGAIVypzB3t0QI1Gy5nqsWUeV6YliDb7JiVw8R-81zzZeNB20egNI4grq-kf3mHW_LE-xZCh90u37Jj_RrGOmNMnIWiIMwgAr_FgPuyezTa3TzEcg6VOqAC84nI0np8gCxk5GCoFc3ns93gTM2brYZ265z_iZ3h1OtTn42oArCA3Q3yguTGPk2-9vbOiztpGOzi2TCXRk1S6OKMCBjpiDjFNpZGfv2BkHrowsHQMaYEoYfI09YHzm6gC79c00BKAVKeM"
+        v-if="heroSrc"
+        :src="heroSrc"
         alt="나눔이야기 배너"
         class="w-full h-full object-cover absolute inset-0"
       />
@@ -125,14 +126,25 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import BreadCrumb from '../components/BreadCrumb.vue'
-import { getStoryById, getAdjacentStories } from '../data/stories.js'
+import { fetchStoryById, fetchAdjacentStories } from '../api/stories'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroStory')
 
 const route = useRoute()
-const story = computed(() => getStoryById(route.params.id))
-const adjacent = computed(() =>
-  story.value ? getAdjacentStories(route.params.id) : { prev: null, next: null }
-)
+const story = ref(null)
+const adjacent = ref({ prev: null, next: null })
+
+async function load(id) {
+  story.value = await fetchStoryById(id)
+  adjacent.value = story.value
+    ? await fetchAdjacentStories(id)
+    : { prev: null, next: null }
+}
+
+onMounted(() => load(route.params.id))
+watch(() => route.params.id, id => load(id))
 </script>

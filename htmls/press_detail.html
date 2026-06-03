@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#4958ab",
+                    "inverse-on-surface": "#edf3e4",
+                    "inverse-surface": "#2c3228",
+                    "tertiary-fixed": "#ffd8e6",
+                    "secondary-container": "#97a5fe",
+                    "sky-blue": "#0091D2",
+                    "background": "#f6fbec",
+                    "primary": "#236d00",
+                    "tertiary-container": "#fb6db3",
+                    "surface-bright": "#f6fbec",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#a92a70",
+                    "surface-tint": "#236d00",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d6dcce",
+                    "on-primary-container": "#113f00",
+                    "surface-variant": "#dfe5d6",
+                    "surface-muted": "#F4F6F8",
+                    "primary-container": "#5cb338",
+                    "on-secondary-fixed-variant": "#303f91",
+                    "leaf-green": "#5CB338",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#dfe5d6",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#8a0857",
+                    "on-surface": "#181d14",
+                    "on-secondary-container": "#283789",
+                    "on-primary-fixed": "#062100",
+                    "on-error-container": "#93000a",
+                    "warm-accent": "#FF7000",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#404a3a",
+                    "surface-container-high": "#e5eadc",
+                    "primary-fixed": "#9df975",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "tertiary-fixed-dim": "#ffafd0",
+                    "surface-container": "#eaf0e1",
+                    "surface": "#f6fbec",
+                    "primary-fixed-dim": "#82dc5c",
+                    "outline": "#707a68",
+                    "on-tertiary-fixed": "#3d0024",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#00105c",
+                    "surface-container-low": "#f0f6e7",
+                    "inverse-primary": "#82dc5c",
+                    "on-primary-fixed-variant": "#195200",
+                    "on-background": "#181d14",
+                    "deep-ocean": "#2B3A8C",
+                    "on-tertiary-container": "#6e0044",
+                    "outline-variant": "#bfcab5",
+                    "secondary-fixed": "#dee0ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "section-padding": "80px",
+                    "container-max": "1200px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { background-color: #ffffff; }
+    </style>
+</head>
+<body class="bg-surface-container-lowest">
+<!-- Top Navigation Bar -->
+<header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-deep-ocean" href="#">사단법인 꽃재</a>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:text-leaf-green transition-colors duration-200 font-body-md text-body-md" href="#">소개</a>
+<a class="text-on-surface-variant font-medium hover:text-leaf-green transition-colors duration-200 font-body-md text-body-md" href="#">사업</a>
+<a class="text-on-surface-variant font-medium hover:text-leaf-green transition-colors duration-200 font-body-md text-body-md" href="#">꽃재 이야기</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">소식</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors">기부금 영수증 문의</button>
+<button class="bg-leaf-green text-on-primary px-6 py-2 rounded-lg font-label-sm text-label-sm active:scale-95 transition-transform">후원하기</button>
+</div>
+</div>
+</header>
+<!-- Hero Section (Image only) -->
+<section class="w-full h-[400px] relative overflow-hidden">
+<div class="absolute inset-0 bg-black/20 z-10"></div>
+<img alt="Hero Background" class="w-full h-full object-cover" data-alt="A wide-angle landscape photograph of a community center courtyard where children are playing peacefully under a large spreading oak tree. The lighting is soft morning sun, casting gentle shadows and creating a warm, nurturing atmosphere. The background shows modern, clean architectural lines of the center, reflecting a professional yet humanist minimalism. The color palette is dominated by natural greens and earthy tones, suggesting growth and communal support." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzLCE_xpetIcE_CxxHuLNJrNcqVJBFkVbUg_BGiaQqppAvtKpnJwwMDoB9MFqLKyOvsMog440wvFCuYqwTGvUQ7_uAz5hfaWLejcRmFabB3wctCgejiBW8FBDGNiO4ZgTM_REgDRr3QB1JdyeKBJ7Oomd7km73xSDAw-bf1uAdXw5vgDBEn-tQTvL_WAWk_ORPGKCJm3eRQwoh1L4pQF-8XE83nxzzZAtztsj_6DguOTH9nTAZJ7Hp6_TKaJJ4vexGI9WQiDePEMPB"/>
+</section>
+<!-- Main Content Canvas -->
+<main class="max-w-4xl mx-auto px-gutter py-section-padding">
+<!-- Post Header -->
+<article class="space-y-6">
+<div class="flex flex-col gap-4">
+<span class="text-leaf-green font-label-sm text-label-sm">[보도]</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight">꽃재, 취약계층 겨울나기 '따뜻한 방학' 지원 성료</h1>
+<div class="flex items-center gap-6 text-on-surface-variant/70 border-b border-outline-variant/30 pb-6">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="font-label-sm text-label-sm">2024.11.20</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+<span class="font-label-sm text-label-sm">1,248</span>
+</div>
+</div>
+<div class="h-1.5 w-full bg-leaf-green rounded-full"></div>
+</div>
+<!-- Featured Image -->
+<div class="rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 my-8">
+<img alt="Donation Ceremony" class="w-full h-auto object-cover" data-alt="A professional group photograph capturing a heart-warming donation ceremony inside a brightly lit community hall. Several representatives from the Blooming Hill Foundation are handing over symbolic warmth-themed gift packages to smiling local residents. The interior is modern with clean white walls and light wood accents, creating a professional yet deeply approachable environment. The lighting is high-key and soft, emphasizing a sense of hope and community solidarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKcpAIKXfTsEBgvT8d2NVg2Mbbeto1QXPur2s8oHvufRHKiXnu-Xyz_YpUoAsANB37n2BMeuGl6qa96L4jRRL9Sdi-wM7ZXoUDaY-v9O2tp0RTl6DooRVr4JpDCWgU3xm27ki-yG6UK6RjKKaKraRdH22nRBbK5f4kA3NFLIJD4kR0tA271BjnzQuptXvw6CnKinaN7PJrIKfSnG6JITPKdTPXDFkmKlQBxJ7aPo3JIk4rpReQirPrTDmGmNXfPqg-_UiuCT-aMGHG"/>
+</div>
+<!-- Body Text -->
+<div class="space-y-6 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>사단법인 꽃재는 지난 15일, 다가오는 동절기를 맞아 지역 사회 내 에너지 취약계층 200가구를 대상으로 진행한 '따뜻한 방학' 겨울나기 지원 사업을 성공적으로 마무리했다고 밝혔습니다.</p>
+<p>이번 지원 사업은 경제적 어려움으로 인해 난방비 부담이 큰 홀몸 어르신과 조손 가정을 중점적으로 지원하기 위해 기획되었습니다. 꽃재는 각 가구에 방한 의류, 온수 매트, 고효율 난방 기구 및 겨울철 비상 식료품 세트를 직접 전달하며 안부를 확인하는 시간을 가졌습니다.</p>
+<p>재단 관계자는 "단순한 물품 전달을 넘어 우리 이웃들이 사회적 온기를 느끼며 건강하게 겨울을 보낼 수 있도록 돕는 것이 본 사업의 핵심"이라며, "앞으로도 꽃재는 복지 사각지대 발굴과 실질적인 생활 지원을 위해 최선을 다할 것"이라고 전했습니다.</p>
+<p>특히 이번 행사는 지역 자원봉사자 50여 명과 기업 후원사들의 적극적인 참여로 이루어져 나눔의 가치를 더했습니다. 지원을 받은 한 어르신은 "날씨가 추워지며 걱정이 많았는데, 따뜻한 마음이 담긴 선물을 받아 든든한 마음으로 겨울을 맞이할 수 있게 되었다"며 감사의 뜻을 표했습니다.</p>
+<p>사단법인 꽃재는 지속 가능한 복지 생태계 구축을 목표로 교육 지원, 의료 지원, 주거 환경 개선 등 다양한 사회공헌 사업을 전개하고 있으며, 이번 겨울나기 사업 역시 연례 프로그램으로서 더욱 확대해 나갈 계획입니다.</p>
+</div>
+<!-- Attachments Section -->
+<section class="mt-16 p-6 bg-surface-muted rounded-xl border border-outline-variant/30">
+<h3 class="font-label-sm text-label-sm text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">attach_file</span>
+                    첨부파일 (2)
+                </h3>
+<ul class="space-y-2">
+<li class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg group hover:border-primary transition-colors border border-transparent">
+<div class="flex items-center gap-3 overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant">picture_as_pdf</span>
+<span class="font-body-md text-body-md text-on-surface truncate">2024_겨울나기_지원사업_보도자료.pdf</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant/50">2.4MB</span>
+<button class="flex items-center gap-1 text-primary hover:underline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                                다운로드
+                            </button>
+</div>
+</li>
+<li class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg group hover:border-primary transition-colors border border-transparent">
+<div class="flex items-center gap-3 overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant">folder_zip</span>
+<span class="font-body-md text-body-md text-on-surface truncate">현장사진_모음.zip</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant/50">45.8MB</span>
+<button class="flex items-center gap-1 text-primary hover:underline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                                다운로드
+                            </button>
+</div>
+</li>
+</ul>
+</section>
+<!-- Navigation Buttons -->
+<nav class="mt-12 pt-8 border-t border-outline-variant/30 flex flex-col gap-4">
+<div class="flex flex-col md:flex-row gap-4 justify-between border-b border-outline-variant/30 pb-8">
+<a class="flex flex-1 items-center gap-4 group p-4 rounded-lg hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant/50">이전글</span>
+<span class="block font-body-md text-body-md text-on-surface font-semibold truncate">청소년 오케스트라 '꽃재' 제5회 정기 연주회 안내</span>
+</div>
+</a>
+<a class="flex flex-1 items-center justify-end gap-4 text-right group p-4 rounded-lg hover:bg-surface-container transition-colors" href="#">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant/50">다음글</span>
+<span class="block font-body-md text-body-md text-on-surface font-semibold truncate">2025년도 장학생 모집 공고 (상반기)</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="flex justify-center mt-4">
+<button class="px-8 py-3 border-2 border-deep-ocean text-deep-ocean rounded-lg font-label-sm text-label-sm hover:bg-deep-ocean hover:text-on-primary transition-all duration-300">
+                        목록으로
+                    </button>
+</div>
+</nav>
+</article>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-muted border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-gutter py-section-padding max-w-container-max mx-auto gap-base">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md font-bold text-deep-ocean/50">사단법인 꽃재</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 사단법인 꽃재. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4" href="#">이용약관</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4" href="#">개인정보처리방침</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4" href="#">이메일무단수집거부</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4" href="#">찾아오시는 길</a>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth transitions for interaction states
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

@@ -3,12 +3,12 @@
     <!-- Hero Section -->
     <section class="relative h-[240px] md:h-[320px] overflow-hidden flex items-center justify-center">
       <img
-        src="/static/spring.jpg"
+        v-if="heroSrc"
+        :src="heroSrc"
         alt="기부금 영수증 안내"
         class="absolute inset-0 w-full h-full object-cover"
       />
       <div class="absolute inset-0 bg-deep-ocean/30"></div>
-      
     </section>
 
     <BreadCrumb current="기부금 영수증 안내" parent="후원" />
@@ -109,6 +109,9 @@
 
 <script setup>
 import BreadCrumb from '../components/BreadCrumb.vue'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroDonateCert')
 
 const requiredFields = ['성명', '주민번호 13자리', '후원금액', '휴대전화번호']
 </script>
