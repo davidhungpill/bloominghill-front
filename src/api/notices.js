@@ -2,7 +2,16 @@ import { strapiGet } from './client'
 import { blocksToHtml } from '../utils/blocksToHtml'
 
 function formatDate(d) {
-  return d ? d.replace(/-/g, '.') : ''
+  if (!d) return ''
+  const dt = new Date(d)
+  if (isNaN(dt.getTime())) return d.replace(/-/g, '.')
+  const yyyy = dt.getFullYear()
+  const mm   = String(dt.getMonth() + 1).padStart(2, '0')
+  const dd   = String(dt.getDate()).padStart(2, '0')
+  const HH   = String(dt.getHours()).padStart(2, '0')
+  const MM   = String(dt.getMinutes()).padStart(2, '0')
+  const SS   = String(dt.getSeconds()).padStart(2, '0')
+  return `${yyyy}.${mm}.${dd} ${HH}:${MM}`
 }
 
 const FALLBACK = [

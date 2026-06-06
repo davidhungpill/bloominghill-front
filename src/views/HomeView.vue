@@ -242,29 +242,21 @@
               공지사항
               <span class="material-symbols-outlined text-leaf-green">notifications</span>
             </h2>
-            <a href="#" class="text-on-surface-variant hover:text-primary transition-all">
+            <router-link to="/notice" class="text-on-surface-variant hover:text-primary transition-all">
               <span class="material-symbols-outlined">add</span>
-            </a>
+            </router-link>
           </div>
           <ul class="space-y-0">
-            <li class="group py-5 border-b border-outline-variant/30 flex justify-between items-center hover:bg-surface-container-low transition-all px-2 rounded-lg">
-              <a href="#" class="flex-1">
-                <span class="bg-surface-container-high text-primary px-2 py-0.5 rounded font-label-sm text-xs mr-3 align-middle">중요</span>
-                <span class="text-on-surface group-hover:text-primary transition-all font-body-md">사회복지법인 꽃재 2024년 결산 공고 안내</span>
-              </a>
-              <span class="text-on-surface-variant font-label-sm opacity-60">2024.11.10</span>
-            </li>
-            <li class="group py-5 border-b border-outline-variant/30 flex justify-between items-center hover:bg-surface-container-low transition-all px-2 rounded-lg">
-              <a href="#" class="flex-1">
-                <span class="text-on-surface group-hover:text-primary transition-all font-body-md">제 15회 꽃재 정기연주회 관람 신청 안내</span>
-              </a>
-              <span class="text-on-surface-variant font-label-sm opacity-60">2024.11.05</span>
-            </li>
-            <li class="group py-5 border-b border-outline-variant/30 flex justify-between items-center hover:bg-surface-container-low transition-all px-2 rounded-lg">
-              <a href="#" class="flex-1">
-                <span class="text-on-surface group-hover:text-primary transition-all font-body-md">하반기 장학생 최종 선발 결과 공지</span>
-              </a>
-              <span class="text-on-surface-variant font-label-sm opacity-60">2024.10.28</span>
+            <li
+              v-for="notice in recentNotices"
+              :key="notice.id"
+              class="group py-5 border-b border-outline-variant/30 flex justify-between items-center hover:bg-surface-container-low transition-all px-2 rounded-lg"
+            >
+              <router-link :to="`/notice/${notice.id}`" class="flex-1 min-w-0">
+                <span v-if="notice.isNotice" class="bg-leaf-green/10 text-leaf-green px-2 py-0.5 rounded font-label-sm text-xs mr-3 align-middle">공지</span>
+                <span class="text-on-surface group-hover:text-primary transition-all font-body-md">{{ notice.title }}</span>
+              </router-link>
+              <span class="text-on-surface-variant font-label-sm opacity-60 ml-4 flex-shrink-0">{{ notice.date }}</span>
             </li>
           </ul>
         </div>
@@ -276,37 +268,30 @@
               보도자료
               <span class="material-symbols-outlined text-sky-blue">newspaper</span>
             </h2>
-            <a href="#" class="text-on-surface-variant hover:text-primary transition-all">
+            <router-link to="/press" class="text-on-surface-variant hover:text-primary transition-all">
               <span class="material-symbols-outlined">add</span>
-            </a>
+            </router-link>
           </div>
           <div class="space-y-6">
-            <div class="flex gap-6 group cursor-pointer">
-              <div class="w-32 h-24 rounded-xl overflow-hidden flex-shrink-0">
+            <router-link
+              v-for="article in recentPress"
+              :key="article.id"
+              :to="`/press/${article.id}`"
+              class="flex gap-6 group"
+            >
+              <div class="w-32 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high">
                 <img
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7_o9bMytoYSKyHEQln-72743Y_76yB7yObPeqGbgg29PbGvGSm_7ROifJLzjJOW6BVSD0QCYOpFtv7nAH3b-IUVlBsh9Fp-2vGWygUHcEmIpD8mwHoe8DkX_qG6tWj6ewB56KyfDCVIteyj-65m_LcLnuMvlK79eMvJuaeNUS_rBTOV6KmFR2i2twUAaUoPa80e9CHc3r7yGPuMCOEer59fhhQoXxBmgnUWtqIQ2myUkXrHpH-fnX3FXc3UUkQ2oQuH5Av7dM6OCx"
-                  alt="보도자료 1"
+                  :src="article.featuredImage || '/static/spring.jpg'"
+                  :alt="article.title"
                 />
               </div>
-              <div>
-                <h4 class="font-headline-md text-lg mb-2 group-hover:text-primary transition-all">꽃재, 취약계층 겨울나기 '따뜻한 방학' 지원 성료</h4>
-                <p class="text-on-surface-variant line-clamp-2 font-label-sm">사회복지법인 꽃재는 지난 15일 지역 내 취약계층 200가구에 방한용품 키트를 전달하는...</p>
+              <div class="min-w-0">
+                <span :class="article.typeColor" class="font-label-sm text-xs mb-1 block">{{ article.type }}</span>
+                <h4 class="font-headline-md text-lg mb-1 group-hover:text-primary transition-all line-clamp-2">{{ article.title }}</h4>
+                <span class="text-on-surface-variant font-label-sm opacity-60">{{ article.date }}</span>
               </div>
-            </div>
-            <div class="flex gap-6 group cursor-pointer">
-              <div class="w-32 h-24 rounded-xl overflow-hidden flex-shrink-0">
-                <img
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZAzHULMbv0NfohnS8v-YP93vHAmLxYMd2z5aD1Jo0VT51dR8yhJjMaWHHWa935NdKtWC7tHqImAK3a33Ej0CoGc7mXtgC7lmviUiotgtxXHjR7Im6VEB73Qkq1_iLCqf63KZSnEuBOa2WA8KH3dyBYC6Rw7zN66YuxlnLn1v-NUYSpXLFWLLnjpbS4e7514Er8bwIWb96B-DFBjU95tEv0cPfL-Ec7kogNw5FasY65_Nb_XdHbfOHCjCAOy28GItXXoiDutySVd5m"
-                  alt="보도자료 2"
-                />
-              </div>
-              <div>
-                <h4 class="font-headline-md text-lg mb-2 group-hover:text-primary transition-all">'음악으로 하나 되는 우리' 꽃재 오케스트라 초청 연주회 개최</h4>
-                <p class="text-on-surface-variant line-clamp-2 font-label-sm">세종문화회관 체임버홀에서 열린 이번 연주회는 시민 500여명이 참석한 가운데 성황리에...</p>
-              </div>
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -334,6 +319,8 @@ import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { fetchHeroSlides } from '../api/heroSlides'
 import { fetchSiteConfig, getSiteText } from '../api/siteConfig'
 import { fetchStories } from '../api/stories'
+import { fetchNotices } from '../api/notices'
+import { fetchPressArticles } from '../api/press'
 
 const stats = reactive({
   statOrchestra:   '128회',
@@ -342,6 +329,8 @@ const stats = reactive({
 })
 
 const recentStories = ref([])
+const recentNotices = ref([])
+const recentPress = ref([])
 
 const CATEGORY_COLORS = {
   '봉사활동': 'text-warm-accent',
@@ -391,10 +380,12 @@ function resetTimer() {
 }
 
 onMounted(async () => {
-  const [slides, config, allStories] = await Promise.all([
+  const [slides, config, allStories, allNotices, allPress] = await Promise.all([
     fetchHeroSlides(),
     fetchSiteConfig(),
     fetchStories(),
+    fetchNotices(),
+    fetchPressArticles(),
   ])
   heroImages.value = slides
   currentSlide.value = 0
@@ -403,6 +394,8 @@ onMounted(async () => {
   stats.statScholarship = getSiteText(config, 'statScholarship')
   stats.statDonation    = getSiteText(config, 'statDonation')
   recentStories.value   = allStories.slice(0, 3)
+  recentNotices.value   = allNotices.slice(0, 3)
+  recentPress.value     = allPress.slice(0, 2)
 })
 onUnmounted(() => { clearInterval(timer) })
 </script>

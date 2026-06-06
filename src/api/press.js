@@ -1,4 +1,4 @@
-import { strapiGet } from './client'
+import { strapiGet, strapiMediaUrl } from './client'
 import { blocksToHtml } from '../utils/blocksToHtml'
 
 function formatDate(d) {
@@ -47,13 +47,14 @@ const FALLBACK_DETAILS = {
 
 export async function fetchPressArticles() {
   try {
-    const { data } = await strapiGet('/press-articles?sort=date:desc')
+    const { data } = await strapiGet('/press-articles?sort=date:desc&populate=featuredImage')
     return data.map(item => ({
-      id: item.id,
+      id: item.documentId,
       type: item.type,
       typeColor: TYPE_COLORS[item.type] || 'text-on-surface',
       title: item.title,
       date: formatDate(item.date),
+      featuredImage: strapiMediaUrl(item.featuredImage?.url),
     }))
   } catch {
     return FALLBACK
@@ -65,13 +66,13 @@ export async function fetchPressArticleById(id) {
     const { data } = await strapiGet(`/press-articles/${id}?populate=*`)
     // Strapi v5: fields directly on data, media as { url, ... } not { data: { attributes: { url } } }
     return {
-      id: data.id,
+      id: data.documentId,
       type: data.type,
       typeColor: TYPE_COLORS[data.type] || 'text-on-surface',
       title: data.title,
       date: formatDate(data.date),
       views: data.views || 0,
-      featuredImage: data.featuredImage?.url || null,
+      featuredImage: strapiMediaUrl(data.featuredImage?.url),
       body: blocksToHtml(data.body),
       attachments: (data.attachments || []).map(f => ({
         name: f.name,
@@ -90,8 +91,8 @@ export async function fetchPressArticleById(id) {
 
 export async function fetchAdjacentPressArticles(id) {
   try {
-    const { data } = await strapiGet('/press-articles?sort=date:desc&fields=id,title')
-    const all = data.map(item => ({ id: item.id, title: item.title }))
+    const { data } = await strapiGet('/press-articles?sort=date:desc&fields=documentId,title')
+    const all = data.map(item => ({ id: item.documentId, title: item.title }))
     const idx = all.findIndex(p => String(p.id) === String(id))
     return {
       prev: idx > 0 ? all[idx - 1] : null,

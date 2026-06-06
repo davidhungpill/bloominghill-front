@@ -42,6 +42,11 @@
           </div>
         </div>
 
+        <!-- Description -->
+        <div v-if="program.desc" class="mb-12 text-on-surface font-body-lg text-body-lg leading-relaxed whitespace-pre-line">
+          {{ program.desc }}
+        </div>
+
         <!-- Article Body: stacked content images -->
         <article class="flex flex-col gap-12 items-center">
           <div

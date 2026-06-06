@@ -44,30 +44,29 @@
               <tr>
                 <th class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant w-20 text-center">번호</th>
                 <th class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant">제목</th>
-                <th class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant w-32 text-center">작성일</th>
+                <th class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant w-44 text-center">작성일</th>
               </tr>
             </thead>
             <tbody class="font-body-md text-body-md">
               <tr
-                v-for="item in filteredItems"
+                v-for="(item, index) in pagedItems"
                 :key="item.id"
                 class="group border-b border-outline-variant/20 hover:bg-surface-container-low transition-colors cursor-pointer"
                 @click="router.push('/notice/' + item.id)"
               >
-                <td class="px-6 py-5 text-center">
-                  <span
-                    v-if="item.isNotice"
-                    class="bg-leaf-green/10 text-leaf-green px-3 py-1 rounded-full text-xs font-bold"
-                  >공지</span>
-                  <span v-else class="text-on-surface-variant font-label-sm text-label-sm">{{ item.id }}</span>
+                <td class="px-6 py-5 text-center text-on-surface-variant font-label-sm text-label-sm">
+                  {{ (currentPage - 1) * PAGE_SIZE + index + 1 }}
                 </td>
                 <td
                   class="px-6 py-5 text-on-surface group-hover:text-leaf-green transition-colors"
                   :class="item.isNotice ? 'font-semibold' : ''"
                 >
-                  {{ item.title }}
+                  <span
+                    v-if="item.isNotice"
+                    class="inline-block bg-leaf-green/10 text-leaf-green px-2 py-0.5 rounded text-xs font-bold mr-2 align-middle"
+                  >공지</span>{{ item.title }}
                 </td>
-                <td class="px-6 py-5 text-on-surface-variant text-center font-label-sm text-label-sm">{{ item.date }}</td>
+                <td class="px-6 py-5 text-on-surface-variant text-center font-label-sm text-label-sm whitespace-nowrap">{{ item.date }}</td>
               </tr>
               <tr v-if="filteredItems.length === 0">
                 <td colspan="3" class="px-6 py-16 text-center text-on-surface-variant font-body-md text-body-md">
@@ -79,15 +78,45 @@
         </div>
 
         <!-- Pagination -->
-        <div class="mt-12 flex justify-center items-center gap-2">
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant border border-outline-variant/30">
+        <div v-if="totalPages > 1" class="mt-12 flex justify-center items-center gap-2">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === 1"
+            @click="currentPage = 1"
+          >
+            <span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_left</span>
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === 1"
+            @click="currentPage--"
+          >
             <span class="material-symbols-outlined text-[20px]">chevron_left</span>
           </button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold font-label-sm text-label-sm">1</button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30">2</button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30">3</button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant border border-outline-variant/30">
+          <div class="flex gap-1 mx-2">
+            <button
+              v-for="p in visiblePages"
+              :key="p"
+              class="w-10 h-10 flex items-center justify-center rounded-lg font-label-sm text-label-sm transition-all"
+              :class="p === currentPage
+                ? 'bg-primary text-white font-bold'
+                : 'hover:bg-surface-container text-on-surface-variant border border-outline-variant/30'"
+              @click="currentPage = p"
+            >{{ p }}</button>
+          </div>
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === totalPages"
+            @click="currentPage++"
+          >
             <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === totalPages"
+            @click="currentPage = totalPages"
+          >
+            <span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_right</span>
           </button>
         </div>
 
@@ -97,7 +126,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import BreadCrumb from '../components/BreadCrumb.vue'
 import { fetchNotices } from '../api/notices'
@@ -106,8 +135,10 @@ import { useHero } from '../composables/useHero'
 const { heroSrc } = useHero('heroNotice')
 const router = useRouter()
 
+const PAGE_SIZE = 10
 const searchQuery = ref('')
 const notices = ref([])
+const currentPage = ref(1)
 
 const filteredItems = computed(() => {
   const q = searchQuery.value.trim().toLowerCase()
@@ -116,6 +147,26 @@ const filteredItems = computed(() => {
   const regular = notices.value.filter(n => !n.isNotice && n.title.toLowerCase().includes(q))
   return [...pinned, ...regular]
 })
+
+const totalPages = computed(() => Math.max(1, Math.ceil(filteredItems.value.length / PAGE_SIZE)))
+
+const pagedItems = computed(() => {
+  const start = (currentPage.value - 1) * PAGE_SIZE
+  return filteredItems.value.slice(start, start + PAGE_SIZE)
+})
+
+const visiblePages = computed(() => {
+  const total = totalPages.value
+  const cur = currentPage.value
+  let start = Math.max(1, cur - 2)
+  let end = Math.min(total, start + 4)
+  start = Math.max(1, end - 4)
+  const pages = []
+  for (let i = start; i <= end; i++) pages.push(i)
+  return pages
+})
+
+watch(searchQuery, () => { currentPage.value = 1 })
 
 onMounted(async () => {
   notices.value = await fetchNotices()

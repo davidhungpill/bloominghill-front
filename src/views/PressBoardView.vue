@@ -61,20 +61,20 @@
           <!-- Board Rows -->
           <div class="divide-y divide-outline-variant/20">
             <router-link
-              v-for="item in filteredItems"
+              v-for="(item, index) in pagedItems"
               :key="item.id"
               :to="'/press/' + item.id"
               class="group flex flex-col md:flex-row md:items-center py-6 px-6 transition-all hover:bg-surface-container-low"
             >
               <div class="hidden md:block w-20 text-center text-on-surface-variant font-label-sm text-label-sm">
-                {{ item.id }}
+                {{ (currentPage - 1) * PAGE_SIZE + index + 1 }}
               </div>
               <div class="flex-1 md:px-10 flex flex-col gap-1">
                 <div class="text-on-surface font-body-lg font-bold transition-all duration-300 group-hover:text-leaf-green group-hover:translate-x-1 line-clamp-1">
                   <span :class="item.typeColor" class="mr-2">[{{ item.type }}]</span>{{ item.title }}
                 </div>
                 <div class="md:hidden mt-2 flex items-center gap-4 text-on-surface-variant font-label-sm text-[12px]">
-                  <span>No. {{ item.id }}</span>
+                  <span>No. {{ (currentPage - 1) * PAGE_SIZE + index + 1 }}</span>
                   <span class="w-px h-2 bg-outline-variant"></span>
                   <span>{{ item.date }}</span>
                 </div>
@@ -91,24 +91,44 @@
         </div>
 
         <!-- Pagination -->
-        <div class="mt-12 flex justify-center items-center gap-2">
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all">
+        <div v-if="totalPages > 1" class="mt-12 flex justify-center items-center gap-2">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === 1"
+            @click="currentPage = 1"
+          >
             <span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_left</span>
           </button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === 1"
+            @click="currentPage--"
+          >
             <span class="material-symbols-outlined text-[20px]">chevron_left</span>
           </button>
           <div class="flex gap-1 mx-2">
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-leaf-green text-white font-bold font-label-sm text-label-sm">1</button>
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-all">2</button>
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-all">3</button>
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-all">4</button>
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-all">5</button>
+            <button
+              v-for="p in visiblePages"
+              :key="p"
+              class="w-10 h-10 flex items-center justify-center rounded-lg font-label-sm text-label-sm transition-all"
+              :class="p === currentPage
+                ? 'bg-leaf-green text-white font-bold'
+                : 'hover:bg-surface-container text-on-surface-variant'"
+              @click="currentPage = p"
+            >{{ p }}</button>
           </div>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === totalPages"
+            @click="currentPage++"
+          >
             <span class="material-symbols-outlined text-[20px]">chevron_right</span>
           </button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === totalPages"
+            @click="currentPage = totalPages"
+          >
             <span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_right</span>
           </button>
         </div>
@@ -119,21 +139,44 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
 import { fetchPressArticles } from '../api/press'
 import { useHero } from '../composables/useHero'
 
 const { heroSrc } = useHero('heroPress')
 
+const PAGE_SIZE = 10
 const searchQuery = ref('')
 const pressItems = ref([])
+const currentPage = ref(1)
 
 const filteredItems = computed(() => {
   if (!searchQuery.value.trim()) return pressItems.value
   const q = searchQuery.value.trim().toLowerCase()
   return pressItems.value.filter(item => item.title.toLowerCase().includes(q) || item.type.includes(q))
 })
+
+const totalPages = computed(() => Math.max(1, Math.ceil(filteredItems.value.length / PAGE_SIZE)))
+
+const pagedItems = computed(() => {
+  const start = (currentPage.value - 1) * PAGE_SIZE
+  return filteredItems.value.slice(start, start + PAGE_SIZE)
+})
+
+const visiblePages = computed(() => {
+  const total = totalPages.value
+  const cur = currentPage.value
+  const half = 2
+  let start = Math.max(1, cur - half)
+  let end = Math.min(total, start + 4)
+  start = Math.max(1, end - 4)
+  const pages = []
+  for (let i = start; i <= end; i++) pages.push(i)
+  return pages
+})
+
+watch(searchQuery, () => { currentPage.value = 1 })
 
 onMounted(async () => {
   pressItems.value = await fetchPressArticles()

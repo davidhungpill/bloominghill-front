@@ -29,7 +29,7 @@
         <!-- Program Card Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <router-link
-            v-for="program in programs"
+            v-for="program in pagedPrograms"
             :key="program.id"
             :to="`/education/${program.id}`"
             class="group bg-white rounded-xl overflow-hidden transition-all duration-300 border border-outline-variant/10 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-[0px_10px_30px_rgba(0,0,0,0.08)]"
@@ -57,24 +57,44 @@
         </div>
 
         <!-- Pagination -->
-        <div class="flex justify-center items-center gap-2 mt-16 mb-8">
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors">
+        <div v-if="totalPages > 1" class="flex justify-center items-center gap-2 mt-16 mb-8">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === 1"
+            @click="currentPage = 1"
+          >
             <span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_left</span>
           </button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === 1"
+            @click="currentPage--"
+          >
             <span class="material-symbols-outlined text-[20px]">chevron_left</span>
           </button>
           <div class="flex items-center gap-1 mx-2">
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-leaf-green text-white font-label-sm shadow-sm">1</button>
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant font-label-sm hover:border-leaf-green hover:text-leaf-green transition-colors">2</button>
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant font-label-sm hover:border-leaf-green hover:text-leaf-green transition-colors">3</button>
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant font-label-sm hover:border-leaf-green hover:text-leaf-green transition-colors">4</button>
-            <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant font-label-sm hover:border-leaf-green hover:text-leaf-green transition-colors">5</button>
+            <button
+              v-for="p in visiblePages"
+              :key="p"
+              class="w-10 h-10 flex items-center justify-center rounded-lg font-label-sm text-label-sm transition-all"
+              :class="p === currentPage
+                ? 'bg-leaf-green text-white font-bold shadow-sm'
+                : 'border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green'"
+              @click="currentPage = p"
+            >{{ p }}</button>
           </div>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === totalPages"
+            @click="currentPage++"
+          >
             <span class="material-symbols-outlined text-[20px]">chevron_right</span>
           </button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentPage === totalPages"
+            @click="currentPage = totalPages"
+          >
             <span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_right</span>
           </button>
         </div>
@@ -85,14 +105,35 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
 import { fetchPrograms } from '../api/programs'
 import { useHero } from '../composables/useHero'
 
 const { heroSrc } = useHero('heroEducation')
 
+const PAGE_SIZE = 6
 const programs = ref([])
+const currentPage = ref(1)
+
+const totalPages = computed(() => Math.max(1, Math.ceil(programs.value.length / PAGE_SIZE)))
+
+const pagedPrograms = computed(() => {
+  const start = (currentPage.value - 1) * PAGE_SIZE
+  return programs.value.slice(start, start + PAGE_SIZE)
+})
+
+const visiblePages = computed(() => {
+  const total = totalPages.value
+  const cur = currentPage.value
+  let start = Math.max(1, cur - 2)
+  let end = Math.min(total, start + 4)
+  start = Math.max(1, end - 4)
+  const pages = []
+  for (let i = start; i <= end; i++) pages.push(i)
+  return pages
+})
+
 onMounted(async () => {
   programs.value = await fetchPrograms()
 })

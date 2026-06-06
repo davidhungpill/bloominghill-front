@@ -1,4 +1,4 @@
-import { strapiGet } from './client'
+import { strapiGet, strapiMediaUrl } from './client'
 import { stories as fallbackStories, getStoryById as staticById, getAdjacentStories as staticAdjacent } from '../data/stories.js'
 
 function formatDate(d) {
@@ -65,8 +65,8 @@ function normalizeStory(item) {
     quote: item.quote,
     date: formatDate(item.date),
     views: item.views,
-    img: item.thumbnail?.url || '',
-    images: (item.images || []).map(i => i.url),
+    img: strapiMediaUrl(item.thumbnail?.url) || '',
+    images: (item.images || []).map(i => strapiMediaUrl(i.url)),
     tags,
   }
 }
