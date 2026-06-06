@@ -103,7 +103,7 @@
           <div class="h-64 overflow-hidden relative">
             <img
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk8Q8fqf9R2fhX4MudICviCBh5Xxc78WnLOUoSnwtyFRRnzMGHv2nCVzHHATNYQdGwxcvnsILzBVfpZOBny77Zxy_wgWzgp8Okzw5S90Mf61U9ttKMRkkAGIe4ObSbml9jd56BgJOl4mzIAxXtl3V_0h-994-ZbmVTGBpagygJAixEclTem2wcb9mLXn8fqf_RS11-VKSr5edz8iJrNZiy698BKzlYDMNXjbFUtvQAUf1KwinNNBjGPX14nE6wmSZsJl9vnSp5Oy5G"
+              :src="projectImages.orchestra"
               alt="오케스트라"
             />
             <div class="absolute top-4 left-4">
@@ -123,7 +123,7 @@
           <div class="h-64 overflow-hidden relative">
             <img
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              src="/static/edu.jpg"
+              :src="projectImages.nanum"
               alt="이웃사랑 나눔사업"
             />
             <div class="absolute top-4 left-4">
@@ -143,7 +143,7 @@
           <div class="h-64 overflow-hidden relative">
             <img
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdfpoxLHDXOW96drDsQGvA2K7HRVhkZbP10FJwVUgiT3HjXkbqV-y3MysTW6EcmbsOQ1Rf9S67gipeC_-Y8cT6qFp44daVGk8yFfz9AoV9-bwGWhO2j8qbA9UVi9Bm3R5cQinM8Ct4x4T8iC_u2SkEnHYULuPmmEdoYR16b9r07zh1YXcKkQOHW2N6BwJ_S0wo2fz0AVNNfFZ0bsB6zwzrmSH24in0Bbp8V-cuyfnHreip7iX8CQWm0TimWMSWTb4Nxl74gEXTEyGC"
+              :src="projectImages.scholarship"
               alt="장학 사업"
             />
             <div class="absolute top-4 left-4">
@@ -317,7 +317,7 @@
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { fetchHeroSlides } from '../api/heroSlides'
-import { fetchSiteConfig, getSiteText } from '../api/siteConfig'
+import { fetchSiteConfig, getSiteText, getHeroUrl } from '../api/siteConfig'
 import { fetchStories } from '../api/stories'
 import { fetchNotices } from '../api/notices'
 import { fetchPressArticles } from '../api/press'
@@ -331,6 +331,12 @@ const stats = reactive({
 const recentStories = ref([])
 const recentNotices = ref([])
 const recentPress = ref([])
+
+const projectImages = reactive({
+  orchestra:   '/static/orch_main.jpg',
+  nanum:       '/static/edu.jpg',
+  scholarship: '/static/students.jpeg',
+})
 
 const CATEGORY_COLORS = {
   '봉사활동': 'text-warm-accent',
@@ -393,6 +399,9 @@ onMounted(async () => {
   stats.statOrchestra   = getSiteText(config, 'statOrchestra')
   stats.statScholarship = getSiteText(config, 'statScholarship')
   stats.statDonation    = getSiteText(config, 'statDonation')
+  projectImages.orchestra   = getHeroUrl(config, 'heroOrchestra')
+  projectImages.nanum       = getHeroUrl(config, 'heroNanum')
+  projectImages.scholarship = getHeroUrl(config, 'heroScholarship')
   recentStories.value   = allStories.slice(0, 3)
   recentNotices.value   = allNotices.slice(0, 3)
   recentPress.value     = allPress.slice(0, 2)
