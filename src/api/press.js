@@ -48,7 +48,6 @@ const FALLBACK_DETAILS = {
 export async function fetchPressArticles() {
   try {
     const { data } = await strapiGet('/press-articles?sort=date:desc')
-    // Strapi v5: no .attributes wrapper
     return data.map(item => ({
       id: item.id,
       type: item.type,
@@ -63,7 +62,7 @@ export async function fetchPressArticles() {
 
 export async function fetchPressArticleById(id) {
   try {
-    const { data } = await strapiGet(`/press-articles/${id}?populate=featuredImage,attachments`)
+    const { data } = await strapiGet(`/press-articles/${id}?populate=*`)
     // Strapi v5: fields directly on data, media as { url, ... } not { data: { attributes: { url } } }
     return {
       id: data.id,
@@ -92,9 +91,8 @@ export async function fetchPressArticleById(id) {
 export async function fetchAdjacentPressArticles(id) {
   try {
     const { data } = await strapiGet('/press-articles?sort=date:desc&fields=id,title')
-    // Strapi v5: no .attributes wrapper
     const all = data.map(item => ({ id: item.id, title: item.title }))
-    const idx = all.findIndex(p => p.id === Number(id))
+    const idx = all.findIndex(p => String(p.id) === String(id))
     return {
       prev: idx > 0 ? all[idx - 1] : null,
       next: idx < all.length - 1 ? all[idx + 1] : null,

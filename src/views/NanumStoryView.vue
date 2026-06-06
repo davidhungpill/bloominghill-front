@@ -35,14 +35,6 @@
             <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">활동 소식</h2>
             <p class="text-on-surface-variant font-body-md text-body-md">지역사회와 함께하는 꽃재의 나눔 발자취입니다.</p>
           </div>
-          <div class="flex gap-2">
-            <button class="p-2 border border-outline rounded-lg hover:bg-surface-container transition-colors">
-              <span class="material-symbols-outlined">grid_view</span>
-            </button>
-            <button class="p-2 border border-outline rounded-lg hover:bg-surface-container transition-colors">
-              <span class="material-symbols-outlined">view_list</span>
-            </button>
-          </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
@@ -74,14 +66,34 @@
         </div>
 
         <!-- Pagination -->
-        <div class="mt-16 flex justify-center items-center space-x-2">
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+        <div v-if="totalPages > 1" class="mt-16 flex justify-center items-center space-x-2">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant transition-colors"
+            :class="currentPage === 1 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-surface-container'"
+            :disabled="currentPage === 1"
+            @click="goToPage(currentPage - 1)"
+          >
             <span class="material-symbols-outlined">chevron_left</span>
           </button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-leaf-green text-white font-bold">1</button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">2</button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">3</button>
-          <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+
+          <template v-for="p in pageNumbers" :key="p">
+            <span v-if="p === '...'" class="w-10 h-10 flex items-center justify-center text-on-surface-variant">…</span>
+            <button
+              v-else
+              class="w-10 h-10 flex items-center justify-center rounded-lg font-bold transition-colors"
+              :class="p === currentPage
+                ? 'bg-leaf-green text-white'
+                : 'border border-outline-variant hover:bg-surface-container'"
+              @click="goToPage(p)"
+            >{{ p }}</button>
+          </template>
+
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant transition-colors"
+            :class="currentPage === totalPages ? 'opacity-40 cursor-not-allowed' : 'hover:bg-surface-container'"
+            :disabled="currentPage === totalPages"
+            @click="goToPage(currentPage + 1)"
+          >
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
@@ -91,15 +103,44 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
-import { fetchStories } from '../api/stories'
+import { fetchStoriesPage } from '../api/stories'
 import { useHero } from '../composables/useHero'
 
 const { heroSrc } = useHero('heroStory')
 
-const stories = ref([])
-onMounted(async () => {
-  stories.value = await fetchStories()
+const stories     = ref([])
+const currentPage = ref(1)
+const totalPages  = ref(1)
+
+async function load(page) {
+  const { stories: items, pagination } = await fetchStoriesPage(page)
+  stories.value     = items
+  currentPage.value = pagination.page
+  totalPages.value  = pagination.pageCount
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function goToPage(page) {
+  if (page < 1 || page > totalPages.value) return
+  load(page)
+}
+
+// 표시할 페이지 번호 배열 (최대 7개, 넘으면 … 처리)
+const pageNumbers = computed(() => {
+  const total = totalPages.value
+  const cur   = currentPage.value
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1)
+
+  const pages = []
+  pages.push(1)
+  if (cur > 3)        pages.push('...')
+  for (let p = Math.max(2, cur - 1); p <= Math.min(total - 1, cur + 1); p++) pages.push(p)
+  if (cur < total - 2) pages.push('...')
+  pages.push(total)
+  return pages
 })
+
+onMounted(() => load(1))
 </script>

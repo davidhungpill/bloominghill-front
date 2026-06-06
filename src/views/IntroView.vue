@@ -1,6 +1,6 @@
 <template>
   <main>
-    <SubPageHero />
+    <SubPageHero :src="heroSrc" />
     <BreadCrumb current="이사장 인사말" />
 
     <section class="py-section-padding bg-white">
@@ -45,4 +45,7 @@
 <script setup>
 import SubPageHero from '../components/SubPageHero.vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroIntro')
 </script>

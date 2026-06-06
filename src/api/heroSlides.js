@@ -10,7 +10,7 @@ const FALLBACK_SLIDES = [
 export async function fetchHeroSlides() {
   try {
     const { data } = await strapiGet(
-      '/hero-slides?filters[isActive][$eq]=true&sort=order:asc&populate=image'
+      '/hero-slides?filters[isActive][$ne]=false&sort=order:asc&populate=image'
     )
     // Strapi v5: no .attributes wrapper; media field is { url, ... } directly
     const slides = data

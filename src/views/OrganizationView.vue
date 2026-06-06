@@ -1,6 +1,6 @@
 <template>
   <main>
-    <SubPageHero />
+    <SubPageHero :src="heroSrc" />
     <BreadCrumb current="조직도" />
 
     <section class="bg-white">
@@ -113,6 +113,9 @@
 <script setup>
 import SubPageHero from '../components/SubPageHero.vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroIntro')
 
 const committees = [
   { icon: 'corporate_fare', title: '운영위원회', desc: '법인의 주요 운영 정책 및 예산안 심의 결정' },

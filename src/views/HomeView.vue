@@ -70,17 +70,17 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div class="glass-card soft-shadow p-8 rounded-2xl text-center hover-lift border-b-4 border-leaf-green">
           <span class="material-symbols-outlined text-leaf-green text-4xl mb-4">music_note</span>
-          <div class="text-3xl font-headline-xl text-primary mb-1">128회</div>
+          <div class="text-3xl font-headline-xl text-primary mb-1">{{ stats.statOrchestra }}</div>
           <p class="font-label-sm text-on-surface-variant">오케스트라 정기공연</p>
         </div>
         <div class="glass-card soft-shadow p-8 rounded-2xl text-center hover-lift border-b-4 border-sky-blue">
           <span class="material-symbols-outlined text-sky-blue text-4xl mb-4">school</span>
-          <div class="text-3xl font-headline-xl text-primary mb-1">542명</div>
+          <div class="text-3xl font-headline-xl text-primary mb-1">{{ stats.statScholarship }}</div>
           <p class="font-label-sm text-on-surface-variant">장학생 누적 지원</p>
         </div>
         <div class="glass-card soft-shadow p-8 rounded-2xl text-center hover-lift border-b-4 border-warm-accent">
           <span class="material-symbols-outlined text-warm-accent text-4xl mb-4">volunteer_activism</span>
-          <div class="text-3xl font-headline-xl text-primary mb-1">15.2억</div>
+          <div class="text-3xl font-headline-xl text-primary mb-1">{{ stats.statDonation }}</div>
           <p class="font-label-sm text-on-surface-variant">나눔 사업 누적 기부</p>
         </div>
         <div class="bg-primary p-8 rounded-2xl flex flex-col justify-center items-center text-center shadow-lg hover-lift">
@@ -171,48 +171,62 @@
           </div>
           <router-link to="/story" class="text-primary font-bold border-b-2 border-primary hover:text-leaf-green hover:border-leaf-green transition-all pb-1">전체 이야기 보기</router-link>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[600px]">
-          <div class="lg:col-span-8 group relative rounded-2xl overflow-hidden soft-shadow hover-lift cursor-pointer">
+        <div v-if="recentStories.length" class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[600px]">
+          <!-- 최신 글 1: 좌측 큰 카드 -->
+          <router-link
+            :to="`/story/${recentStories[0].id}`"
+            class="lg:col-span-8 group relative rounded-2xl overflow-hidden soft-shadow hover-lift"
+          >
             <img
-              alt="실버위원회 봄소풍"
+              :alt="recentStories[0].title"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5YCL-IxW7i_Qosc3Fs7al9nvxvc76iaJOq1rqS8mG-cprSDlKOp7e3Tj8nkLj21eyRzAeoQXLOBAUAgeCjZ9wFYW4x0s8l2HqecH-D_l5LCPEuKLa0z9SGbZjH5-Ks8gz7qsGIvmGLGBfTGeghkTAaHG2oupj3TQrWi2tRd07OHd3_7pY8Zqp6PJ8TB8_p2SvpYiLDbapBnQ_aYa1LDSHAPy2atWqtmP4MayQSHA5n8HytXEI-cXNrlqDRR_4nsYdCinIP0cli762"
+              :src="recentStories[0].img || '/static/spring.jpg'"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             <div class="absolute bottom-0 left-0 p-8 w-full">
-              <span class="text-sky-blue font-bold text-label-sm mb-2 block">활동 소식</span>
-              <h3 class="font-headline-xl text-headline-lg text-white mb-4">실버위원회와 함께하는 봄소풍</h3>
-              <p class="text-white/80 font-body-lg line-clamp-2 mb-6 max-w-2xl">어르신들과 함께 꽃이 만발한 정원을 거닐며 따뜻한 봄날의 추억을 만들었습니다.</p>
-              <span class="text-white/60 text-label-sm">2024.05.15</span>
+              <span :class="categoryColor(recentStories[0].category)" class="font-bold text-label-sm mb-2 block">{{ recentStories[0].category }}</span>
+              <h3 class="font-headline-xl text-headline-lg text-white mb-4">{{ recentStories[0].title }}</h3>
+              <p class="text-white/80 font-body-lg line-clamp-2 mb-6 max-w-2xl">{{ recentStories[0].desc }}</p>
+              <span class="text-white/60 text-label-sm">{{ recentStories[0].date }}</span>
             </div>
-          </div>
+          </router-link>
+
+          <!-- 최신 글 2·3: 우측 작은 카드 2개 -->
           <div class="lg:col-span-4 flex flex-col gap-6">
-            <div class="flex-1 group relative rounded-2xl overflow-hidden soft-shadow hover-lift cursor-pointer min-h-[250px]">
+            <router-link
+              v-if="recentStories[1]"
+              :to="`/story/${recentStories[1].id}`"
+              class="flex-1 group relative rounded-2xl overflow-hidden soft-shadow hover-lift min-h-[250px]"
+            >
               <img
-                alt="어버이날 카네이션 봉사1"
+                :alt="recentStories[1].title"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgLQ0Xqb3VH7dHxEBoPtjPk_8L-6ARLdjAhn2gZgo4eSV4OeWm57RgTpNbwWWXy4wCUxUNy7lC-mvlRwyDvBjcVcyJtRBaJA65jVyrQi8o3rJQLDcfGOWBOmPmuJTieVUMxaQs6Y5PAEmvcCQRup3Wy-iYUq4CZ5pNXsmib1AQgoqDJx2yFEjGGS3CiyMmlPdWaOxYu_tHeEyl5yRERuuE9UGE9YMB9D3gH_xF7bFIEthTxOyl1bqFsL5AylR_VYxbeGQi9dH0J-j7"
+                :src="recentStories[1].img || '/static/spring.jpg'"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div class="absolute bottom-0 left-0 p-6 w-full">
-                <span class="text-warm-accent font-bold text-label-sm mb-1 block">후원 참여</span>
-                <h3 class="font-headline-md text-xl text-white mb-2">어버이날 카네이션 달아드리기 봉사</h3>
-                <span class="text-white/60 text-label-sm">2024.05.08</span>
+                <span :class="categoryColor(recentStories[1].category)" class="font-bold text-label-sm mb-1 block">{{ recentStories[1].category }}</span>
+                <h3 class="font-headline-md text-xl text-white mb-2">{{ recentStories[1].title }}</h3>
+                <span class="text-white/60 text-label-sm">{{ recentStories[1].date }}</span>
               </div>
-            </div>
-            <div class="flex-1 group relative rounded-2xl overflow-hidden soft-shadow hover-lift cursor-pointer min-h-[250px]">
+            </router-link>
+            <router-link
+              v-if="recentStories[2]"
+              :to="`/story/${recentStories[2].id}`"
+              class="flex-1 group relative rounded-2xl overflow-hidden soft-shadow hover-lift min-h-[250px]"
+            >
               <img
-                alt="어버이날 카네이션 봉사3"
+                :alt="recentStories[2].title"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA29MUlAqkUJ-4WF8vGBbTXUoPcrM2nN8s54ks08ERd80_nc3URFhUjSQ9tTO5sV3XzahHZ9omMMiQUkE6GTAHgYDGfTRqoVyeYJQcYyMlDDl80h4qV5G6XkhYhIHQ1jBnrKv6KREtWbeByU3ReDBUkd5WzC5zKI5o_OtnngvbUabeuO5kIIDJ-eDHb_viHzQEgrUuc4kkM_mmiVJ1rpxcKLXINsFdIYlGTiI9CKJ-oxLebDRszyixDhM-8L_MdGRV7r9ymgyM-maC3"
+                :src="recentStories[2].img || '/static/spring.jpg'"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div class="absolute bottom-0 left-0 p-6 w-full">
-                <span class="text-sky-blue font-bold text-label-sm mb-1 block">활동 소식</span>
-                <h3 class="font-headline-md text-xl text-white mb-2">따뜻한 나눔, 카네이션 선물 상자 전달</h3>
-                <span class="text-white/60 text-label-sm">2024.05.08</span>
+                <span :class="categoryColor(recentStories[2].category)" class="font-bold text-label-sm mb-1 block">{{ recentStories[2].category }}</span>
+                <h3 class="font-headline-md text-xl text-white mb-2">{{ recentStories[2].title }}</h3>
+                <span class="text-white/60 text-label-sm">{{ recentStories[2].date }}</span>
               </div>
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -316,8 +330,31 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { fetchHeroSlides } from '../api/heroSlides'
+import { fetchSiteConfig, getSiteText } from '../api/siteConfig'
+import { fetchStories } from '../api/stories'
+
+const stats = reactive({
+  statOrchestra:   '128회',
+  statScholarship: '542명',
+  statDonation:    '15.2억',
+})
+
+const recentStories = ref([])
+
+const CATEGORY_COLORS = {
+  '봉사활동': 'text-warm-accent',
+  '지역사회': 'text-leaf-green',
+  '문화행사': 'text-sky-blue',
+  '나눔기록': 'text-warm-accent',
+  '감사나눔': 'text-leaf-green',
+  '문화예술': 'text-sky-blue',
+  '활동기록': 'text-sky-blue',
+}
+function categoryColor(cat) {
+  return CATEGORY_COLORS[cat] || 'text-sky-blue'
+}
 
 const heroImages = ref([
   { src: '/static/orchestra.jpg', alt: '꽃재 오케스트라' },
@@ -354,10 +391,18 @@ function resetTimer() {
 }
 
 onMounted(async () => {
-  const slides = await fetchHeroSlides()
+  const [slides, config, allStories] = await Promise.all([
+    fetchHeroSlides(),
+    fetchSiteConfig(),
+    fetchStories(),
+  ])
   heroImages.value = slides
   currentSlide.value = 0
   timer = setInterval(nextSlide, 5000)
+  stats.statOrchestra   = getSiteText(config, 'statOrchestra')
+  stats.statScholarship = getSiteText(config, 'statScholarship')
+  stats.statDonation    = getSiteText(config, 'statDonation')
+  recentStories.value   = allStories.slice(0, 3)
 })
 onUnmounted(() => { clearInterval(timer) })
 </script>

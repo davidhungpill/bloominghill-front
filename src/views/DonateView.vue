@@ -43,7 +43,7 @@
             <div class="rounded-xl p-8 space-y-6 border border-outline-variant/30">
               <div class="flex justify-between items-center">
                 <span class="text-on-surface-variant font-body-md text-body-md font-medium">은행명</span>
-                <span class="text-on-surface font-bold font-headline-md text-headline-md">농협은행</span>
+                <span class="text-on-surface font-bold font-headline-md text-headline-md">{{ bankName }}</span>
               </div>
               <div class="flex justify-between items-center py-6 border-y border-outline-variant/30">
                 <span class="text-on-surface-variant font-body-md text-body-md font-medium">계좌번호</span>
@@ -63,7 +63,7 @@
               </div>
               <div class="flex justify-between items-center">
                 <span class="text-on-surface-variant font-body-md text-body-md font-medium">예금주</span>
-                <span class="text-on-surface font-bold font-headline-md text-headline-md">사단법인 꽃재</span>
+                <span class="text-on-surface font-bold font-headline-md text-headline-md">{{ accountHolder }}</span>
               </div>
             </div>
 
@@ -71,7 +71,7 @@
             <div class="flex items-start gap-3 p-4 bg-sky-blue/5 rounded-lg border border-sky-blue/10">
               <span class="material-symbols-outlined text-sky-blue text-[20px] shrink-0 mt-0.5">info</span>
               <p class="text-on-surface-variant font-label-sm text-label-sm leading-relaxed">
-                기부금 영수증 발급 및 정기 후원 문의: 02-1234-5678 (운영시간 평일 09:00 - 18:00)
+                기부금 영수증 발급 및 정기 후원 문의: {{ phone }} (운영시간 평일 09:00 - 18:00)
               </p>
             </div>
           </div>
@@ -131,16 +131,28 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useHero } from '../composables/useHero'
+import { fetchSiteConfig, getSiteText } from '../api/siteConfig'
 
 const { heroSrc } = useHero('heroDonate')
 
-const accountNumber = '301-1234-5678-01'
+const bankName      = ref('농협은행')
+const accountNumber = ref('301-1234-5678-01')
+const accountHolder = ref('사단법인 꽃재')
+const phone         = ref('02-2299-5424')
 const copied = ref(false)
 
+onMounted(async () => {
+  const config = await fetchSiteConfig()
+  bankName.value      = getSiteText(config, 'bankName')
+  accountNumber.value = getSiteText(config, 'accountNumber')
+  accountHolder.value = getSiteText(config, 'accountHolder')
+  phone.value         = getSiteText(config, 'phone')
+})
+
 function copyAccount() {
-  navigator.clipboard.writeText(accountNumber).then(() => {
+  navigator.clipboard.writeText(accountNumber.value).then(() => {
     copied.value = true
     setTimeout(() => { copied.value = false }, 2000)
   })

@@ -49,9 +49,8 @@ const FALLBACK_DETAILS = {
 export async function fetchNotices() {
   try {
     const { data } = await strapiGet('/notices?sort=isPinned:desc,date:desc')
-    // Strapi v5: no .attributes wrapper
     return data.map(item => ({
-      id: item.id,
+      id: item.documentId,
       isNotice: item.isPinned,
       title: item.title,
       date: formatDate(item.date),
@@ -63,10 +62,9 @@ export async function fetchNotices() {
 
 export async function fetchNoticeById(id) {
   try {
-    const { data } = await strapiGet(`/notices/${id}`)
-    // Strapi v5: fields directly on data
+    const { data } = await strapiGet(`/notices/${id}?populate=attachments`)
     return {
-      id: data.id,
+      id: data.documentId,
       isNotice: data.isPinned,
       title: data.title,
       date: formatDate(data.date),
@@ -74,9 +72,9 @@ export async function fetchNoticeById(id) {
       body: blocksToHtml(data.body),
       attachments: (data.attachments || []).map(f => ({
         name: f.name,
-        size: f.size,
+        size: formatFileSize(f.size),
         url: f.url,
-        icon: 'description',
+        icon: getFileIcon(f.mime),
       })),
     }
   } catch {
@@ -90,9 +88,8 @@ export async function fetchNoticeById(id) {
 export async function fetchAdjacentNotices(id) {
   try {
     const { data } = await strapiGet('/notices?sort=isPinned:desc,date:desc&fields=id,title')
-    // Strapi v5: no .attributes wrapper
-    const all = data.map(item => ({ id: item.id, title: item.title }))
-    const idx = all.findIndex(n => n.id === Number(id))
+    const all = data.map(item => ({ id: item.documentId, title: item.title }))
+    const idx = all.findIndex(n => n.id === id)
     return {
       prev: idx > 0 ? all[idx - 1] : null,
       next: idx < all.length - 1 ? all[idx + 1] : null,
@@ -105,4 +102,17 @@ export async function fetchAdjacentNotices(id) {
       next: idx < all.length - 1 ? all[idx + 1] : null,
     }
   }
+}
+
+function formatFileSize(kb) {
+  if (!kb) return ''
+  return kb >= 1024 ? `${(kb / 1024).toFixed(1)}MB` : `${kb}KB`
+}
+
+function getFileIcon(mime) {
+  if (!mime) return 'description'
+  if (mime.includes('pdf')) return 'picture_as_pdf'
+  if (mime.includes('zip') || mime.includes('compressed')) return 'folder_zip'
+  if (mime.startsWith('image/')) return 'image'
+  return 'description'
 }

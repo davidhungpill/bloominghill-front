@@ -41,7 +41,7 @@
 
           <!-- Body -->
           <div
-            class="space-y-6 font-body-lg text-body-lg text-on-surface-variant leading-relaxed"
+            class="rich-content space-y-6"
             v-html="article.body"
           ></div>
 

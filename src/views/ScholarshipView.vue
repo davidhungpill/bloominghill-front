@@ -4,7 +4,7 @@
     <section class="relative h-[240px] md:h-[320px] flex items-center justify-center overflow-hidden">
       <div class="absolute inset-0">
         <img
-          src="/static/students.jpeg"
+          :src="heroSrc"
           alt="장학 사업"
           class="w-full h-full object-cover"
         />
@@ -31,63 +31,40 @@
         </div>
 
         <div class="flex flex-col gap-10">
-
-          <!-- 장학금 지원 사업 -->
-          <article class="group flex flex-col md:flex-row bg-white rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm hover:shadow-md transition-all duration-300">
+          <article
+            v-for="item in programs"
+            :key="item.id"
+            class="group flex flex-col md:flex-row bg-white rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm hover:shadow-md transition-all duration-300"
+          >
             <div class="md:w-1/3 min-h-[240px] relative overflow-hidden">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcTOgkOv3oCZhtExFgWMhLGnnRa4h9jkoVvavD3SUgx1Vajsw7O0NeuhfME0WY_WmzyPQ3R63G9-OppIuwyw6MPBz1xoNuJ7CnfZ8VwrTWDKY-e3s-mrSb1XxzTwKPa3VAh3PYvqa_DTo8jxoDfPIFJeHaQiHQyhMcBy16QslyhGhhSl2cux9pxt9Ljwvcn7eobyLD59u8I85qXknpTBEL9oNEc-XgZfQuA-bEVXIHOwZHpwJ6xCltRpoLwQ17i3Kh_r1d6tZDKSjh"
-                alt="장학금 지원 사업"
+                :src="item.image"
+                :alt="item.title"
                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div class="md:w-2/3 p-8 md:p-10 flex flex-col justify-center">
-              <h3 class="font-headline-md text-headline-md text-on-surface mb-6">장학금 지원 사업</h3>
+              <h3 class="font-headline-md text-headline-md text-on-surface mb-6">{{ item.title }}</h3>
               <div class="space-y-4">
-                <div class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
+                <div v-if="item.target" class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
                   <span class="font-label-sm text-label-sm text-on-surface-variant">대상</span>
-                  <span class="font-body-md text-body-md text-on-surface">한부모 자녀, 차상위 계층 중고등학생</span>
+                  <span class="font-body-md text-body-md text-on-surface">{{ item.target }}</span>
                 </div>
-                <div class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
+                <div v-if="item.targetSelection" class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
                   <span class="font-label-sm text-label-sm text-on-surface-variant">대상자 선정</span>
-                  <span class="font-body-md text-body-md text-on-surface">도선고등학교, 도선동 주민센터</span>
+                  <span class="font-body-md text-body-md text-on-surface">{{ item.targetSelection }}</span>
                 </div>
-                <div class="grid grid-cols-[120px_1fr]">
+                <div v-if="item.period" class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">기간</span>
+                  <span class="font-body-md text-body-md text-on-surface">{{ item.period }}</span>
+                </div>
+                <div v-if="item.content" class="grid grid-cols-[120px_1fr]">
                   <span class="font-label-sm text-label-sm text-on-surface-variant">내용</span>
-                  <span class="font-body-md text-body-md text-on-surface">재정 지원</span>
+                  <span class="font-body-md text-body-md text-on-surface">{{ item.content }}</span>
                 </div>
               </div>
             </div>
           </article>
-
-          <!-- 아동 청소년 지원 사업 -->
-          <article class="group flex flex-col md:flex-row bg-white rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm hover:shadow-md transition-all duration-300">
-            <div class="md:w-1/3 min-h-[240px] relative overflow-hidden">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKiIubHcvJAWvk5W2VMol2lduYPI_ZQHudQITXpJJJoIKrSyewoX3Id4Fsk1aX6EXTNwe8XGhDaRBz7pmstP6yg7DDaqY6zabfcT-3GaP9PpjslvF-WNoTNttyjx_swFuHtVqEIS6CgYSxPPF6olt4cBB4gXoDQIMuKo_c0ANdxTom9y7JUcayr3Dx09SNCJbq3D9habaAAQEqc5Vl-o22b_VZC_1SFV6mPMNtUydKKP3ghkZb0sULo_LdcXadLXUf7wVBUipxkgtX"
-                alt="아동 청소년 지원 사업"
-                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div class="md:w-2/3 p-8 md:p-10 flex flex-col justify-center">
-              <h3 class="font-headline-md text-headline-md text-on-surface mb-6">아동 청소년 지원 사업</h3>
-              <div class="space-y-4">
-                <div class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
-                  <span class="font-label-sm text-label-sm text-on-surface-variant">대상</span>
-                  <span class="font-body-md text-body-md text-on-surface">수급자 자녀 아동/청소년</span>
-                </div>
-                <div class="grid grid-cols-[120px_1fr] border-b border-outline-variant/20 pb-3">
-                  <span class="font-label-sm text-label-sm text-on-surface-variant">대상자 선정</span>
-                  <span class="font-body-md text-body-md text-on-surface">도선동 주민센터, 이든아이</span>
-                </div>
-                <div class="grid grid-cols-[120px_1fr]">
-                  <span class="font-label-sm text-label-sm text-on-surface-variant">내용</span>
-                  <span class="font-body-md text-body-md text-on-surface">우유 365일 배달, 보호종료아동 정기 지원</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
@@ -95,5 +72,15 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
+import { fetchBusinessPrograms } from '../api/businessPrograms'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroScholarship')
+const programs = ref([])
+
+onMounted(async () => {
+  programs.value = await fetchBusinessPrograms('scholarship')
+})
 </script>

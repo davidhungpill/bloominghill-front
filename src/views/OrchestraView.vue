@@ -3,7 +3,7 @@
     <!-- Hero -->
     <section class="relative h-[240px] md:h-[320px] overflow-hidden">
       <img
-        src="/static/orch_main.jpg"
+        :src="heroSrc"
         alt="뉴왕십리 오케스트라"
         class="w-full h-full object-cover"
       />
@@ -28,73 +28,36 @@
         </div>
 
         <div class="space-y-12">
-          <!-- 다문화 오케스트라 -->
-          <article class="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden min-h-[320px] border border-outline-variant/20 soft-shadow hover-lift">
+          <article
+            v-for="item in programs"
+            :key="item.id"
+            class="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden min-h-[320px] border border-outline-variant/20 soft-shadow hover-lift"
+          >
             <div class="md:w-[40%] min-h-[280px] relative overflow-hidden group">
               <img
-                src="/static/orch.png"
-                alt="다문화 오케스트라"
+                :src="item.image"
+                :alt="item.title"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
             <div class="md:w-[60%] p-8 md:p-10 flex flex-col justify-center">
-              <h3 class="font-headline-md text-headline-md text-on-surface mb-8">다문화 오케스트라</h3>
+              <h3 class="font-headline-md text-headline-md text-on-surface mb-8">{{ item.title }}</h3>
               <div class="space-y-3 font-body-md text-body-md">
-                <div class="flex">
-                  <div class="w-24 shrink-0 font-semibold text-on-surface">대상</div>
-                  <div class="text-on-surface-variant">다문화, 외국인 노동자 가정, 대상자 면접 후 선발</div>
+                <div v-if="item.target" class="flex">
+                  <div class="w-28 shrink-0 font-semibold text-on-surface">대상</div>
+                  <div class="text-on-surface-variant">{{ item.target }}</div>
                 </div>
-                <div class="flex">
-                  <div class="w-24 shrink-0 font-semibold text-on-surface">내용</div>
-                  <div class="text-on-surface-variant">수강료, 악기, 교재 지원, 오케스트라 회비 전액 지원</div>
+                <div v-if="item.targetSelection" class="flex">
+                  <div class="w-28 shrink-0 font-semibold text-on-surface">대상자 선정</div>
+                  <div class="text-on-surface-variant">{{ item.targetSelection }}</div>
                 </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- 지역 문화 공연 -->
-          <article class="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden min-h-[320px] border border-outline-variant/20 soft-shadow hover-lift">
-            <div class="md:w-[40%] min-h-[280px] relative overflow-hidden group">
-              <img
-                src="/static/orch3.png"
-                alt="지역 문화 공연"
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div class="md:w-[60%] p-8 md:p-10 flex flex-col justify-center">
-              <h3 class="font-headline-md text-headline-md text-on-surface mb-8">지역 문화 공연</h3>
-              <div class="space-y-3 font-body-md text-body-md">
-                <div class="flex">
-                  <div class="w-24 shrink-0 font-semibold text-on-surface">시기</div>
-                  <div class="text-on-surface-variant">상시</div>
+                <div v-if="item.period" class="flex">
+                  <div class="w-28 shrink-0 font-semibold text-on-surface">시기</div>
+                  <div class="text-on-surface-variant">{{ item.period }}</div>
                 </div>
-                <div class="flex">
-                  <div class="w-24 shrink-0 font-semibold text-on-surface">내용</div>
-                  <div class="text-on-surface-variant">지역 문화 공연 "성동구 정오의 음악회", "성동 가족 페스티벌" 에서 연주 섬김</div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- 취약계층 문화 지원 -->
-          <article class="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden min-h-[320px] border border-outline-variant/20 soft-shadow hover-lift">
-            <div class="md:w-[40%] min-h-[280px] relative overflow-hidden group">
-              <img
-                src="/static/hospital1.png"
-                alt="취약계층 문화 지원"
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div class="md:w-[60%] p-8 md:p-10 flex flex-col justify-center">
-              <h3 class="font-headline-md text-headline-md text-on-surface mb-8">취약계층 문화 지원</h3>
-              <div class="space-y-3 font-body-md text-body-md">
-                <div class="flex">
-                  <div class="w-24 shrink-0 font-semibold text-on-surface">시기</div>
-                  <div class="text-on-surface-variant">상시</div>
-                </div>
-                <div class="flex">
-                  <div class="w-24 shrink-0 font-semibold text-on-surface">내용</div>
-                  <div class="text-on-surface-variant">찾아가는 음악회 "분당 차병원 연주", "쪽방촌 지원사업 연주" 봉사 활동</div>
+                <div v-if="item.content" class="flex">
+                  <div class="w-28 shrink-0 font-semibold text-on-surface">내용</div>
+                  <div class="text-on-surface-variant">{{ item.content }}</div>
                 </div>
               </div>
             </div>
@@ -108,5 +71,15 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
+import { fetchBusinessPrograms } from '../api/businessPrograms'
+import { useHero } from '../composables/useHero'
+
+const { heroSrc } = useHero('heroOrchestra')
+const programs = ref([])
+
+onMounted(async () => {
+  programs.value = await fetchBusinessPrograms('orchestra')
+})
 </script>

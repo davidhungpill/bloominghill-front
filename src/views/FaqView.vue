@@ -47,7 +47,7 @@
             </button>
             <div class="accordion-content px-12" :class="{ open: openIndex === index }">
               <div
-                class="text-on-surface-variant font-body-lg text-body-lg leading-relaxed bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 mb-8"
+                class="rich-content bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 mb-8"
                 v-html="item.answer"
               ></div>
             </div>

@@ -33,7 +33,7 @@
 
       <!-- Article Body -->
       <article
-        class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed space-y-8 mb-16"
+        class="rich-content space-y-8 mb-16"
         v-html="notice.body"
       ></article>
 

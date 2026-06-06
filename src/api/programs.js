@@ -8,7 +8,7 @@ function formatDate(d) {
 // Strapi v5: no .attributes wrapper; media fields are { url, ... } directly
 function normalizeProgram(item) {
   return {
-    id: item.id,
+    id: item.documentId,
     badge: item.badge,
     category: item.category,
     title: item.title,
@@ -31,7 +31,7 @@ export async function fetchPrograms() {
 
 export async function fetchProgramById(id) {
   try {
-    const { data } = await strapiGet(`/programs/${id}?populate=thumbnail,contentImages`)
+    const { data } = await strapiGet(`/programs/${id}?populate=*`)
     return normalizeProgram(data)
   } catch {
     return staticById(id)

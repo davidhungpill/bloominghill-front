@@ -34,9 +34,21 @@
         </div>
         <div class="bg-surface-container p-4 rounded-xl border border-outline-variant/30 text-right">
           <p class="font-label-sm text-primary mb-1">후원문의 (평일 09:00 - 18:00)</p>
-          <p class="text-2xl font-headline-md text-on-surface">02-1234-5678</p>
+          <p class="text-2xl font-headline-md text-on-surface">{{ phone }}</p>
         </div>
       </div>
     </div>
   </footer>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { fetchSiteConfig, getSiteText } from '../api/siteConfig'
+
+const phone = ref('02-2299-5424')
+
+onMounted(async () => {
+  const config = await fetchSiteConfig()
+  phone.value = getSiteText(config, 'phone')
+})
+</script>

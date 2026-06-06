@@ -44,9 +44,9 @@
           <!-- Post Body -->
           <div class="p-8 md:p-12 space-y-12">
             <div class="space-y-8">
-              <p class="font-body-lg text-body-lg leading-relaxed text-on-surface-variant">{{ story.content }}</p>
+              <div class="story-content font-body-lg text-body-lg leading-relaxed text-on-surface-variant" v-html="story.content"></div>
 
-              <div class="bg-surface-muted p-8 rounded-2xl border-l-4 border-leaf-green">
+              <div v-if="story.quote" class="bg-surface-muted p-8 rounded-2xl border-l-4 border-leaf-green">
                 <p class="font-body-lg text-body-lg italic text-on-surface">{{ story.quote }}</p>
               </div>
 
@@ -63,12 +63,13 @@
           </div>
 
           <!-- Tags -->
-          <div class="px-8 md:px-12 pb-12 flex flex-wrap gap-2">
+          <div v-if="story.tags && story.tags.length > 0" class="px-8 md:px-12 pb-12 flex flex-wrap gap-2">
             <span
               v-for="tag in story.tags"
               :key="tag"
-              class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-[13px] font-label-sm"
-            >{{ tag }}</span>
+              class="px-3 py-1.5 rounded-full text-[13px] font-medium"
+              style="background:rgba(107,158,107,0.12); color:#3B6E3B;"
+            >#{{ tag.replace(/^#/, '') }}</span>
           </div>
 
         </article>
@@ -134,8 +135,8 @@ import { useHero } from '../composables/useHero'
 
 const { heroSrc } = useHero('heroStory')
 
-const route = useRoute()
-const story = ref(null)
+const route  = useRoute()
+const story  = ref(null)
 const adjacent = ref({ prev: null, next: null })
 
 async function load(id) {
@@ -148,3 +149,16 @@ async function load(id) {
 onMounted(() => load(route.params.id))
 watch(() => route.params.id, id => load(id))
 </script>
+
+<style scoped>
+.story-content :deep(p)          { margin-bottom: 1.25rem; }
+.story-content :deep(h2)         { font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+.story-content :deep(h3)         { font-size: 1.1rem; font-weight: 700; margin: 1.25rem 0 0.5rem; }
+.story-content :deep(ul)         { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+.story-content :deep(ol)         { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+.story-content :deep(li)         { margin-bottom: 0.25rem; }
+.story-content :deep(blockquote) { border-left: 4px solid #6B9E6B; padding-left: 1rem; color: #555; font-style: italic; margin: 1rem 0; }
+.story-content :deep(a)          { color: #3B6E3B; text-decoration: underline; }
+.story-content :deep(code)       { background: #f3f4f6; padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.9em; }
+.story-content :deep(pre)        { background: #f3f4f6; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+</style>

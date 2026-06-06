@@ -43,7 +43,7 @@
           <div class="space-y-3">
             <div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
               <span class="material-symbols-outlined text-primary">mail</span>
-              <span class="font-body-md text-body-md font-semibold">이메일: receipt@bloominghill.or.kr</span>
+              <span class="font-body-md text-body-md font-semibold">이메일: {{ receiptEmail }}</span>
             </div>
             <div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
               <span class="material-symbols-outlined text-primary">language</span>
@@ -51,7 +51,7 @@
             </div>
             <div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
               <span class="material-symbols-outlined text-primary">chat_bubble</span>
-              <span class="font-body-md text-body-md font-semibold">카카오톡 채널: @꽃재복지재단</span>
+              <span class="font-body-md text-body-md font-semibold">카카오톡 채널: {{ kakaoChannel }}</span>
             </div>
           </div>
         </div>
@@ -87,14 +87,14 @@
         <h3 class="font-headline-md text-headline-md text-center text-on-surface mb-8">궁금한 점이 있으신가요?</h3>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a
-            href="tel:1577-9044"
+            :href="`tel:${phone}`"
             class="flex items-center justify-center gap-3 bg-white border-2 border-deep-ocean text-deep-ocean font-bold font-label-sm text-label-sm px-8 py-4 rounded-xl hover:bg-deep-ocean/5 transition-all active:scale-95"
           >
             <span class="material-symbols-outlined">call</span>
-            전화 문의 1577-9044
+            전화 문의 {{ phone }}
           </a>
           <a
-            href="#"
+            :href="kakaoChannelUrl"
             class="flex items-center justify-center gap-3 bg-[#FAE100] text-[#3C1E1E] font-bold font-label-sm text-label-sm px-8 py-4 rounded-xl hover:brightness-95 transition-all active:scale-95"
           >
             <span class="material-symbols-outlined">chat_bubble</span>
@@ -108,10 +108,25 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
 import { useHero } from '../composables/useHero'
+import { fetchSiteConfig, getSiteText } from '../api/siteConfig'
 
 const { heroSrc } = useHero('heroDonateCert')
+
+const receiptEmail    = ref('blooming5424@naver.com')
+const kakaoChannel    = ref('@꽃재복지재단')
+const kakaoChannelUrl = ref('#')
+const phone           = ref('02-2299-5424')
+
+onMounted(async () => {
+  const config = await fetchSiteConfig()
+  receiptEmail.value    = getSiteText(config, 'receiptEmail')
+  kakaoChannel.value    = getSiteText(config, 'kakaoChannel')
+  kakaoChannelUrl.value = getSiteText(config, 'kakaoChannelUrl')
+  phone.value           = getSiteText(config, 'phone')
+})
 
 const requiredFields = ['성명', '주민번호 13자리', '후원금액', '휴대전화번호']
 </script>
