@@ -1,4 +1,4 @@
-import { strapiGet } from './client'
+import { strapiGet, trackView } from './client'
 import { blocksToHtml } from '../utils/blocksToHtml'
 
 function formatDate(d) {
@@ -72,6 +72,7 @@ export async function fetchNotices() {
 export async function fetchNoticeById(id) {
   try {
     const { data } = await strapiGet(`/notices/${id}?populate=attachments`)
+    trackView('notices', data.documentId, data.views)
     return {
       id: data.documentId,
       isNotice: data.isPinned,

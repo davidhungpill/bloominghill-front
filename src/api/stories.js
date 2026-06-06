@@ -1,4 +1,4 @@
-import { strapiGet, strapiMediaUrl } from './client'
+import { strapiGet, strapiMediaUrl, trackView } from './client'
 import { stories as fallbackStories, getStoryById as staticById, getAdjacentStories as staticAdjacent } from '../data/stories.js'
 
 function formatDate(d) {
@@ -105,6 +105,7 @@ export async function fetchStoriesPage(page = 1) {
 export async function fetchStoryById(id) {
   try {
     const { data } = await strapiGet(`/stories/${id}?populate=*`)
+    trackView('stories', data.documentId, data.views)
     return normalizeStory(data)
   } catch {
     return staticById(id)

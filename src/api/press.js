@@ -1,4 +1,4 @@
-import { strapiGet, strapiMediaUrl } from './client'
+import { strapiGet, strapiMediaUrl, trackView } from './client'
 import { blocksToHtml } from '../utils/blocksToHtml'
 
 function formatDate(d) {
@@ -64,7 +64,7 @@ export async function fetchPressArticles() {
 export async function fetchPressArticleById(id) {
   try {
     const { data } = await strapiGet(`/press-articles/${id}?populate=*`)
-    // Strapi v5: fields directly on data, media as { url, ... } not { data: { attributes: { url } } }
+    trackView('press-articles', data.documentId, data.views)
     return {
       id: data.documentId,
       type: data.type,
