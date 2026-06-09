@@ -18,7 +18,7 @@
         </div>
         <p class="font-label-sm text-label-sm text-on-surface-variant/70 mt-4">
           서울특별시 성동구 마장로 164 꽃재교회 지하1층 | 대표자: 김성복 | 사업자번호: 226-82-15891<br/>
-          대표전화: 02-2299-5424 | 이메일: blooming5424@naver.com
+          대표전화: 02-2299-5424 | 이메일: bloom5424@naver.com
         </p>
         <p class="font-label-sm text-label-sm text-on-surface-variant/70">© 2021 사회복지법인 꽃재 Blooming Hill. All Rights Reserved.</p>
       </div>
