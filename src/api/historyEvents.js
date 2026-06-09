@@ -51,7 +51,7 @@ function groupByYear(events) {
 
 export async function fetchHistoryEvents() {
   try {
-    const { data } = await strapiGet('/history-events?sort=date:desc')
+    const { data } = await strapiGet('/history-events?sort=date:desc&pagination[pageSize]=100')
     const grouped = groupByYear(data)
     return grouped.length ? grouped : FALLBACK
   } catch {

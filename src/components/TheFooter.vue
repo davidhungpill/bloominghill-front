@@ -4,7 +4,7 @@
       <div class="flex flex-col gap-4">
         <div class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
           <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9FeOlo-pmMFsbsKOIJRonDywtdECRoeXZzEp9-OvLh9tWyfTwLIS2vKbdNc_K-gda_LhCsHC88XvgiW_btTAXQbPQx03U27qv6oPdUrsOZz9zf4ZAWK2OuzkytPHLxs6WPGKzEQzdTfTOUtoBXiCqP4O5YaPX85__GJzx-U7edlPthu8300Hy0DtrxR9B7NpQUT-X_f2pfhITUSuAPhK_7XhDBRAep0rkQP2egU4xKgEdxlbPw8FmvfremTulwf8d7cnyAULAKciC"
+            src="/static/logo.png"
             alt="꽃재 Logo"
             class="h-8 w-auto grayscale contrast-125 opacity-70"
           />
@@ -17,10 +17,10 @@
           <router-link to="/location" class="text-on-surface-variant hover:text-leaf-green transition-colors">찾아오시는 길</router-link>
         </div>
         <p class="font-label-sm text-label-sm text-on-surface-variant/70 mt-4">
-          서울특별시 성동구 마장로 164 꽃재교회 지하1층 | 대표자: 김성복 | 사업자번호: 123-45-67890<br/>
-          대표전화: 02-1234-5678 | 이메일: info@bloominghill.or.kr
+          서울특별시 성동구 마장로 164 꽃재교회 지하1층 | 대표자: 김성복 | 사업자번호: 226-82-15891<br/>
+          대표전화: 02-2299-5424 | 이메일: blooming5424@naver.com
         </p>
-        <p class="font-label-sm text-label-sm text-on-surface-variant/70">© 2024 사회복지법인 꽃재 Blooming Hill. All Rights Reserved.</p>
+        <p class="font-label-sm text-label-sm text-on-surface-variant/70">© 2021 사회복지법인 꽃재 Blooming Hill. All Rights Reserved.</p>
       </div>
 
       <div class="flex flex-col md:items-end gap-6 w-full md:w-auto">

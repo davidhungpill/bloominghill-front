@@ -12,7 +12,7 @@
             <template v-for="(y, i) in years" :key="y">
               <a
                 :href="`#year-${y}`"
-                class="nav-year-btn w-16 h-16 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-headline-md text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all"
+                class="nav-year-btn w-16 h-16 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-sm text-on-surface-variant hover:border-leaf-green hover:text-leaf-green transition-all"
                 :class="{ active: activeYear === y }"
                 @click.prevent="scrollToYear(y)"
               >{{ y }}</a>
@@ -31,7 +31,7 @@
             <div class="w-20 h-1.5 bg-leaf-green rounded-full"></div>
           </div>
 
-          <div class="relative pl-6 timeline-container">
+          <div class="relative">
             <section v-for="(group, idx) in historyData" :key="group.year" class="mb-20 scroll-mt-32" :id="`year-${group.year}`">
               <div class="year-indicator">
                 <h3 class="text-headline-xl font-extrabold text-leaf-green mb-10">{{ group.year }}</h3>
