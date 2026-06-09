@@ -14,7 +14,8 @@
     <BreadCrumb current="기부금 영수증 안내" parent="후원" />
 
     <!-- Main Content -->
-    <section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding">
+    <section class="bg-white">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding">
 
       <!-- Section Header -->
       <div class="mb-12">
@@ -103,6 +104,7 @@
         </div>
       </div>
 
+    </div>
     </section>
   </main>
 </template>
