@@ -47,7 +47,7 @@
             Blooming Hill Foundation
           </span>
           <h1 class="font-headline-xl text-headline-xl mb-6 leading-tight">
-            세상을 꽃피우는<br/>따뜻한 울림, 꽃재
+            세상을 꽃피우는<br/>따뜻한 울림, 사단법인 꽃재
           </h1>
           <p class="font-body-lg text-body-lg mb-10 text-white/90">
             우리는 음악과 나눔을 통해 지역사회의 소외된 이웃들에게 <br class="hidden md:block"/>
@@ -166,7 +166,7 @@
       <div class="px-margin-mobile md:px-gutter max-w-container-max mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div>
-            <h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">꽃재 이야기</h2>
+            <h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">나눔 이야기</h2>
             <p class="text-on-surface-variant font-body-md">나눔으로 일궈낸 따뜻한 변화의 기록들입니다.</p>
           </div>
           <router-link to="/story" class="text-primary font-bold border-b-2 border-primary hover:text-leaf-green hover:border-leaf-green transition-all pb-1">전체 이야기 보기</router-link>

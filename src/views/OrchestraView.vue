@@ -25,6 +25,10 @@
           <p class="text-on-surface-variant font-body-lg text-body-lg mt-6">
             사단법인 꽃재의 "뉴왕십리 오케스트라"가 진행하는 사업 활동입니다.
           </p>
+          <p class="font-body-lg text-body-lg mt-4">
+            <span class="text-leaf-green font-bold">'연주를 통해 따뜻한 나눔을 실천해 보세요'</span>
+            <span class="text-on-surface-variant"> 연주 봉사활동 참여 시 VMS 및 1365 자원봉사 시간 인증이 가능합니다.</span>
+          </p>
         </div>
 
         <div class="space-y-12">
