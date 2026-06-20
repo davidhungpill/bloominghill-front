@@ -313,6 +313,7 @@ const storyMenuItems = [
   { label: '나눔 이야기', path: '/story' },
   { label: '언론 보도자료', path: '/press' },
   { label: '꽃재 평생 교육원', path: '/education' },
+  { label: '카페 마노아', path: '/cafe' },
 ]
 
 const newsMenuItems = [
@@ -327,7 +328,8 @@ const isIntroActive = computed(() => introRoutes.includes(route.path))
 const isBusinessActive = computed(() => businessRoutes.includes(route.path))
 const isStoryActive = computed(() =>
   route.path === '/story' || route.path.startsWith('/story/') ||
-  route.path === '/press' || route.path === '/education'
+  route.path === '/press' || route.path === '/education' ||
+  route.path === '/cafe' || route.path.startsWith('/cafe/')
 )
 const isNewsActive = computed(() => newsRoutes.includes(route.path))
 

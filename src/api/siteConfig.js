@@ -25,6 +25,7 @@ const HERO_FALLBACKS = {
   heroFaq:        '/static/notice.jpg',
   heroDonate:     '/static/spring2.jpg',
   heroDonateCert: '/static/spring.jpg',
+  heroCafe:       '/static/spring.jpg',
 }
 
 let _cache = null
