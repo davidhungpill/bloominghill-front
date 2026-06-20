@@ -95,7 +95,7 @@
     <!-- Core Projects -->
     <section class="py-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto">
       <div class="text-center mb-16">
-        <h2 class="font-headline-xl text-headline-xl text-on-surface mb-4">꽃재의 핵심 사업</h2>
+        <h2 class="font-headline-xl text-headline-xl text-on-surface mb-4">법인의 핵심 사업</h2>
         <p class="text-on-surface-variant font-body-lg max-w-2xl mx-auto">더 나은 세상을 위해 꽃재가 앞장서서 실천하는 아름다운 나눔의 가치들입니다.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
