@@ -27,7 +27,7 @@ export async function fetchPrograms() {
     const { data } = await strapiGet('/programs?populate=thumbnail&sort=date:desc')
     return data.map(normalizeProgram)
   } catch {
-    return fallbackPrograms
+    return import.meta.env.DEV ? fallbackPrograms : []
   }
 }
 
@@ -37,6 +37,6 @@ export async function fetchProgramById(id) {
     trackView('programs', data.documentId, data.views)
     return normalizeProgram(data)
   } catch {
-    return staticById(id)
+    return import.meta.env.DEV ? staticById(id) : null
   }
 }

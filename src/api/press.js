@@ -57,7 +57,7 @@ export async function fetchPressArticles() {
       featuredImage: strapiMediaUrl(item.featuredImage?.url),
     }))
   } catch {
-    return FALLBACK
+    return import.meta.env.DEV ? FALLBACK : []
   }
 }
 
@@ -82,6 +82,7 @@ export async function fetchPressArticleById(id) {
       })),
     }
   } catch {
+    if (!import.meta.env.DEV) return null
     const detail = FALLBACK_DETAILS[Number(id)]
     if (detail) return detail
     const basic = FALLBACK.find(p => p.id === Number(id))
@@ -99,6 +100,7 @@ export async function fetchAdjacentPressArticles(id) {
       next: idx < all.length - 1 ? all[idx + 1] : null,
     }
   } catch {
+    if (!import.meta.env.DEV) return { prev: null, next: null }
     const all = FALLBACK.map(p => ({ id: p.id, title: p.title }))
     const idx = all.findIndex(p => p.id === Number(id))
     return {

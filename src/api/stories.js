@@ -76,7 +76,7 @@ export async function fetchStories() {
     const { data } = await strapiGet('/stories?populate=thumbnail&sort=date:desc')
     return data.map(normalizeStory)
   } catch {
-    return fallbackStories
+    return import.meta.env.DEV ? fallbackStories : []
   }
 }
 
@@ -92,6 +92,7 @@ export async function fetchStoriesPage(page = 1) {
       pagination: meta.pagination, // { page, pageSize, pageCount, total }
     }
   } catch {
+    if (!import.meta.env.DEV) return { stories: [], pagination: { page, pageSize: PAGE_SIZE, pageCount: 0, total: 0 } }
     const total     = fallbackStories.length
     const pageCount = Math.ceil(total / PAGE_SIZE)
     const start     = (page - 1) * PAGE_SIZE
@@ -108,7 +109,7 @@ export async function fetchStoryById(id) {
     trackView('stories', data.documentId, data.views)
     return normalizeStory(data)
   } catch {
-    return staticById(id)
+    return import.meta.env.DEV ? staticById(id) : null
   }
 }
 
@@ -122,6 +123,6 @@ export async function fetchAdjacentStories(id) {
       next: idx < all.length - 1 ? all[idx + 1] : null,
     }
   } catch {
-    return staticAdjacent(id)
+    return import.meta.env.DEV ? staticAdjacent(id) : { prev: null, next: null }
   }
 }

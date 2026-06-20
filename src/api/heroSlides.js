@@ -19,8 +19,8 @@ export async function fetchHeroSlides() {
         alt: item.alt || '',
       }))
       .filter(s => s.src)
-    return slides.length ? slides : FALLBACK_SLIDES
+    return slides.length ? slides : (import.meta.env.DEV ? FALLBACK_SLIDES : [])
   } catch {
-    return FALLBACK_SLIDES
+    return import.meta.env.DEV ? FALLBACK_SLIDES : []
   }
 }

@@ -47,10 +47,9 @@ export async function fetchSiteConfig() {
 }
 
 export function getHeroUrl(config, field) {
-  // Strapi v5: media field is { url, ... } directly, not { data: { attributes: { url } } }
-  return config?.[field]?.url || HERO_FALLBACKS[field] || ''
+  return config?.[field]?.url || (import.meta.env.DEV ? HERO_FALLBACKS[field] : '') || ''
 }
 
 export function getSiteText(config, field) {
-  return config?.[field] || TEXT_FALLBACKS[field] || ''
+  return config?.[field] || (import.meta.env.DEV ? TEXT_FALLBACKS[field] : '') || ''
 }

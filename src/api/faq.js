@@ -50,6 +50,6 @@ export async function fetchFaqs() {
       answer: blocksToHtml(item.answer),
     }))
   } catch {
-    return FALLBACK
+    return import.meta.env.DEV ? FALLBACK : []
   }
 }

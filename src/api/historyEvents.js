@@ -55,6 +55,6 @@ export async function fetchHistoryEvents() {
     const grouped = groupByYear(data)
     return grouped.length ? grouped : FALLBACK
   } catch {
-    return FALLBACK
+    return import.meta.env.DEV ? FALLBACK : []
   }
 }

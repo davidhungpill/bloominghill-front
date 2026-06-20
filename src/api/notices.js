@@ -65,7 +65,7 @@ export async function fetchNotices() {
       date: formatDate(item.date),
     }))
   } catch {
-    return FALLBACK
+    return import.meta.env.DEV ? FALLBACK : []
   }
 }
 
@@ -88,6 +88,7 @@ export async function fetchNoticeById(id) {
       })),
     }
   } catch {
+    if (!import.meta.env.DEV) return null
     const detail = FALLBACK_DETAILS[Number(id)]
     if (detail) return detail
     const basic = FALLBACK.find(n => n.id === Number(id))
@@ -105,6 +106,7 @@ export async function fetchAdjacentNotices(id) {
       next: idx < all.length - 1 ? all[idx + 1] : null,
     }
   } catch {
+    if (!import.meta.env.DEV) return { prev: null, next: null }
     const all = FALLBACK.map(n => ({ id: n.id, title: n.title }))
     const idx = all.findIndex(n => n.id === Number(id))
     return {
