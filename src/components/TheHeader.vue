@@ -39,7 +39,7 @@
             </button>
           </div>
 
-          <!-- 꽃재 이야기 -->
+          <!-- 우리 이야기 -->
           <div class="relative" @mouseenter="openMenu('story')">
             <button
               class="text-body-lg font-bold transition-colors duration-200 pb-1"
@@ -47,7 +47,7 @@
                 ? 'text-primary border-b-2 border-leaf-green'
                 : 'text-on-surface-variant hover:text-primary'"
             >
-              꽃재 이야기
+              우리 이야기
             </button>
           </div>
 

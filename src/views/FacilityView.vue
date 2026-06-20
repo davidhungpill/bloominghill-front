@@ -45,8 +45,10 @@
                     </tr>
                     <tr class="border-b border-outline-variant/30">
                       <th class="px-4 py-4 font-bold text-on-surface">운영시간</th>
-                      <td class="px-4 py-4 text-on-surface-variant">화-토요일 10:00 - 18:00 / 일요일 10:00 - 17:00</td>
-                      <td class="px-4 py-4 text-on-surface-variant text-red-500">매주 월요일, 법정 공휴일 휴무</td>
+                      <td class="px-4 py-4">
+                        <div class="text-on-surface-variant">화-토요일 10:00 - 18:00 / 일요일 10:00 - 17:00</div>
+                        <div class="text-red-500 mt-1">매주 월요일, 법정 공휴일 휴무</div>
+                      </td>
                     </tr>
                     <tr class="border-b border-outline-variant/30">
                       <th class="px-4 py-4 font-bold text-on-surface">주요 메뉴</th>
