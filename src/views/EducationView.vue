@@ -22,7 +22,8 @@
           <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">꽃재 평생교육원</h2>
           <div class="h-1 w-12 bg-leaf-green mt-4 mb-6"></div>
           <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-            지역 주민들의 풍요로운 삶을 위한 다양한 교육 프로그램을 운영합니다. 배움의 즐거움과 나눔의 기쁨이 함께하는 꽃재로 초대합니다.
+            <div class="text-on-surface-variant">지역 주민들의 풍요로운 삶을 위한 다양한 교육 프로그램을 운영합니다.</div>
+            <div class="text-on-surface-variant">배움의 즐거움과 나눔의 기쁨이 함께하는 꽃재로 초대합니다.</div>
           </p>
         </div>
 
