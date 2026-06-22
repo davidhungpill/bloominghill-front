@@ -14,10 +14,12 @@
           :key="img.src"
           :src="img.src"
           :alt="img.alt"
+          :fetchpriority="i === 0 ? 'high' : 'low'"
+          :loading="i === 0 ? 'eager' : 'lazy'"
           class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
           :class="i === currentSlide ? 'opacity-100' : 'opacity-0'"
         />
-        <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
+        <div v-if="heroImages.length" class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
       </div>
 
       <!-- 좌/우 화살표 -->
@@ -387,12 +389,28 @@ function resetTimer() {
   timer = setInterval(nextSlide, 5000)
 }
 
+const SLIDES_CACHE_KEY = 'hero_slides_v1'
+
+function startSlider(slides) {
+  heroImages.value = slides
+  currentSlide.value = 0
+  clearInterval(timer)
+  timer = setInterval(nextSlide, 5000)
+}
+
 onMounted(() => {
-  // hero 슬라이드는 독립적으로 최우선 로드
+  // 캐시된 슬라이드가 있으면 즉시 표시 (검은 화면 없음)
+  try {
+    const cached = localStorage.getItem(SLIDES_CACHE_KEY)
+    if (cached) startSlider(JSON.parse(cached))
+  } catch {}
+
+  // 백그라운드에서 최신 데이터 fetch → 캐시 갱신 + UI 업데이트
   fetchHeroSlides().then(slides => {
-    heroImages.value = slides
-    currentSlide.value = 0
-    timer = setInterval(nextSlide, 5000)
+    if (slides.length) {
+      try { localStorage.setItem(SLIDES_CACHE_KEY, JSON.stringify(slides)) } catch {}
+      startSlider(slides)
+    }
   })
 
   // 나머지 데이터는 병렬 로드 (hero 로딩을 블로킹하지 않음)
