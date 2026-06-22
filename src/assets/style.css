@@ -27,10 +27,9 @@
 .hero-skeleton {
   background: linear-gradient(
     105deg,
-    #1a1f18 25%,
-    #2a3326 45%,
-    #1e2a1c 55%,
-    #1a1f18 75%
+    #1c3018 30%,
+    #3a6b2a 50%,
+    #1c3018 70%
   );
   background-size: 200% 100%;
   animation: hero-shimmer 2s ease-in-out infinite;

@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Hero Section -->
-    <section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-gray-900">
+    <section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-[#1c3018]">
       <div class="absolute inset-0 z-0">
         <!-- 로딩 스켈레톤 -->
         <div
