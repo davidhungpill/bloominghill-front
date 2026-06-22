@@ -24,7 +24,7 @@
             <div class="overflow-hidden rounded-xl shadow-lg aspect-[4/3]">
               <img
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG0bIPV-WMGD54EiR1Poq2C4D9nKsCIrwVkbRRj6Cb79Q8iZ6U6zXCI7h6t9PcgKqGYhPWHugi0cKfZtvOYFK-hKDJO7hWfArUMWKTk7naWkLmGCBgM2qShqakitS36dc1gYaUORMv-dbeDvx7gYbVwMB4ThN9mwZJjh-KH9rJ9a1OC8A4wib1s9opzmoKfjnylUMuu7KYjxY5TbPXiVvZQw3nO6Olw3mfLzHeeK_GslIVbCa5wQ3UfHN4Pd9DlDTRQHVEtlBC7jMj"
+                :src="cafeSrc"
                 alt="카페 마노아"
               />
             </div>
@@ -65,7 +65,7 @@
             <div class="lg:order-2 overflow-hidden rounded-xl shadow-lg aspect-[4/3]">
               <img
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzxSxnq7QxXl3Y-pnpPD1AQf8iIcgCXrLWpbSGgapp3X25yaFJdInMc3-0p-RTrFmYXgDDEF8SW9_FfZJCZ9-u-f6AwkSZLf8maQx4E5Ob2vHkerc8EWiARfGpMErwfj1j_ajsrZYgdDLpMOyVk98_adjjXyIo-6sDzTuU4OouZGjQiZzBoBH_5BaQOoKKZaOvwOnMz6S6PAQ3CiJ_rz6KqcVG95jHbYEwM4iAWdn-CPPqxe6jew9iRlHg93pT2oHHRMcEXher5as0"
+                :src="lifelongSrc"
                 alt="평생교육원"
               />
             </div>
@@ -107,9 +107,20 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import SubPageHero from '../components/SubPageHero.vue'
 import BreadCrumb from '../components/BreadCrumb.vue'
 import { useHero } from '../composables/useHero'
+import { fetchSiteConfig, getHeroUrl } from '../api/siteConfig'
 
 const { heroSrc } = useHero('heroIntro')
+
+const cafeSrc = ref(null)
+const lifelongSrc = ref(null)
+
+onMounted(async () => {
+  const config = await fetchSiteConfig()
+  cafeSrc.value = getHeroUrl(config, 'facilityCafe')
+  lifelongSrc.value = getHeroUrl(config, 'facilityLifelong')
+})
 </script>

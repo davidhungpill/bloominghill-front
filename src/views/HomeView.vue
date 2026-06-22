@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Hero Section -->
-    <section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden">
+    <section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-gray-900">
       <div class="absolute inset-0 z-0">
         <!-- 슬라이드 이미지 -->
         <img
@@ -351,12 +351,7 @@ function categoryColor(cat) {
   return CATEGORY_COLORS[cat] || 'text-sky-blue'
 }
 
-const heroImages = ref([
-  { src: '/static/orchestra.jpg', alt: '꽃재 오케스트라' },
-  { src: '/static/spring2.jpg',   alt: '꽃재 봄 활동' },
-  { src: '/static/edu.jpg',       alt: '꽃재 교육 사업' },
-  { src: '/static/cleaning.jpg',  alt: '꽃재 봉사 활동' },
-])
+const heroImages = ref([])
 
 const currentSlide = ref(0)
 let timer = null
@@ -367,6 +362,7 @@ function goToSlide(i) {
 }
 
 function nextSlide() {
+  if (!heroImages.value.length) return
   currentSlide.value = (currentSlide.value + 1) % heroImages.value.length
 }
 
@@ -376,6 +372,7 @@ function nextSlideManual() {
 }
 
 function prevSlide() {
+  if (!heroImages.value.length) return
   currentSlide.value = (currentSlide.value - 1 + heroImages.value.length) % heroImages.value.length
   resetTimer()
 }
