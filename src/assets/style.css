@@ -19,6 +19,23 @@
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
 }
 
+/* 히어로 슬라이드 로딩 스켈레톤 */
+@keyframes hero-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.hero-skeleton {
+  background: linear-gradient(
+    105deg,
+    #1a1f18 25%,
+    #2a3326 45%,
+    #1e2a1c 55%,
+    #1a1f18 75%
+  );
+  background-size: 200% 100%;
+  animation: hero-shimmer 2s ease-in-out infinite;
+}
+
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

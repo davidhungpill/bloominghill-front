@@ -3,6 +3,11 @@
     <!-- Hero Section -->
     <section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-gray-900">
       <div class="absolute inset-0 z-0">
+        <!-- 로딩 스켈레톤 -->
+        <div
+          v-if="!heroImages.length"
+          class="absolute inset-0 hero-skeleton"
+        ></div>
         <!-- 슬라이드 이미지 -->
         <img
           v-for="(img, i) in heroImages"
@@ -382,26 +387,31 @@ function resetTimer() {
   timer = setInterval(nextSlide, 5000)
 }
 
-onMounted(async () => {
-  const [slides, config, allStories, allNotices, allPress] = await Promise.all([
-    fetchHeroSlides(),
+onMounted(() => {
+  // hero 슬라이드는 독립적으로 최우선 로드
+  fetchHeroSlides().then(slides => {
+    heroImages.value = slides
+    currentSlide.value = 0
+    timer = setInterval(nextSlide, 5000)
+  })
+
+  // 나머지 데이터는 병렬 로드 (hero 로딩을 블로킹하지 않음)
+  Promise.all([
     fetchSiteConfig(),
     fetchStories(),
     fetchNotices(),
     fetchPressArticles(),
-  ])
-  heroImages.value = slides
-  currentSlide.value = 0
-  timer = setInterval(nextSlide, 5000)
-  stats.statOrchestra   = getSiteText(config, 'statOrchestra')
-  stats.statScholarship = getSiteText(config, 'statScholarship')
-  stats.statDonation    = getSiteText(config, 'statDonation')
-  projectImages.orchestra   = getHeroUrl(config, 'heroOrchestra')
-  projectImages.nanum       = getHeroUrl(config, 'heroNanum')
-  projectImages.scholarship = getHeroUrl(config, 'heroScholarship')
-  recentStories.value   = allStories.slice(0, 3)
-  recentNotices.value   = allNotices.slice(0, 3)
-  recentPress.value     = allPress.slice(0, 2)
+  ]).then(([config, allStories, allNotices, allPress]) => {
+    stats.statOrchestra   = getSiteText(config, 'statOrchestra')
+    stats.statScholarship = getSiteText(config, 'statScholarship')
+    stats.statDonation    = getSiteText(config, 'statDonation')
+    projectImages.orchestra   = getHeroUrl(config, 'heroOrchestra')
+    projectImages.nanum       = getHeroUrl(config, 'heroNanum')
+    projectImages.scholarship = getHeroUrl(config, 'heroScholarship')
+    recentStories.value   = allStories.slice(0, 3)
+    recentNotices.value   = allNotices.slice(0, 3)
+    recentPress.value     = allPress.slice(0, 2)
+  })
 })
 onUnmounted(() => { clearInterval(timer) })
 </script>
