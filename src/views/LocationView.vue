@@ -30,13 +30,13 @@
                   <div class="flex items-center w-32 shrink-0 font-bold text-on-surface">
                     <span class="material-symbols-outlined mr-2 text-leaf-green">location_on</span>주소
                   </div>
-                  <div class="text-on-surface-variant font-body-lg">서울 성동구 마장로 164 지하 1층 (꽃재교회)</div>
+                  <div class="text-on-surface-variant font-body-lg">서울 성동구 마장로 164 B1층</div>
                 </div>
                 <div class="flex items-start py-6">
                   <div class="flex items-center w-32 shrink-0 font-bold text-on-surface">
                     <span class="material-symbols-outlined mr-2 text-leaf-green">call</span>연락처
                   </div>
-                  <div class="text-on-surface-variant font-body-lg">TEL : 02) 2299-5424, 5437 / 070-4470-9375</div>
+                  <div class="text-on-surface-variant font-body-lg">TEL : 02) 2299-5424</div>
                 </div>
                 <div class="flex items-start py-6 border-b border-outline-variant">
                   <div class="flex items-center w-32 shrink-0 font-bold text-on-surface">
