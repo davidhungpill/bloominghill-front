@@ -39,14 +39,16 @@
         <!-- 핵심 가치 카드 -->
         <div class="mb-24">
           <div class="relative p-10 rounded-2xl bg-leaf-green/5 border border-leaf-green/10 flex flex-col gap-8 vision-card-accent overflow-hidden group hover:shadow-xl transition-all duration-300">
-            <div class="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span class="material-symbols-outlined text-leaf-green" style="font-size: 32px;">volunteer_activism</span>
-            </div>
-            <div>
-              <div class="flex items-center gap-2 mb-6">
-                <h3 class="text-headline-lg font-bold text-on-surface">핵심 가치</h3>
+            <div class="flex items-center gap-4 relative z-10">
+              <div class="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+                <span class="material-symbols-outlined text-leaf-green" style="font-size: 32px;">volunteer_activism</span>
+              </div>
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h3 class="text-headline-lg font-bold text-on-surface whitespace-nowrap">핵심 가치</h3>
                 <span class="text-leaf-green font-bold text-xs uppercase tracking-widest opacity-60">Core Values</span>
               </div>
+            </div>
+            <div>
               <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
                 <li
                   v-for="value in coreValues"
@@ -56,7 +58,10 @@
                   <div class="flex items-start gap-3">
                     <span class="w-2 h-2 rounded-full bg-leaf-green shrink-0 mt-2.5"></span>
                     <div>
-                      <strong class="block text-headline-md font-bold text-on-surface mb-1">{{ value.title }}</strong>
+                      <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-1">
+                        <strong class="text-headline-md font-bold text-on-surface">{{ value.title }}</strong>
+                        <span class="text-leaf-green font-bold text-xs uppercase tracking-widest opacity-60">{{ value.en }}</span>
+                      </div>
                       <p class="text-body-md text-on-surface-variant leading-relaxed">{{ value.desc }}</p>
                     </div>
                   </div>
@@ -81,9 +86,9 @@ import { useHero } from '../composables/useHero'
 const { heroSrc } = useHero('heroIntro')
 
 const coreValues = [
-  { title: '배움', desc: '평생 배우며 성장하는 삶을 추구합니다.' },
-  { title: '나눔', desc: '이웃과 재능, 사랑을 나누며 함께합니다.' },
-  { title: '성장', desc: '문화와 예술로 삶의 기쁨과 가능성을 확장합니다.' },
-  { title: '동행', desc: '세대와 계층을 넘어 함께 성장합니다.' },
+  { title: '배움', en: 'learning', desc: '평생 배우며 성장하는 삶을 추구합니다.' },
+  { title: '나눔', en: 'sharing', desc: '이웃과 재능, 사랑을 나누며 함께합니다.' },
+  { title: '성장', en: 'growth', desc: '문화와 예술로 삶의 기쁨과 가능성을 확장합니다.' },
+  { title: '동행', en: 'community', desc: '세대와 계층을 넘어 함께 성장합니다.' },
 ]
 </script>
