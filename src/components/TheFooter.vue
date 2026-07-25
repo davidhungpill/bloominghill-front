@@ -6,7 +6,7 @@
           <img
             src="/static/logo.png"
             alt="꽃재 Logo"
-            class="w-auto object-contain h-18"
+            class="h-16 w-auto"
           />
         </div>
         <div class="flex flex-wrap gap-4 font-label-sm text-label-sm">
