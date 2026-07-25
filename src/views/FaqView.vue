@@ -58,22 +58,22 @@
         <div class="mt-24 p-12 bg-surface-muted rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-outline-variant/30 shadow-sm">
           <div class="max-w-3xl">
             <h3 class="font-headline-md text-headline-md text-on-surface mb-3">찾으시는 질문이 없으신가요?</h3>
-            <p class="text-on-surface-variant font-body-lg text-body-lg">꽃재 사무국으로 연락주시면 친절하게 답변해 드리겠습니다.</p>
+            <p class="text-on-surface-variant font-body-lg text-body-lg">법인 사무국으로 연락주시면 친절하게 답변해 드리겠습니다.</p>
           </div>
           <div class="flex flex-wrap justify-center gap-4">
             <a
-              href="tel:1577-9044"
+              href="tel:02-2299-5424"
               class="flex items-center gap-2 bg-white border-2 border-deep-ocean text-deep-ocean px-8 py-4 rounded-xl font-label-sm text-label-sm hover:bg-surface-dim transition-all active:scale-95 shadow-sm"
             >
               <span class="material-symbols-outlined">call</span>
-              1577-9044
+              02-2299-5424
             </a>
             <a
-              href="#"
-              class="flex items-center gap-2 bg-warm-accent text-white px-8 py-4 rounded-xl font-label-sm text-label-sm hover:opacity-90 transition-all active:scale-95 shadow-md"
+              href=""
+              class="flex items-center gap-2 bg-white border-2 border-deep-ocean text-deep-ocean px-8 py-4 rounded-xl font-label-sm text-label-sm hover:bg-surface-dim transition-all active:scale-95 shadow-sm"
             >
               <span class="material-symbols-outlined">chat</span>
-              카카오톡 문의
+              bloom5424@naver.com
             </a>
           </div>
         </div>
