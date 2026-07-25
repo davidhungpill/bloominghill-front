@@ -26,51 +26,45 @@
             <div class="font-bold text-headline-md text-on-surface flex items-center gap-2">
               <span class="w-1 h-6 bg-leaf-green rounded-full"></span>설립일
             </div>
-            <div class="text-body-lg text-on-surface-variant flex items-center">2021년 3월 1일</div>
+            <div class="text-body-lg text-on-surface-variant flex items-center">2021년 1월 1일</div>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-[180px_1fr] bg-surface-container-low/50 p-6 rounded-lg">
             <div class="font-bold text-headline-md text-on-surface flex items-center gap-2">
               <span class="w-1 h-6 bg-leaf-green rounded-full"></span>원훈
             </div>
-            <div class="text-body-lg text-primary font-medium italic flex items-center">"네 이웃을 네 몸과 같이 사랑하라"</div>
+            <div class="text-body-lg text-primary font-medium italic flex items-center">"사람을 꽃피우고, 지역을 아름답게"</div>
           </div>
         </div>
 
-        <!-- 설립이념 & 비전 카드 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-          <div class="relative p-10 rounded-2xl bg-leaf-green/5 border border-leaf-green/10 flex flex-col gap-6 vision-card-accent overflow-hidden group hover:shadow-xl transition-all duration-300">
+        <!-- 핵심 가치 카드 -->
+        <div class="mb-24">
+          <div class="relative p-10 rounded-2xl bg-leaf-green/5 border border-leaf-green/10 flex flex-col gap-8 vision-card-accent overflow-hidden group hover:shadow-xl transition-all duration-300">
             <div class="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform">
               <span class="material-symbols-outlined text-leaf-green" style="font-size: 32px;">volunteer_activism</span>
             </div>
             <div>
-              <div class="flex items-center gap-2 mb-2">
-                <h3 class="text-headline-lg font-bold text-on-surface">설립이념</h3>
-                <span class="text-leaf-green font-bold text-xs uppercase tracking-widest opacity-60">Mission</span>
+              <div class="flex items-center gap-2 mb-6">
+                <h3 class="text-headline-lg font-bold text-on-surface">핵심 가치</h3>
+                <span class="text-leaf-green font-bold text-xs uppercase tracking-widest opacity-60">Core Values</span>
               </div>
-              <p class="text-headline-md leading-relaxed text-on-surface-variant font-medium">
-                "지역사회와 이웃에게 하나님의 은혜와 사랑을 나눈다."
-              </p>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+                <li
+                  v-for="value in coreValues"
+                  :key="value.title"
+                  class="bg-white/80 border border-leaf-green/10 rounded-xl p-5 shadow-sm"
+                >
+                  <div class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-leaf-green shrink-0 mt-2.5"></span>
+                    <div>
+                      <strong class="block text-headline-md font-bold text-on-surface mb-1">{{ value.title }}</strong>
+                      <p class="text-body-md text-on-surface-variant leading-relaxed">{{ value.desc }}</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
             <div class="absolute -bottom-6 -right-6 opacity-[0.03] text-leaf-green">
-              <span class="material-symbols-outlined" style="font-size: 160px;">favorite</span>
-            </div>
-          </div>
-
-          <div class="relative p-10 rounded-2xl bg-leaf-green/5 border border-leaf-green/10 flex flex-col gap-6 vision-card-accent overflow-hidden group hover:shadow-xl transition-all duration-300">
-            <div class="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span class="material-symbols-outlined text-leaf-green" style="font-size: 32px;">visibility</span>
-            </div>
-            <div>
-              <div class="flex items-center gap-2 mb-2">
-                <h3 class="text-headline-lg font-bold text-on-surface">비전</h3>
-                <span class="text-leaf-green font-bold text-xs uppercase tracking-widest opacity-60">Vision</span>
-              </div>
-              <p class="text-headline-md leading-relaxed text-on-surface-variant font-medium">
-                "지역사회의 도움이 필요한 이웃들을 찾아 지원하는 사업들을 발굴하고 지원한다."
-              </p>
-            </div>
-            <div class="absolute -bottom-6 -right-6 opacity-[0.03] text-leaf-green">
-              <span class="material-symbols-outlined" style="font-size: 160px;">explore</span>
+              <span class="material-symbols-outlined" style="font-size: 160px;">diversity_3</span>
             </div>
           </div>
         </div>
@@ -85,4 +79,11 @@ import BreadCrumb from '../components/BreadCrumb.vue'
 import { useHero } from '../composables/useHero'
 
 const { heroSrc } = useHero('heroIntro')
+
+const coreValues = [
+  { title: '배움', desc: '평생 배우며 성장하는 삶을 추구합니다.' },
+  { title: '나눔', desc: '이웃과 재능, 사랑을 나누며 함께합니다.' },
+  { title: '성장', desc: '문화와 예술로 삶의 기쁨과 가능성을 확장합니다.' },
+  { title: '동행', desc: '세대와 계층을 넘어 함께 성장합니다.' },
+]
 </script>
