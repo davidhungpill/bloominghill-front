@@ -30,9 +30,8 @@
       </div>
 
       <!-- Info Cards Grid -->
+      <!--
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-
-        <!-- 법인·기업 후원자 -->
         <div class="bg-white border border-outline-variant/30 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 p-8 rounded-2xl flex flex-col h-full">
           <div class="mb-6 flex items-center gap-3">
             <span class="material-symbols-outlined text-leaf-green text-3xl">corporate_fare</span>
@@ -51,14 +50,13 @@
               <span class="material-symbols-outlined text-primary">language</span>
               <span class="font-body-md text-body-md font-semibold">홈페이지: 기부금영수증 신청 게시판</span>
             </div>
-            <!-- <div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
+            <div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
               <span class="material-symbols-outlined text-primary">chat_bubble</span>
               <span class="font-body-md text-body-md font-semibold">카카오톡 채널: {{ kakaoChannel }}</span>
-            </div> -->
+            </div>
           </div>
         </div>
 
-        <!-- 개인 후원자 -->
         <div class="bg-white border border-outline-variant/30 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 p-8 rounded-2xl flex flex-col h-full">
           <div class="mb-6 flex items-center gap-3">
             <span class="material-symbols-outlined text-leaf-green text-3xl">person</span>
@@ -81,12 +79,25 @@
             단체명 입금 후 개별 발급 원할 시 '단체명_개인후원내역' 양식을 작성해 메일로 보내주세요.
           </p>
         </div>
+      </div>
+      -->
 
+      <!-- 준비중 메시지 카드 -->
+      <div class="mb-16">
+        <div class="bg-primary/5 border border-primary/20 rounded-2xl p-8 md:p-10 text-center shadow-sm">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-full bg-white border border-primary/20 flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary text-4xl">hourglass_empty</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-deep-ocean mb-3">현재 준비중입니다.</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            기부금 영수증 안내 내용은 준비가 완료되는 대로 제공하겠습니다.
+          </p>
+        </div>
       </div>
 
       <!-- Inquiry Buttons -->
       <div class="pt-12 border-t border-outline-variant">
-        <h3 class="font-headline-md text-headline-md text-center text-on-surface mb-8">궁금한 점이 있으신가요?</h3>
+        <h3 class="font-headline-md text-headline-md text-center text-on-surface mb-8">기부금 영수증 문의는 법인 사무국으로 연락해주세요</h3>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a
             :href="`tel:${phone}`"
