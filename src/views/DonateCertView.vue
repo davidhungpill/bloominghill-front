@@ -22,7 +22,8 @@
         <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">기부금 영수증 안내</h2>
         <div class="p-8 bg-surface-muted rounded-xl border-l-4 border-leaf-green">
           <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
-            사단법인 꽃재는 사회복지법인 지정기부금단체로서<br class="hidden md:block" />
+            <!-- 사단법인 꽃재는 사회복지법인 지정기부금단체로서<br class="hidden md:block" /> -->
+            사단법인 꽃재는 <br class="hidden md:block" />
             개인 및 기업·단체 후원자님께 <strong>기부금영수증</strong>을 발급해드리고 있습니다.
           </p>
         </div>
@@ -50,10 +51,10 @@
               <span class="material-symbols-outlined text-primary">language</span>
               <span class="font-body-md text-body-md font-semibold">홈페이지: 기부금영수증 신청 게시판</span>
             </div>
-            <div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
+            <!-- <div class="flex items-center gap-3 p-3 bg-white border border-outline-variant rounded-lg">
               <span class="material-symbols-outlined text-primary">chat_bubble</span>
               <span class="font-body-md text-body-md font-semibold">카카오톡 채널: {{ kakaoChannel }}</span>
-            </div>
+            </div> -->
           </div>
         </div>
 
