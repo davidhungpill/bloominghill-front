@@ -58,7 +58,7 @@
           </h1>
           <p class="font-body-lg text-body-lg mb-10 text-white/90">
             우리는 음악과 나눔을 통해 지역사회의 소외된 이웃들에게 <br class="hidden md:block"/>
-            희망의 꽃을 피우는 사회복지법인 꽃재입니다.
+            희망의 꽃을 피우는 사단법인 꽃재입니다.
           </p>
           <div class="flex flex-wrap gap-4">
             <router-link to="/donate" class="px-8 py-4 bg-warm-accent rounded-xl font-headline-md text-white hover:shadow-lg transition-all hover:scale-105 active:scale-95">
