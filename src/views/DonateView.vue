@@ -110,8 +110,8 @@
       </div>
 
       <!-- Bottom Transparency Bar -->
-      <div class="mt-8 bg-deep-ocean rounded-2xl p-10 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="space-y-6 max-w-2xl">
+      <div class="mt-8 bg-deep-ocean rounded-2xl p-10 md:p-12">
+        <div class="space-y-6 w-full">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/10">
             <span class="material-symbols-outlined text-white text-[18px]">verified</span>
             <span class="text-white font-label-sm text-label-sm font-medium">투명한 운영 약속</span>
