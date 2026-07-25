@@ -95,11 +95,11 @@
             전화 문의 {{ phone }}
           </a>
           <a
-            :href="kakaoChannelUrl"
-            class="flex items-center justify-center gap-3 bg-[#FAE100] text-[#3C1E1E] font-bold font-label-sm text-label-sm px-8 py-4 rounded-xl hover:brightness-95 transition-all active:scale-95"
+            href=""
+            class="flex items-center justify-center gap-3 bg-white border-2 border-deep-ocean text-deep-ocean font-bold font-label-sm text-label-sm px-8 py-4 rounded-xl hover:bg-deep-ocean/5 transition-all active:scale-95"
           >
-            <span class="material-symbols-outlined">chat_bubble</span>
-            카카오톡 상담하기
+            <span class="material-symbols-outlined">mail</span>
+            bloom5424@naver.com
           </a>
         </div>
       </div>
